@@ -1,4 +1,6 @@
 #  Inzynierka Grzegorz Gumieniak 
+## Jak uruchomic
+* Po pobraniu  prosze uruchomic plik __ProjectXKG.xcworkspace__ -  
 ## Przydatne
 * Link do formatowania MD =  [Tutaj](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 * 
