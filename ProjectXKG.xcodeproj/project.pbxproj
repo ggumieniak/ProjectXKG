@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		506BB4C924C1FF120062D816 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 506BB4C824C1FF120062D816 /* .gitignore */; };
 		50D8B4B724A75C3F00220F94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4B624A75C3F00220F94 /* AppDelegate.swift */; };
 		50D8B4B924A75C3F00220F94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4B824A75C3F00220F94 /* SceneDelegate.swift */; };
 		50D8B4BB24A75C3F00220F94 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4BA24A75C3F00220F94 /* ContentView.swift */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		506BB4C824C1FF120062D816 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		506BB4CA24C1FF430062D816 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		50D8B4B324A75C3F00220F94 /* ProjectXKG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectXKG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D8B4B624A75C3F00220F94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50D8B4B824A75C3F00220F94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +82,8 @@
 		50D8B4AA24A75C3F00220F94 = {
 			isa = PBXGroup;
 			children = (
+				506BB4CA24C1FF430062D816 /* README.md */,
+				506BB4C824C1FF120062D816 /* .gitignore */,
 				50D8B4B524A75C3F00220F94 /* ProjectXKG */,
 				50D8B4CC24A75C4200220F94 /* ProjectXKGTests */,
 				50D8B4D724A75C4200220F94 /* ProjectXKGUITests */,
@@ -240,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				506BB4C924C1FF120062D816 /* .gitignore in Resources */,
 				50D8B4C324A75C4200220F94 /* LaunchScreen.storyboard in Resources */,
 				50D8B4C024A75C4200220F94 /* Preview Assets.xcassets in Resources */,
 				50D8B4BD24A75C4200220F94 /* Assets.xcassets in Resources */,
@@ -436,6 +442,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ProjectXKG/Preview Content\"";
+				DEVELOPMENT_TEAM = 95WZQ373WM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ProjectXKG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -455,6 +462,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ProjectXKG/Preview Content\"";
+				DEVELOPMENT_TEAM = 95WZQ373WM;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ProjectXKG/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
