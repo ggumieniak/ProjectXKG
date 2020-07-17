@@ -1,0 +1,6 @@
+framework module Pods_ProjectXKG {
+  umbrella header "Pods-ProjectXKG-umbrella.h"
+
+  export *
+  module * { export * }
+}
