@@ -9,13 +9,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @EnvironmentObject var session: SessionStore
+    
+    
     var body: some View {
-        Text("XD")
+        Group {
+            if (session.session != nil) {
+                 Text("Welcome back user")
+            } else {
+                Text("Show Auth Screen")
+            }
+        }.onAppear{ self.session.listen() }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(SessionStore())
     }
 }

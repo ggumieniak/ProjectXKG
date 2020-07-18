@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		500AA26E24C2EA3700AEA655 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500AA26D24C2EA3700AEA655 /* AuthView.swift */; };
 		506BB4C924C1FF120062D816 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 506BB4C824C1FF120062D816 /* .gitignore */; };
 		506BB4CD24C204660062D816 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 506BB4CC24C204660062D816 /* GoogleService-Info.plist */; };
 		507573A024C20F210064FD74 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5075739F24C20F210064FD74 /* Constants.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		38467DCB323F6DD59CC4C484 /* Pods-ProjectXKG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectXKG.release.xcconfig"; path = "Target Support Files/Pods-ProjectXKG/Pods-ProjectXKG.release.xcconfig"; sourceTree = "<group>"; };
+		500AA26D24C2EA3700AEA655 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		506BB4C824C1FF120062D816 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		506BB4CA24C1FF430062D816 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		506BB4CC24C204660062D816 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				50D8B4BA24A75C3F00220F94 /* ContentView.swift */,
+				500AA26D24C2EA3700AEA655 /* AuthView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				500AA26E24C2EA3700AEA655 /* AuthView.swift in Sources */,
 				50D8B4B724A75C3F00220F94 /* AppDelegate.swift in Sources */,
 				50D8B4B924A75C3F00220F94 /* SceneDelegate.swift in Sources */,
 				507573A524C20FD50064FD74 /* SessionStore.swift in Sources */,
