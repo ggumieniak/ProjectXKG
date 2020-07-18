@@ -17,8 +17,9 @@ struct ContentView: View {
         Group {
             if (session.session != nil) {
                  Text("Welcome back user")
+                // Show map
             } else {
-                Text("Show Auth Screen")
+                AuthView()
             }
         }.onAppear{ self.session.listen() }
     }

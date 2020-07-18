@@ -56,7 +56,23 @@ struct SignInView: View {
                     .padding()
             }
             Spacer()
-        }
-        .padding(.horizontal,32)
+            NavigationLink(destination: SignUpView())
+            {
+                HStack{
+                    Text("Im new user")
+                        .font(.system(size: 14, weight: .light))
+                        .foregroundColor(Color.primary)
+                    Text("Create an account")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(Color.blue)
+                }
+            }
+        }.padding(.horizontal,32)
+    }
+}
+
+struct SignInView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignInView()
     }
 }
