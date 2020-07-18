@@ -42,7 +42,7 @@ class SessionStore: ObservableObject {
             try Auth.auth().signOut()
             self.session = nil
         } catch {
-            print("Error when signOut \(error.localizedDescription)")
+            print("Error when signOut \(error)")
         }
     }
     

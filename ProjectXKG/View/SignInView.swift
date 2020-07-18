@@ -1,0 +1,62 @@
+//
+//  SignInView.swift
+//  ProjectXKG
+//
+//  Created by Grzegorz Gumieniak on 18/07/2020.
+//  Copyright © 2020 Grzegorz Gumieniak. All rights reserved.
+//
+
+import SwiftUI
+
+struct SignInView: View {
+    @State var email: String = ""
+    @State var password: String = ""
+    @State var error: String = ""
+    @EnvironmentObject var session: SessionStore
+    
+    func signIn() {
+        session.signIn(email: email, password: password) { Result,error in
+            if let error = error {
+                self.error = error.localizedDescription
+            } else {
+                self.email = ""
+                self.password = ""
+            }
+        }
+    }
+    
+    var body: some View {
+        VStack{
+            Text("Welcome!")
+            VStack(spacing: 18) {
+                TextField("Email Address", text: $email)
+                    .font(.system(size: 16))
+                    .padding(12)
+                    .background(RoundedRectangle(cornerRadius: 5).stroke(Color(.systemBlue), lineWidth: 2))
+                SecureField("Password", text: $password)
+                    .font(.system(size: 16))
+                    .padding(12)
+                    .background(RoundedRectangle(cornerRadius: 5).stroke(Color(.systemBlue), lineWidth: 2))
+                
+            }.padding(.vertical, 64)
+            
+            Button(action: signIn) {
+                Text("Sign In")
+                    .frame(minWidth: 0,maxWidth: .infinity)
+                    .frame(height: 50)
+                    .foregroundColor(.white)
+                    .font(.system(size: 14, weight: .bold))
+                    .background(LinearGradient(gradient: Gradient(colors: [Color.blue,Color.pink]), startPoint: .leading, endPoint: .trailing))
+                    .cornerRadius(5)
+            }
+            if (error != "") {
+                Text(error)
+                    .font(.system(size: 16,weight: .semibold))
+                    .foregroundColor(.red)
+                    .padding()
+            }
+            Spacer()
+        }
+        .padding(.horizontal,32)
+    }
+}

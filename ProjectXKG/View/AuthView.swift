@@ -10,12 +10,14 @@ import SwiftUI
 
 struct AuthView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            SignInView()
+        }
     }
 }
 
 struct AuthView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthView()
+        AuthView().environmentObject(SessionStore())
     }
 }
