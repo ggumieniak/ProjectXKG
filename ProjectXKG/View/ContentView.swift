@@ -16,8 +16,7 @@ struct ContentView: View {
     var body: some View {
         Group {
             if (session.session != nil) {
-                 Text("Welcome back user")
-                // Show map
+                MapView()
             } else {
                 AuthView()
             }
