@@ -5,8 +5,6 @@
 * Link do formatowania MD =  [Tutaj](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 * 
 ## Do zrobienia:
-* Logowanie
-* Rejestracja
 * Dodanie mapy
 * Przejscie do mapy, jezeli uzytkownik sie zarejetrowal
 * Wyświetlenie informacji, gdzie obecnie się znajdujemy  
@@ -20,3 +18,5 @@
 * Testy jednostkowe
 * Kompatybilność z innymi platformami 
 * Wyglad (niech to jakos wyglada)
+* Aktywne poprawianie w trakcie podawania loginu i hasla
+* Wieksza ilosc danych o uzytkowniku i personalizacja
