@@ -27,7 +27,11 @@ struct SignInView: View {
     
     var body: some View {
         VStack{
-            Text("Welcome!")
+            Text("Welcome back!")
+                .font(.system(size: 32,weight: .bold))
+            Text("Sign in to get started")
+                .font(.system(size: 18,weight: .medium))
+                .foregroundColor(Color.gray)
             VStack(spacing: 18) {
                 TextField("Email Address", text: $email)
                     .font(.system(size: 16))
