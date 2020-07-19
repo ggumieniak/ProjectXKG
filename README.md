@@ -20,3 +20,6 @@
 * Wyglad (niech to jakos wyglada)
 * Aktywne poprawianie w trakcie podawania loginu i hasla
 * Wieksza ilosc danych o uzytkowniku i personalizacja
+## Zrobione
+* Logowanie
+* Rejestracja
