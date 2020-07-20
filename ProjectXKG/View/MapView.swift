@@ -36,16 +36,6 @@ struct MapView: UIViewRepresentable {
     
 }
 
-extension MKPointAnnotation {
-    static var example: MKPointAnnotation {
-        let annotation = MKPointAnnotation()
-        annotation.title = "London"
-        annotation.subtitle = "Jakas przykladowa lokalizacja"
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 51.1, longitude: 0.12)
-        return annotation
-    }
-}
-
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
 //        MapView(centerCoordinate: .constant(MKPointAnnotation.example.coordinate))

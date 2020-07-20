@@ -27,16 +27,31 @@ struct ContentView: View {
                         Spacer()
                         HStack {
                             Button(action: {
-                                print(self.session.session?.email)
-                            }){
-                             Image(systemName: "plus")
+                                print("Informacje")
+                                // TODO: Okno z widokiem ustawien
+                            }) {
+                                Image(systemName: "gear") // TODO: iOS14 zmiana na gearshape
                                 }.padding()
-                                .background(Color.black)
-                            .foregroundColor(Color.white)
-                            .font(.system(.title))
+                                .background(Color.blue.opacity(0.75))
+                                .foregroundColor(Color.white)
+                                .font(.system(.title))
                             .clipShape(Circle())
                             .padding(.trailing)
-                        }
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                print(self.session.session?.email)
+                                // TODO: 
+                            }){
+                                Image(systemName: "plus")
+                            }.padding()
+                                .background(Color.red.opacity(0.75))
+                                .foregroundColor(Color.white)
+                                .font(.system(.title))
+                                .clipShape(Circle())
+                                .padding(.trailing)
+                        }.padding()
                     }
                 }
             } else {
