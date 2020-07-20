@@ -6,6 +6,7 @@
 //  Copyright © 2020 Grzegorz Gumieniak. All rights reserved.
 //
 
+import MapKit
 import SwiftUI
 
 struct ContentView: View {
@@ -16,7 +17,28 @@ struct ContentView: View {
     var body: some View {
         Group {
             if (session.session != nil) {
-                MapView()
+                ZStack {
+                    MapView().edgesIgnoringSafeArea(.all)
+                    Circle()
+                        .fill(Color.blue)
+                        .opacity(0.2)
+                        .frame(width: 14, height: 14)
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Button(action: {
+                                print(self.session.session?.email)
+                            }){
+                             Image(systemName: "plus")
+                                }.padding()
+                                .background(Color.black)
+                            .foregroundColor(Color.white)
+                            .font(.system(.title))
+                            .clipShape(Circle())
+                            .padding(.trailing)
+                        }
+                    }
+                }
             } else {
                 AuthView()
             }

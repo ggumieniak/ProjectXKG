@@ -110,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50422D3C24C5716E007B65B7 /* AppDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				50D8B4B624A75C3F00220F94 /* AppDelegate.swift */,
+				50D8B4B824A75C3F00220F94 /* SceneDelegate.swift */,
+			);
+			path = AppDelegates;
+			sourceTree = "<group>";
+		};
 		506BB4CB24C2030E0062D816 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,8 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				506BB4CC24C204660062D816 /* GoogleService-Info.plist */,
-				50D8B4B624A75C3F00220F94 /* AppDelegate.swift */,
-				50D8B4B824A75C3F00220F94 /* SceneDelegate.swift */,
+				50422D3C24C5716E007B65B7 /* AppDelegates */,
 				507573A324C20FBF0064FD74 /* Services */,
 				5075739D24C20EE80064FD74 /* Model */,
 				506BB4CB24C2030E0062D816 /* View */,
