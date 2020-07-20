@@ -41,8 +41,8 @@ struct ContentView: View {
                             Spacer()
                             
                             Button(action: {
-                                print(self.session.session?.email)
-                                // TODO: 
+                                print(self.session.session?.email ?? "Brak maila")
+                                // TODO: Dodac zglaszanie obecnej lokalizacji
                             }){
                                 Image(systemName: "plus")
                             }.padding()
