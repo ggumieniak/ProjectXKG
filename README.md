@@ -24,4 +24,6 @@
 * Rejestracja
 ## Uzytkownik do zalogowania
 * __Login__: _1@2.com_
-* __Hasło__: _123456_
+* __Haslo__: _123456_
+* __Login__: _3@4.com_
+* __Haslo__: _qwertyuiop_
