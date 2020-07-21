@@ -15,10 +15,6 @@
         * Udostepnic do bazy danych
 * Dodac obsluge bazy danych
 ## Do zrobienia:
-<<<<<<< HEAD
-* __Wyświetlenie informacji, gdzie obecnie się znajdujemy__  
-=======
->>>>>>> Mapa
 * Zrobic menu ustawien: 
     * Nazwa uzytkownika jaka by byla
     * Tam moglby wybrac czy chce pomagac czy nie (pierwsza pomoc)
@@ -37,9 +33,6 @@
 * Wyglad (niech to jakos wyglada)
 * Aktywne poprawianie w trakcie podawania loginu i hasla
 * Wieksza ilosc danych o uzytkowniku i personalizacja
-* Zdarzenia:
-    * Kategorie - mozliwosc wyszukania (drogowa, gaz etc.)
-    * Czas zdarzenia
 ## Zrobione
 * Dodanie mapy
 * Przejscie do mapy, jezeli uzytkownik sie zarejetrowal
