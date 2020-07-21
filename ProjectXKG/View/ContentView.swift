@@ -12,8 +12,7 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var session: SessionStore
-    @ObservedObject var locationManager: LocationManager
-    
+    @ObservedObject private var locationManager = LocationManager()
     
     var body: some View {
         Group {

@@ -26,6 +26,7 @@
 		50D8B4C324A75C4200220F94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D8B4C124A75C4200220F94 /* LaunchScreen.storyboard */; };
 		50D8B4CE24A75C4200220F94 /* ProjectXKGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4CD24A75C4200220F94 /* ProjectXKGTests.swift */; };
 		50D8B4D924A75C4200220F94 /* ProjectXKGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4D824A75C4200220F94 /* ProjectXKGUITests.swift */; };
+		50ED1BAE24C7467F005FB417 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ED1BAD24C7467F005FB417 /* Coordinator.swift */; };
 		5D91B3433955A7A0EC7C7DE3 /* Pods_ProjectXKG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D65D4E86967630A28638E5F /* Pods_ProjectXKG.framework */; };
 		95C06B80EAB3A41FC52AE8FB /* Pods_ProjectXKGTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C926F66B5528AB438F5719 /* Pods_ProjectXKGTests.framework */; };
 		A0AAE92D8F69141AA9C022CC /* Pods_ProjectXKG_ProjectXKGUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE0BCB8FD28101E5471A7BF /* Pods_ProjectXKG_ProjectXKGUITests.framework */; };
@@ -76,6 +77,7 @@
 		50D8B4D424A75C4200220F94 /* ProjectXKGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectXKGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D8B4D824A75C4200220F94 /* ProjectXKGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectXKGUITests.swift; sourceTree = "<group>"; };
 		50D8B4DA24A75C4200220F94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50ED1BAD24C7467F005FB417 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		6D65D4E86967630A28638E5F /* Pods_ProjectXKG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectXKG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C926F66B5528AB438F5719 /* Pods_ProjectXKGTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectXKGTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EE514EEA1E1F8E90DD35B6A /* Pods-ProjectXKG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectXKG.debug.xcconfig"; path = "Target Support Files/Pods-ProjectXKG/Pods-ProjectXKG.debug.xcconfig"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				5075739D24C20EE80064FD74 /* Model */,
 				506BB4CB24C2030E0062D816 /* View */,
 				5075739E24C20EF20064FD74 /* ViewModel */,
+				50ED1BAC24C7466B005FB417 /* Coordinator */,
 				50D8B4BC24A75C4200220F94 /* Assets.xcassets */,
 				50D8B4C124A75C4200220F94 /* LaunchScreen.storyboard */,
 				50D8B4C424A75C4200220F94 /* Info.plist */,
@@ -234,6 +237,14 @@
 				50D8B4DA24A75C4200220F94 /* Info.plist */,
 			);
 			path = ProjectXKGUITests;
+			sourceTree = "<group>";
+		};
+		50ED1BAC24C7466B005FB417 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				50ED1BAD24C7467F005FB417 /* Coordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		7C06E04E24D92872DB52237E /* Pods */ = {
@@ -502,6 +513,7 @@
 			files = (
 				500AA26E24C2EA3700AEA655 /* AuthView.swift in Sources */,
 				50D8B4B724A75C3F00220F94 /* AppDelegate.swift in Sources */,
+				50ED1BAE24C7467F005FB417 /* Coordinator.swift in Sources */,
 				50D8B4B924A75C3F00220F94 /* SceneDelegate.swift in Sources */,
 				507573A524C20FD50064FD74 /* SessionStore.swift in Sources */,
 				50D8B4BB24A75C3F00220F94 /* ContentView.swift in Sources */,

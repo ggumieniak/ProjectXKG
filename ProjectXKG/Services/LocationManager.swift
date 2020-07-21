@@ -11,16 +11,9 @@ import CoreLocation
 import Combine
 import UIKit
 
-final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
+final class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
-    
-    public let locationWillChange = PassthroughSubject<CLLocation, Never>()
-    
-    @Published public private(set) var location: CLLocation? {
-        willSet {
-            locationWillChange.send(newValue ?? CLLocation())
-        }
-    }
+    @Published var location: CLLocation? = nil
     
     override init() {
         super.init()
@@ -28,5 +21,17 @@ final class LocationManager: NSObject, ObservableObject, CLLocationManagerDelega
         self.locationManager.allowsBackgroundLocationUpdates = true
         self.locationManager.pausesLocationUpdatesAutomatically = false
         self.locationManager.showsBackgroundLocationIndicator = true
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.startUpdatingLocation()
+    }
+}
+
+extension LocationManager: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else {
+            return
+        }
+        self.location = location
     }
 }
