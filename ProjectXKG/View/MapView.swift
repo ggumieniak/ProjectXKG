@@ -10,7 +10,7 @@ import SwiftUI
 import MapKit
 
 struct MapView: UIViewRepresentable {
-//    @Binding var centerCoordinate: CLLocationCoordinate2D
+    @Binding var centerCoordinate: CLLocationCoordinate2D
     
     func makeUIView(context: UIViewRepresentableContext<MapView>) -> MKMapView {
         let mapView = MKMapView()
@@ -38,7 +38,7 @@ struct MapView: UIViewRepresentable {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-//        MapView(centerCoordinate: .constant(MKPointAnnotation.example.coordinate))
-        MapView()
+        MapView(centerCoordinate: .constant(MKPointAnnotation.example.coordinate))
+//        MapView()
     }
 }

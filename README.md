@@ -8,8 +8,11 @@
 * Po pobraniu  prosze uruchomic plik __ProjectXKG.xcworkspace__  
 ## Przydatne
 * Link do formatowania MD =  [Tutaj](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+## Co robię aktualnie
+* __Wyświetlenie informacji, gdzie obecnie się znajdujemy__
+    * Stworzyc managera, ktory sledzi nasza lokalizacje
+    * Udostepnic przez niego jakies lokalizacje
 ## Do zrobienia:
-* __Wyświetlenie informacji, gdzie obecnie się znajdujemy__  
 * Zrobic menu ustawien: 
     * Nazwa uzytkownika jaka by byla
     * Tam moglby wybrac czy chce pomagac czy nie (pierwsza pomoc)
