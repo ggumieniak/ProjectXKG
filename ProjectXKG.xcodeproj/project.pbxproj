@@ -14,7 +14,6 @@
 		506BB4C924C1FF120062D816 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 506BB4C824C1FF120062D816 /* .gitignore */; };
 		506BB4CD24C204660062D816 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 506BB4CC24C204660062D816 /* GoogleService-Info.plist */; };
 		506D45C424C58EAA0012D754 /* MKPointAnnotation+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */; };
-		507573A024C20F210064FD74 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5075739F24C20F210064FD74 /* Constants.swift */; };
 		507573A224C20F700064FD74 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507573A124C20F700064FD74 /* User.swift */; };
 		507573A524C20FD50064FD74 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507573A424C20FD50064FD74 /* SessionStore.swift */; };
 		50A14ED624C6CA500023240E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A14ED524C6CA500023240E /* LocationManager.swift */; };
@@ -59,7 +58,6 @@
 		506BB4CA24C1FF430062D816 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		506BB4CC24C204660062D816 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation+Example.swift"; sourceTree = "<group>"; };
-		5075739F24C20F210064FD74 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		507573A124C20F700064FD74 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		507573A424C20FD50064FD74 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		50A14ED524C6CA500023240E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -164,9 +162,16 @@
 			isa = PBXGroup;
 			children = (
 				507573A424C20FD50064FD74 /* SessionStore.swift */,
-				50A14ED524C6CA500023240E /* LocationManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		507C106124C7529300BEEFF4 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				50A14ED524C6CA500023240E /* LocationManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		50D8B4AA24A75C3F00220F94 = {
@@ -200,6 +205,7 @@
 				506BB4CC24C204660062D816 /* GoogleService-Info.plist */,
 				50422D3C24C5716E007B65B7 /* AppDelegates */,
 				507573A324C20FBF0064FD74 /* Services */,
+				507C106124C7529300BEEFF4 /* Managers */,
 				5075739D24C20EE80064FD74 /* Model */,
 				506BB4CB24C2030E0062D816 /* View */,
 				5075739E24C20EF20064FD74 /* ViewModel */,
@@ -208,7 +214,6 @@
 				50D8B4C124A75C4200220F94 /* LaunchScreen.storyboard */,
 				50D8B4C424A75C4200220F94 /* Info.plist */,
 				50D8B4BE24A75C4200220F94 /* Preview Content */,
-				5075739F24C20F210064FD74 /* Constants.swift */,
 			);
 			path = ProjectXKG;
 			sourceTree = "<group>";
@@ -523,7 +528,6 @@
 				50A14ED624C6CA500023240E /* LocationManager.swift in Sources */,
 				500C047F24C4A2D80028F154 /* MapView.swift in Sources */,
 				500AA27224C31CAD00AEA655 /* SignUpView.swift in Sources */,
-				507573A024C20F210064FD74 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
