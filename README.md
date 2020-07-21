@@ -31,9 +31,6 @@
 * Wyglad (niech to jakos wyglada)
 * Aktywne poprawianie w trakcie podawania loginu i hasla
 * Wieksza ilosc danych o uzytkowniku i personalizacja
-* Zdarzenia:
-    * Kategorie - mozliwosc wyszukania (drogowa, gaz etc.)
-    * Czas zdarzenia
 ## Zrobione
 * Dodanie mapy
 * Przejscie do mapy, jezeli uzytkownik sie zarejetrowal
