@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-import Firebase
+import FirebaseAuth
 import Combine
 
 class SessionStore: ObservableObject {

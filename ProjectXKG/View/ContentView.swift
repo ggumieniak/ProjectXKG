@@ -12,12 +12,13 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var session: SessionStore
-    
+    @ObservedObject private var locationManager = LocationManager()
     
     var body: some View {
         Group {
             if (session.session != nil) {
                 ZStack {
+                    // TODO: Dodac managera, ktory obsluguje wyswietlanie aktualnej lokalizacji (aktywnie)
                     MapView().edgesIgnoringSafeArea(.all)
                     Circle()
                         .fill(Color.blue)
@@ -41,8 +42,8 @@ struct ContentView: View {
                             Spacer()
                             
                             Button(action: {
-                                print(self.session.session?.email)
-                                // TODO: 
+                                print(self.session.session?.email ?? "Brak maila")
+                                // TODO: Dodac zglaszanie obecnej lokalizacji
                             }){
                                 Image(systemName: "plus")
                             }.padding()

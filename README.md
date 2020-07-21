@@ -8,8 +8,17 @@
 * Po pobraniu  prosze uruchomic plik __ProjectXKG.xcworkspace__  
 ## Przydatne
 * Link do formatowania MD =  [Tutaj](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+## Co robię aktualnie
+* __Wyświetlenie informacji, gdzie obecnie się znajdujemy__
+    * Udostepnic przez niego jakies lokalizacje
+        * Najpierw lokalnie do konsoli
+        * Udostepnic do bazy danych
+* Dodac obsluge bazy danych
 ## Do zrobienia:
+<<<<<<< HEAD
 * __Wyświetlenie informacji, gdzie obecnie się znajdujemy__  
+=======
+>>>>>>> Mapa
 * Zrobic menu ustawien: 
     * Nazwa uzytkownika jaka by byla
     * Tam moglby wybrac czy chce pomagac czy nie (pierwsza pomoc)
@@ -36,6 +45,7 @@
 * Przejscie do mapy, jezeli uzytkownik sie zarejetrowal
 * Logowanie
 * Rejestracja
+* Stworzyc managera, ktory sledzi nasza lokalizacje
 ## Uzytkownik do zalogowania
 * __Login__: _1@2.com_
 * __Haslo__: _123456_
