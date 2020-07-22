@@ -19,46 +19,40 @@ struct ContentView: View {
             if (session.session != nil) {
                 ZStack {
                     // TODO: Dodac managera, ktory obsluguje wyswietlanie aktualnej lokalizacji (aktywnie)
-                    if locationManager.checkAuthorizationStatus() {
-                        MapView().edgesIgnoringSafeArea(.all)
-                        Circle()
-                            .fill(Color.blue)
-                            .opacity(0.2)
-                            .frame(width: 14, height: 14)
-                        VStack {
-                            Spacer()
-                            HStack {
-                                Button(action: {
-                                    print("Informacje")
-                                    // TODO: Okno z widokiem ustawien
-                                }) {
-                                    Image(systemName: "gear") // TODO: iOS14 zmiana na gearshape
-                                }.padding()
-                                    .background(Color.blue.opacity(0.75))
-                                    .foregroundColor(Color.white)
-                                    .font(.system(.title))
-                                    .clipShape(Circle())
-                                    .padding(.trailing)
-                                
-                                Spacer()
-                                
-                                Button(action: {
-                                    print(self.session.session?.email ?? "Brak maila")
-                                    // TODO: Dodac zglaszanie obecnej lokalizacji
-                                }){
-                                    Image(systemName: "plus")
-                                }.padding()
-                                    .background(Color.red.opacity(0.75))
-                                    .foregroundColor(Color.white)
-                                    .font(.system(.title))
-                                    .clipShape(Circle())
-                                    .padding(.trailing)
+                    MapView().edgesIgnoringSafeArea(.all)
+                    Circle()
+                        .fill(Color.blue)
+                        .opacity(0.2)
+                        .frame(width: 14, height: 14)
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Button(action: {
+                                print("Informacje")
+                                // TODO: Okno z widokiem ustawien
+                            }) {
+                                Image(systemName: "gear") // TODO: iOS14 zmiana na gearshape
                             }.padding()
-                        }
-                        
-                    } else {
-                        // TODO: Widok z prosba o nadanie uprawnien lokalizacji
-                        Text("Nie udostepniono lokalizacji")
+                                .background(Color.blue.opacity(0.75))
+                                .foregroundColor(Color.white)
+                                .font(.system(.title))
+                                .clipShape(Circle())
+                                .padding(.trailing)
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                print(self.session.session?.email ?? "Brak maila")
+                                // TODO: Dodac zglaszanie obecnej lokalizacji
+                            }){
+                                Image(systemName: "plus")
+                            }.padding()
+                                .background(Color.red.opacity(0.75))
+                                .foregroundColor(Color.white)
+                                .font(.system(.title))
+                                .clipShape(Circle())
+                                .padding(.trailing)
+                        }.padding()
                     }
                 }
             } else {
