@@ -9,12 +9,16 @@
 ## Przydatne
 * Link do formatowania MD =  [Tutaj](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 ## Co robię aktualnie
+* Dodac komunikat, ze bez zezwolenia na odbieranie lokalizacji aplikacja nie bedzie dzialac
 * __Wyświetlenie informacji, gdzie obecnie się znajdujemy__
     * Udostepnic przez niego jakies lokalizacje
         * Najpierw lokalnie do konsoli
+        * Wyswietlic Tekst na mapie z koordynatami
+            * Przetestowac na urzadzeniu fizycznym aktualizacje lokalizacji
         * Udostepnic do bazy danych
 * Dodac obsluge bazy danych
 ## Do zrobienia:
+* Przetestowac na urzadzeniu fizycznym aktualizacje lokalizacji
 * Zrobic menu ustawien: 
     * Nazwa uzytkownika jaka by byla
     * Tam moglby wybrac czy chce pomagac czy nie (pierwsza pomoc)
