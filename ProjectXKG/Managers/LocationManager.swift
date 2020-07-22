@@ -27,7 +27,9 @@ final class LocationManager: NSObject, ObservableObject {
         self.locationManager.startUpdatingLocation()
     }
 }
+
 // MARK: Udostepnianie lokalizacji
+
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else {
@@ -36,6 +38,7 @@ extension LocationManager: CLLocationManagerDelegate {
         self.location = location
     }
 }
+
 // MARK: Autoryzacja
 extension LocationManager {
     func checkAuthorizationStatus() -> Bool {

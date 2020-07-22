@@ -53,6 +53,13 @@ struct ContentView: View {
                                     .font(.system(.title))
                                     .clipShape(Circle())
                                     .padding(.trailing)
+                            Spacer()
+                            
+                            Button(action: {
+                                print(self.session.session?.email ?? "Brak maila")
+                                // TODO: Dodac zglaszanie obecnej lokalizacji
+                            }){
+                                Image(systemName: "plus")
                             }.padding()
                         }
                         
