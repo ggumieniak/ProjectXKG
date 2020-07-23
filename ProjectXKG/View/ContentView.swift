@@ -44,6 +44,8 @@ struct ContentView: View {
                             Button(action: {
                                 print(self.session.session?.email ?? "Brak maila")
                                 // TODO: Dodac zglaszanie obecnej lokalizacji
+                                print(self.locationManager.location?.coordinate)
+                                AlertView()
                             }){
                                 Image(systemName: "plus")
                             }.padding()
