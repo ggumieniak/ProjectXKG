@@ -40,6 +40,9 @@ extension LocationManager: CLLocationManagerDelegate {
         }
         self.location = location
     }
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        self.authorizationStatus = status
+    }
 }
 // MARK: Autoryzacja
 extension LocationManager {
@@ -52,6 +55,7 @@ extension LocationManager {
                 return true
             }
         } else {
+            print("Nie nadano zadnych uprawnien")
             return false
         }
     }

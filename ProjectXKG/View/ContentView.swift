@@ -41,7 +41,8 @@ struct ContentView: View {
                                 .padding(.trailing)
                             
                             Spacer()
-                            
+                            if locationManager.checkAuthorizationStatus()
+                            {
                             Button(action: {
                                 print(self.session.session?.email ?? "Brak maila")
                                 // TODO: Dodac zglaszanie obecnej lokalizacji
@@ -58,6 +59,7 @@ struct ContentView: View {
                             .sheet(isPresented: $isModel, content: {
                                 AlertView()
                             })
+                            }
                         }.padding()
                     }
                 }
