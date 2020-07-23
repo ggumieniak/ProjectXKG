@@ -12,6 +12,7 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var session: SessionStore
+    @State var isModel: Bool = false
     @ObservedObject private var locationManager = LocationManager()
     
     var body: some View {
@@ -45,7 +46,7 @@ struct ContentView: View {
                                 print(self.session.session?.email ?? "Brak maila")
                                 // TODO: Dodac zglaszanie obecnej lokalizacji
                                 print(self.locationManager.location?.coordinate)
-                                AlertView()
+                                self.isModel.toggle()
                             }){
                                 Image(systemName: "plus")
                             }.padding()
@@ -54,6 +55,9 @@ struct ContentView: View {
                                 .font(.system(.title))
                                 .clipShape(Circle())
                                 .padding(.trailing)
+                            .sheet(isPresented: $isModel, content: {
+                                AlertView()
+                            })
                         }.padding()
                     }
                 }
