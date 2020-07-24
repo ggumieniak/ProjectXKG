@@ -60,3 +60,9 @@ extension LocationManager {
         }
     }
 }
+// MARK: Accessors
+extension LocationManager {
+    func get2DLocationCoordinate() -> CLLocationCoordinate2D? {
+        return location?.coordinate
+    }
+}

@@ -20,7 +20,7 @@ struct ContentView: View {
             if (session.session != nil) {
                 ZStack {
                     // TODO: Dodac managera, ktory obsluguje wyswietlanie aktualnej lokalizacji (aktywnie)
-                    MapView().edgesIgnoringSafeArea(.all)
+                    MapView(coordinate: locationManager.get2DLocationCoordinate()).edgesIgnoringSafeArea(.all)
                     VStack {
                         Spacer()
                         HStack {
