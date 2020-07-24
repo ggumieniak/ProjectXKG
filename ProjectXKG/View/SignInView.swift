@@ -13,6 +13,7 @@ struct SignInView: View {
     @State var password: String = ""
     @State var error: String = ""
     @EnvironmentObject var session: SessionStore
+    @ObservedObject var signInViewModel =  SignInViewModel()
     
     func signIn() {
         session.signIn(email: email, password: password) { Result,error in

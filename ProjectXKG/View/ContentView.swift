@@ -36,6 +36,11 @@ struct ContentView: View {
                                 .padding(.trailing)
                             
                             Spacer()
+                            VStack {
+                                Text("\(locationManager.location?.coordinate.latitude.description ?? "Brak lat")")
+                                Text("\(locationManager.location?.coordinate.longitude.description ?? "Brak long")")
+                            }
+                            Spacer()
                             if locationManager.checkAuthorizationStatus()
                             {
                                 Button(action: {
