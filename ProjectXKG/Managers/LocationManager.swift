@@ -13,7 +13,12 @@ import UIKit
 
 final class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
-    @Published var location: CLLocation? = nil
+    @Published var location: CLLocation? {
+        willSet {
+            // Sprawdzanie sie przemieszczania
+            print("Wlasnie sie przemieszczamy \(newValue?.coordinate)")
+        }
+    }
     @Published var authorizationStatus: CLAuthorizationStatus?
     
     override init() {
@@ -27,9 +32,7 @@ final class LocationManager: NSObject, ObservableObject {
         self.locationManager.startUpdatingLocation()
     }
 }
-
-// MARK: Udostepnianie lokalizacji
-
+// MARK: Share location and privilages
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else {
@@ -37,9 +40,11 @@ extension LocationManager: CLLocationManagerDelegate {
         }
         self.location = location
     }
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        self.authorizationStatus = status
+    }
 }
-
-// MARK: Autoryzacja
+// MARK: Authorization
 extension LocationManager {
     func checkAuthorizationStatus() -> Bool {
         if let status = self.authorizationStatus {
@@ -50,12 +55,8 @@ extension LocationManager {
                 return true
             }
         } else {
+            print("Nie nadano zadnych uprawnien")
             return false
         }
-    }
-    
-    func requestAuthorization() {
-        self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.startUpdatingLocation()
     }
 }

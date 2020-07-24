@@ -25,6 +25,7 @@
 		50D8B4C324A75C4200220F94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D8B4C124A75C4200220F94 /* LaunchScreen.storyboard */; };
 		50D8B4CE24A75C4200220F94 /* ProjectXKGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4CD24A75C4200220F94 /* ProjectXKGTests.swift */; };
 		50D8B4D924A75C4200220F94 /* ProjectXKGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4D824A75C4200220F94 /* ProjectXKGUITests.swift */; };
+		50EB43A324C989130058AAAD /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EB43A224C989130058AAAD /* AlertView.swift */; };
 		50ED1BAE24C7467F005FB417 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ED1BAD24C7467F005FB417 /* Coordinator.swift */; };
 		5D91B3433955A7A0EC7C7DE3 /* Pods_ProjectXKG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D65D4E86967630A28638E5F /* Pods_ProjectXKG.framework */; };
 		95C06B80EAB3A41FC52AE8FB /* Pods_ProjectXKGTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C926F66B5528AB438F5719 /* Pods_ProjectXKGTests.framework */; };
@@ -75,6 +76,7 @@
 		50D8B4D424A75C4200220F94 /* ProjectXKGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectXKGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D8B4D824A75C4200220F94 /* ProjectXKGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectXKGUITests.swift; sourceTree = "<group>"; };
 		50D8B4DA24A75C4200220F94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50EB43A224C989130058AAAD /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		50ED1BAD24C7467F005FB417 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		6D65D4E86967630A28638E5F /* Pods_ProjectXKG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectXKG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C926F66B5528AB438F5719 /* Pods_ProjectXKGTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectXKGTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +133,7 @@
 				500AA26F24C31BD600AEA655 /* SignInView.swift */,
 				500AA27124C31CAD00AEA655 /* SignUpView.swift */,
 				500C047E24C4A2D80028F154 /* MapView.swift */,
+				50EB43A224C989130058AAAD /* AlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				50D8B4BB24A75C3F00220F94 /* ContentView.swift in Sources */,
 				507573A224C20F700064FD74 /* User.swift in Sources */,
 				500AA27024C31BD600AEA655 /* SignInView.swift in Sources */,
+				50EB43A324C989130058AAAD /* AlertView.swift in Sources */,
 				506D45C424C58EAA0012D754 /* MKPointAnnotation+Example.swift in Sources */,
 				50A14ED624C6CA500023240E /* LocationManager.swift in Sources */,
 				500C047F24C4A2D80028F154 /* MapView.swift in Sources */,

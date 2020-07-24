@@ -15,6 +15,7 @@ struct MapView: UIViewRepresentable {
         let map = MKMapView()
         map.showsUserLocation = true
         map.delegate = context.coordinator
+        map.setUserTrackingMode(.follow, animated: true)
         return map
     }
     
