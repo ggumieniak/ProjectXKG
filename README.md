@@ -8,6 +8,11 @@
 * Po pobraniu  prosze uruchomic plik __ProjectXKG.xcworkspace__  
 ## Przydatne
 * Link do formatowania MD =  [Tutaj](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+## Do zrobienia w następnym tygodniu (27.07.2020->)
+* Sprawdzic czy na urzadzeniu fizycznym bedzie ciagla zmiana lokalizacji
+* Przetworzyc rejestracje i logowania na mvvm
+* Wyslac informacje do bazy danych
+* *Pobrac dane z bazy(dodatkowo)
 ## Co robię aktualnie
 * Wyswietlic Tekst na mapie z koordynatami
 * Przetestowac na urzadzeniu fizycznym aktualizacje lokalizacji
