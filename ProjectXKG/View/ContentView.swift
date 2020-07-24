@@ -21,16 +21,13 @@ struct ContentView: View {
                 ZStack {
                     // TODO: Dodac managera, ktory obsluguje wyswietlanie aktualnej lokalizacji (aktywnie)
                     MapView().edgesIgnoringSafeArea(.all)
-                    Circle()
-                        .fill(Color.blue)
-                        .opacity(0.2)
-                        .frame(width: 14, height: 14)
                     VStack {
                         Spacer()
                         HStack {
                             Button(action: {
                                 print("Informacje")
-                                // TODO: Okno z widokiem ustawien
+                                // TODO: Okno z widokiem ustawien z NavigationView
+                                
                             }) {
                                 Image(systemName: "gear") // TODO: iOS14 zmiana na gearshape
                             }.padding()
@@ -43,22 +40,21 @@ struct ContentView: View {
                             Spacer()
                             if locationManager.checkAuthorizationStatus()
                             {
-                            Button(action: {
-                                print(self.session.session?.email ?? "Brak maila")
-                                // TODO: Dodac zglaszanie obecnej lokalizacji
-                                print(self.locationManager.location?.coordinate)
-                                self.isModel.toggle()
-                            }){
-                                Image(systemName: "plus")
-                            }.padding()
+                                Button(action: {
+                                    // TODO: Dodac zglaszanie obecnej lokalizacji
+                                    print(self.locationManager.location?.coordinate)
+                                    self.isModel.toggle()
+                                }){
+                                    Image(systemName: "plus")
+                                }
+                                .padding()
                                 .background(Color.red.opacity(0.75))
                                 .foregroundColor(Color.white)
                                 .font(.system(.title))
                                 .clipShape(Circle())
-                                .padding(.trailing)
-                            .sheet(isPresented: $isModel, content: {
-                                AlertView()
-                            })
+                                .sheet(isPresented: $isModel, content: {
+                                    AlertView()
+                                })
                             }
                         }.padding()
                     }

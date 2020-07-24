@@ -32,7 +32,7 @@ final class LocationManager: NSObject, ObservableObject {
         self.locationManager.startUpdatingLocation()
     }
 }
-// MARK: Udostepnianie lokalizacji
+// MARK: Share location and privilages
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else {
@@ -44,7 +44,7 @@ extension LocationManager: CLLocationManagerDelegate {
         self.authorizationStatus = status
     }
 }
-// MARK: Autoryzacja
+// MARK: Authorization
 extension LocationManager {
     func checkAuthorizationStatus() -> Bool {
         if let status = self.authorizationStatus {
@@ -58,10 +58,5 @@ extension LocationManager {
             print("Nie nadano zadnych uprawnien")
             return false
         }
-    }
-    
-    func requestAuthorization() {
-        self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.startUpdatingLocation()
     }
 }
