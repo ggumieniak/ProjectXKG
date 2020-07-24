@@ -9,30 +9,29 @@
 ## Przydatne
 * Link do formatowania MD =  [Tutaj](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 ## Co robię aktualnie
-* __Wyświetlenie informacji, gdzie obecnie się znajdujemy__
-    * Udostepnic przez niego jakies lokalizacje
-        * Najpierw lokalnie do konsoli
-        * Wyswietlic Tekst na mapie z koordynatami
-            * Przetestowac na urzadzeniu fizycznym aktualizacje lokalizacji
-        * Udostepnic do bazy danych
-* __Dodac obsluge bazy danych__
-## Do zrobienia:
+* Wyswietlic Tekst na mapie z koordynatami
 * Przetestowac na urzadzeniu fizycznym aktualizacje lokalizacji
-* __Wyświetlenie informacji, gdzie obecnie się znajdujemy__  
+* __Dodac obsluge bazy danych__
+    * Udostepnic do bazy danych
+* Przycisk do zgłaszania informacji:
+    * Zgłasza informacje
+        * Do konsoli
+## Do zrobienia:
 * Zrobic menu ustawien: 
     * Nazwa uzytkownika jaka by byla
     * Tam moglby wybrac czy chce pomagac czy nie (pierwsza pomoc)
     * _Mozliwie wybor promienia w jakim chce dostawac powiadomienia_ 
-* Przycisk do zgłaszania informacji:
-    * Zgłasza informacje
-    * Zgłasza informacje z obecna lokalizacja
 * Połączenie się z bazą danych
 * Przesłanie lokalizacji do bazy danych
 * Pobranie lokalizacji w bazie danych
 * Wyświetlenie informacji z bazy danych
 * Wyświetlenie informacji w danym obszarze 
+* Narysowanie na mapie gdzie jest jakis problem
+* Po nacisnieciu pineski wyswietlenei informacji kto zglosil i co zglosil
+* Aktywna akutalizacja danych (czyli pobieranie danych z firebase w tle)
+    * Ograniczenie pobieranych danych w jakims wymiarze czasu (bo jesli byloby uzytkownikow tysiace, musialby przetwarzac tysiac inforamcji w sekunde)
 ## Przydaloby sie:
-* Testy jednostkowe
+* __Testy__
 * Kompatybilność z innymi platformami 
 * Wyglad (niech to jakos wyglada)
 * Aktywne poprawianie w trakcie podawania loginu i hasla
@@ -40,7 +39,9 @@
 * Zdarzenia:
     * Kategorie - mozliwosc wyszukania (drogowa, gaz etc.)
     * Czas zdarzenia
+* Przeniesienie wszystkiego na serwer (ta aplikacja bedzie zbierala za duzo danych!)
 ## Zrobione
+* Wyświetlenie informacji, gdzie obecnie się znajdujemy
 * Dodanie mapy
 * Przejscie do mapy, jezeli uzytkownik sie zarejetrowal
 * Logowanie
