@@ -18,21 +18,20 @@ struct MapView: UIViewRepresentable {
         map.showsUserLocation = true
         map.delegate = context.coordinator
         map.setUserTrackingMode(.follow, animated: true)
+        map.isZoomEnabled = false
         return map
     }
     
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MapView>) {
-        if let aktualizacja = coordinate  {
-            print("aktualizacja \(aktualizacja)")
-            let latitude:CLLocationDegrees = coordinate!.latitude
-            let longitude:CLLocationDegrees = coordinate!.longitude
-            let latDelta:CLLocationDegrees = 0.05
-            let lonDelta:CLLocationDegrees = 0.05
-            let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
-            let location = CLLocationCoordinate2DMake(latitude, longitude)
-            let region = MKCoordinateRegion(center: coordinate!, span: span)
-            uiView.setRegion(region, animated: true)
+        guard let point = coordinate else {
+            return
         }
+        let latDelta:CLLocationDegrees = 0.01
+        let lonDelta:CLLocationDegrees = 0.01
+        let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
+        let region = MKCoordinateRegion(center: point
+            , span: span)
+        uiView.setRegion(region, animated: true)
     }
     
     func makeCoordinator() -> Coordinator {
