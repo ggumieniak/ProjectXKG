@@ -26,6 +26,7 @@ struct ContentView: View {
                         HStack {
                             Button(action: {
                                 print("Informacje")
+                                self.session.signOut()
                             }) {
                                 Image(systemName: "gear") // TODO: iOS14 zmiana na gearshape
                             }.padding()

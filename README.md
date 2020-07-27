@@ -9,13 +9,12 @@
 ## Przydatne
 * Link do formatowania MD =  [Tutaj](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 ## Do zrobienia w następnym tygodniu (27.07.2020->)
-* Sprawdzic czy na urzadzeniu fizycznym bedzie ciagla zmiana lokalizacji
-* Przetworzyc rejestracje i logowania na mvvm
-* Wyslac informacje do bazy danych
+* _Przetworzyc rejestracje i logowania na mvvm_
+* Pomyśleć jak ma wygladac dokladniej baza danych
+* __Wyslac informacje do bazy danych__
 * *Pobrac dane z bazy(dodatkowo)
 ## Co robię aktualnie
 * Wyswietlic Tekst na mapie z koordynatami
-* Przetestowac na urzadzeniu fizycznym aktualizacje lokalizacji
 * __Dodac obsluge bazy danych__
     * Udostepnic do bazy danych
 * Przycisk do zgłaszania informacji:
@@ -46,6 +45,7 @@
     * Czas zdarzenia
 * Przeniesienie wszystkiego na serwer (ta aplikacja bedzie zbierala za duzo danych!)
 ## Zrobione
+* Sprawdzic czy na urzadzeniu fizycznym bedzie ciagla zmiana lokalizacji
 * Wyświetlenie informacji, gdzie obecnie się znajdujemy
 * Dodanie mapy
 * Przejscie do mapy, jezeli uzytkownik sie zarejetrowal
