@@ -12,6 +12,7 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var session: SessionStore
+//    @EnvironmentObject var repoStore:
     @State var isModel: Bool = false
     @ObservedObject private var locationManager = LocationManager()
     
@@ -20,7 +21,12 @@ struct ContentView: View {
             if (session.session != nil) {
                 ZStack {
                     // TODO: Dodac managera, ktory obsluguje wyswietlanie aktualnej lokalizacji (aktywnie)
-                    MapView(coordinate: locationManager.get2DLocationCoordinate()).edgesIgnoringSafeArea(.all)
+                    MapView(coordinate: locationManager.get2DLocationCoordinate())
+                        .edgesIgnoringSafeArea(.all)
+                        .onAppear{
+                            // TODO: wlaczenie wyszukiwanie w bazie danych
+                            print("Mapa sie pojawila")
+                    }
                     VStack {
                         Spacer()
                         HStack {
