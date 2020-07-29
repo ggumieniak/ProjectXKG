@@ -11,6 +11,7 @@
 		500AA27024C31BD600AEA655 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500AA26F24C31BD600AEA655 /* SignInView.swift */; };
 		500AA27224C31CAD00AEA655 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500AA27124C31CAD00AEA655 /* SignUpView.swift */; };
 		500C047F24C4A2D80028F154 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500C047E24C4A2D80028F154 /* MapView.swift */; };
+		5057753D24D165A40005C517 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5057753C24D165A40005C517 /* Constants.swift */; };
 		506BB4C924C1FF120062D816 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 506BB4C824C1FF120062D816 /* .gitignore */; };
 		506BB4CD24C204660062D816 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 506BB4CC24C204660062D816 /* GoogleService-Info.plist */; };
 		506D45C424C58EAA0012D754 /* MKPointAnnotation+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */; };
@@ -56,6 +57,7 @@
 		500AA26F24C31BD600AEA655 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		500AA27124C31CAD00AEA655 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		500C047E24C4A2D80028F154 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		5057753C24D165A40005C517 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		506BB4C824C1FF120062D816 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		506BB4CA24C1FF430062D816 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		506BB4CC24C204660062D816 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				50D8B4C124A75C4200220F94 /* LaunchScreen.storyboard */,
 				50D8B4C424A75C4200220F94 /* Info.plist */,
 				50D8B4BE24A75C4200220F94 /* Preview Content */,
+				5057753C24D165A40005C517 /* Constants.swift */,
 			);
 			path = ProjectXKG;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				50ED1BAE24C7467F005FB417 /* Coordinator.swift in Sources */,
 				50D8B4B924A75C3F00220F94 /* SceneDelegate.swift in Sources */,
 				507573A524C20FD50064FD74 /* SessionStore.swift in Sources */,
+				5057753D24D165A40005C517 /* Constants.swift in Sources */,
 				50D8B4BB24A75C3F00220F94 /* ContentView.swift in Sources */,
 				507573A224C20F700064FD74 /* User.swift in Sources */,
 				500AA27024C31BD600AEA655 /* SignInView.swift in Sources */,

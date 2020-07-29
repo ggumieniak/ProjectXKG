@@ -8,6 +8,8 @@ target 'ProjectXKG' do
   # Pods for ProjectXKG
 	pod 'Firebase/Analytics'
 	pod 'Firebase/Auth'
+	pod 'Firebase/Firestore'
+	pod 'FirebaseFirestoreSwift'
 
   target 'ProjectXKGTests' do
     inherit! :search_paths
