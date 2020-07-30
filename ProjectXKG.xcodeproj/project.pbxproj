@@ -11,6 +11,7 @@
 		500AA27024C31BD600AEA655 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500AA26F24C31BD600AEA655 /* SignInView.swift */; };
 		500AA27224C31CAD00AEA655 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500AA27124C31CAD00AEA655 /* SignUpView.swift */; };
 		500C047F24C4A2D80028F154 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500C047E24C4A2D80028F154 /* MapView.swift */; };
+		5043E5C624D31883006E1C7F /* CLLocationCoordinate2D+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043E5C524D31883006E1C7F /* CLLocationCoordinate2D+Example.swift */; };
 		5057753D24D165A40005C517 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5057753C24D165A40005C517 /* Constants.swift */; };
 		5057753F24D17E4A0005C517 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5057753E24D17E4A0005C517 /* AlertViewModel.swift */; };
 		506BB4C924C1FF120062D816 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 506BB4C824C1FF120062D816 /* .gitignore */; };
@@ -62,6 +63,7 @@
 		500AA26F24C31BD600AEA655 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		500AA27124C31CAD00AEA655 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		500C047E24C4A2D80028F154 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		5043E5C524D31883006E1C7F /* CLLocationCoordinate2D+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Example.swift"; sourceTree = "<group>"; };
 		5057753C24D165A40005C517 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5057753E24D17E4A0005C517 /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
 		506BB4C824C1FF120062D816 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */,
 				509C6D1024D2CD970024521F /* CLLocation+GeoPoint.swift */,
+				5043E5C524D31883006E1C7F /* CLLocationCoordinate2D+Example.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				500AA26E24C2EA3700AEA655 /* AuthView.swift in Sources */,
 				50D8B4B724A75C3F00220F94 /* AppDelegate.swift in Sources */,
 				50ED1BAE24C7467F005FB417 /* Coordinator.swift in Sources */,
+				5043E5C624D31883006E1C7F /* CLLocationCoordinate2D+Example.swift in Sources */,
 				5057753F24D17E4A0005C517 /* AlertViewModel.swift in Sources */,
 				50D8B4B924A75C3F00220F94 /* SceneDelegate.swift in Sources */,
 				509C6D0D24D2B43D0024521F /* GeoLocation.swift in Sources */,

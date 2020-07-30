@@ -9,5 +9,6 @@
 import Foundation
 
 class AlertViewModel: ObservableObject {
-    @Published var opis: String = ""
+    @Published var description: String = ""
+    @Published var disabledButton: Bool = false
 }

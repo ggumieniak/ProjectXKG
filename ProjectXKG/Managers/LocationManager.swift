@@ -15,8 +15,9 @@ final class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     @Published var location: CLLocation? {
         willSet {
-            // Sprawdzanie sie przemieszczania
-            print("Wlasnie sie przemieszczamy \(newValue?.coordinate)")
+            // TODO: Delete in production statement
+            // Checking the new coordinate
+            print("Moving \(newValue?.coordinate ?? CLLocationCoordinate2D.example)")
         }
     }
     @Published var authorizationStatus: CLAuthorizationStatus?
