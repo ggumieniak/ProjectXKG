@@ -19,13 +19,16 @@ struct AlertView: View {
                 .font(.system(size: 32, weight: .bold))
             Spacer()
             VStack {
-                TextField("Tresc wiadomosci: ", text: $alertViewModel.opis)
+                TextField("Description: ", text: $alertViewModel.description)
             }.padding(20)
             Spacer()
             Button(action:{
-                print("To sa lokalizacje od lm w AlertView")
                 if self.locationManager.location != nil, let location = self.locationManager.location {
-                    self.reportStore.sendReport()
+                    // TODO: Secure behind user uses to often a button to request a report
+                    // TODO: Make coordinator to shortcut the description way of creating report
+                    self.reportStore.getLocationBeforeSend(location)
+                    self.reportStore.getDescriptionBeforeSend(self.alertViewModel.description)
+                    self.reportStore.sendReport()   // result is for a "feature" todo lately
                 }
             }){
                 Text("Report")
@@ -33,6 +36,7 @@ struct AlertView: View {
                 .frame(height: 50)
                 .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]),startPoint: .leading,endPoint: .trailing))
                 .foregroundColor(Color.white)
+                .disabled(alertViewModel.disabledButton)
         }
     }
 }
