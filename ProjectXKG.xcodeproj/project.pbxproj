@@ -18,6 +18,9 @@
 		506D45C424C58EAA0012D754 /* MKPointAnnotation+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */; };
 		507573A224C20F700064FD74 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507573A124C20F700064FD74 /* User.swift */; };
 		507573A524C20FD50064FD74 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507573A424C20FD50064FD74 /* SessionStore.swift */; };
+		509C6D0B24D2B29A0024521F /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6D0A24D2B29A0024521F /* Report.swift */; };
+		509C6D0D24D2B43D0024521F /* GeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6D0C24D2B43D0024521F /* GeoLocation.swift */; };
+		509C6D0F24D2BE030024521F /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6D0E24D2BE030024521F /* ReportStore.swift */; };
 		50A14ED624C6CA500023240E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A14ED524C6CA500023240E /* LocationManager.swift */; };
 		50AED0FC24CADD4200B187B9 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AED0FB24CADD4200B187B9 /* SignInViewModel.swift */; };
 		50D8B4B724A75C3F00220F94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4B624A75C3F00220F94 /* AppDelegate.swift */; };
@@ -66,6 +69,9 @@
 		506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation+Example.swift"; sourceTree = "<group>"; };
 		507573A124C20F700064FD74 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		507573A424C20FD50064FD74 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		509C6D0A24D2B29A0024521F /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		509C6D0C24D2B43D0024521F /* GeoLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
+		509C6D0E24D2BE030024521F /* ReportStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
 		50A14ED524C6CA500023240E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		50AED0FB24CADD4200B187B9 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		50D8B4B324A75C3F00220F94 /* ProjectXKG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectXKG.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				507573A124C20F700064FD74 /* User.swift */,
+				509C6D0A24D2B29A0024521F /* Report.swift */,
+				509C6D0C24D2B43D0024521F /* GeoLocation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				507573A424C20FD50064FD74 /* SessionStore.swift */,
+				509C6D0E24D2BE030024521F /* ReportStore.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -528,16 +537,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				509C6D0B24D2B29A0024521F /* Report.swift in Sources */,
 				500AA26E24C2EA3700AEA655 /* AuthView.swift in Sources */,
 				50D8B4B724A75C3F00220F94 /* AppDelegate.swift in Sources */,
 				50ED1BAE24C7467F005FB417 /* Coordinator.swift in Sources */,
 				5057753F24D17E4A0005C517 /* AlertViewModel.swift in Sources */,
 				50D8B4B924A75C3F00220F94 /* SceneDelegate.swift in Sources */,
+				509C6D0D24D2B43D0024521F /* GeoLocation.swift in Sources */,
 				507573A524C20FD50064FD74 /* SessionStore.swift in Sources */,
 				5057753D24D165A40005C517 /* Constants.swift in Sources */,
 				50D8B4BB24A75C3F00220F94 /* ContentView.swift in Sources */,
 				507573A224C20F700064FD74 /* User.swift in Sources */,
 				500AA27024C31BD600AEA655 /* SignInView.swift in Sources */,
+				509C6D0F24D2BE030024521F /* ReportStore.swift in Sources */,
 				50AED0FC24CADD4200B187B9 /* SignInViewModel.swift in Sources */,
 				50EB43A324C989130058AAAD /* AlertView.swift in Sources */,
 				506D45C424C58EAA0012D754 /* MKPointAnnotation+Example.swift in Sources */,

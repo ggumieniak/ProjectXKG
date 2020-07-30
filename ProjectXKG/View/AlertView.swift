@@ -11,7 +11,7 @@ import SwiftUI
 struct AlertView: View {
     @ObservedObject var alertViewModel = AlertViewModel()
     @ObservedObject private var locationManager = LocationManager()
-    
+    private var reportStore = ReportStore()
     var body: some View {
         VStack {
             Spacer()
@@ -24,8 +24,9 @@ struct AlertView: View {
             Spacer()
             Button(action:{
                 print("To sa lokalizacje od lm w AlertView")
-                print(self.locationManager.location?.coordinate)
-                
+                if self.locationManager.location != nil, let location = self.locationManager.location {
+                    self.reportStore.sendReport()
+                }
             }){
                 Text("Report")
             }.frame(minWidth: 0, maxWidth: .infinity)
