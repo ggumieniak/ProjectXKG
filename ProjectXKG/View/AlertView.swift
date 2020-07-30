@@ -25,6 +25,8 @@ struct AlertView: View {
             Button(action:{
                 print("To sa lokalizacje od lm w AlertView")
                 if self.locationManager.location != nil, let location = self.locationManager.location {
+                    self.reportStore.getLocationBeforeSend(location)
+                    self.disabled(true)
                     self.reportStore.sendReport()
                 }
             }){
@@ -33,6 +35,7 @@ struct AlertView: View {
                 .frame(height: 50)
                 .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]),startPoint: .leading,endPoint: .trailing))
                 .foregroundColor(Color.white)
+                .disabled(reportStore.buttonOn)
         }
     }
 }

@@ -9,29 +9,37 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import CoreLocation
 
 class ReportStore {
     let db = Firestore.firestore()
+    var location: GeoPoint?
+    @Published private(set) var buttonOn: Bool = false
+}
+
+extension ReportStore {
     func sendReport() -> Bool {
-        guard let userMail = Auth.auth().currentUser?.email else {
+        buttonOn = true
+        guard let userMail = Auth.auth().currentUser?.email, location != nil, let location = self.location else {
             return false
         }
-        var ref: DocumentReference? = nil
-        ref = db.collection("Test").addDocument(data: [
+        db.collection("Test").addDocument(data: [
             K.Firestore.kategorie : "Test",
-            "Lokalizacja" : [
-                Location(latitude: 21, longitude: 37).latitude,
-                Location(latitude: 21, longitude: 37).longitude
-                ],
+            "Lokalizacja" : location,
             "User" : userMail,
             "Date" : Date().timeIntervalSince1970
         ]) { err in
             if let error = err {
-                print(err?.localizedDescription)
+                print(error.localizedDescription)
             } else {
                 print("Udalo sie wyslac")
+                self.buttonOn = false
             }
         }
         return true
     }
+    func getLocationBeforeSend(_ location: CLLocation) {
+        self.location = location.convertCLLocationToGeoPoint()
+    }
 }
+
