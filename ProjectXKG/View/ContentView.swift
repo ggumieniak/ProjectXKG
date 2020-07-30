@@ -41,7 +41,7 @@ struct ContentView: View {
                                 .font(.system(.title))
                                 .clipShape(Circle())
                                 .padding(.trailing)
-                            
+
                             Spacer()
                             VStack {
                                 Text("\(locationManager.location?.coordinate.latitude.description ?? "Brak lat")")
@@ -52,7 +52,6 @@ struct ContentView: View {
                             {
                                 Button(action: {
                                     // TODO: Dodac zglaszanie obecnej lokalizacji
-                                    print(self.locationManager.location?.coordinate)
                                     self.isModel.toggle()
                                 }){
                                     Image(systemName: "plus")

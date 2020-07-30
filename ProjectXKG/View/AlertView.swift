@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct AlertView: View {
-    @State var opis: String = ""
+    @ObservedObject var alertViewModel = AlertViewModel()
+    @ObservedObject private var locationManager = LocationManager()
+    private var reportStore = ReportStore()
     var body: some View {
         VStack {
             Spacer()
@@ -17,11 +19,14 @@ struct AlertView: View {
                 .font(.system(size: 32, weight: .bold))
             Spacer()
             VStack {
-                TextField("Tresc wiadomosci: ", text: $opis)
+                TextField("Tresc wiadomosci: ", text: $alertViewModel.opis)
             }.padding(20)
             Spacer()
             Button(action:{
-                print("Nacisnalem guziczek")
+                print("To sa lokalizacje od lm w AlertView")
+                if self.locationManager.location != nil, let location = self.locationManager.location {
+                    self.reportStore.sendReport()
+                }
             }){
                 Text("Report")
             }.frame(minWidth: 0, maxWidth: .infinity)
