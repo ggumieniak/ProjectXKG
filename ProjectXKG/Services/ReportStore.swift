@@ -12,12 +12,14 @@ import FirebaseAuth
 import CoreLocation
 import Combine
 
-class ReportStore {
-    let db = Firestore.firestore()
+class ReportStore: ObservableObject {
+    private let db = Firestore.firestore()
     var location: GeoPoint?
     var description: String?
 }
 
+
+// MARK: Send Data
 extension ReportStore {
     func sendReport() -> Bool {
         guard let userMail = Auth.auth().currentUser?.email, location != nil, let location = self.location, let description = description else {
@@ -46,3 +48,25 @@ extension ReportStore {
     }
 }
 
+// MARK: Acquire Data
+extension ReportStore {
+    func fetchData() {
+        db.collection("Test").addSnapshotListener { documentShapshot, error in
+            guard let document = documentShapshot?.documents else {
+                print("Error fetching document \(error!)")
+                return
+            }
+            for item in document {
+                let foo /* test */ = item.data()
+//                print(foo["Location"])
+                let loc = foo["Location"]
+                let point = loc as? GeoPoint
+                if let latitude = point?.latitude, let longtitude = point?.longitude {
+                 let location = CLLocation(latitude: latitude, longitude: longtitude)
+                    print(location.coordinate)
+                }
+//                let lat = loc
+            }
+        }
+    }
+}

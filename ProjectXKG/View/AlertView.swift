@@ -10,8 +10,8 @@ import SwiftUI
 
 struct AlertView: View {
     @ObservedObject var alertViewModel = AlertViewModel()
-    @ObservedObject private var locationManager = LocationManager()
-    private var reportStore = ReportStore()
+    @EnvironmentObject private var locationManager: LocationManager
+    @EnvironmentObject var reportStore: ReportStore
     var body: some View {
         VStack {
             Spacer()

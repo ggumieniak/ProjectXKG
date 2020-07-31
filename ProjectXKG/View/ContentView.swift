@@ -14,7 +14,8 @@ struct ContentView: View {
     @EnvironmentObject var session: SessionStore
 //    @EnvironmentObject var repoStore:
     @State var isModel: Bool = false
-    @ObservedObject private var locationManager = LocationManager()
+    @EnvironmentObject private var locationManager: LocationManager
+    @EnvironmentObject var report: ReportStore
     
     var body: some View {
         Group {
@@ -42,12 +43,16 @@ struct ContentView: View {
                                 .clipShape(Circle())
                                 .padding(.trailing)
 
-                            Spacer()
+                            Button(action: {
+                                print("Pobieram dane...")
+//                                self.report.fetchData()
+                            }, label: {
+                                Text("Pobierz dane")
+                            })
                             VStack {
                                 Text("\(locationManager.location?.coordinate.latitude.description ?? "Brak lat")")
                                 Text("\(locationManager.location?.coordinate.longitude.description ?? "Brak long")")
                             }
-                            Spacer()
                             if locationManager.checkAuthorizationStatus()
                             {
                                 Button(action: {
@@ -62,7 +67,7 @@ struct ContentView: View {
                                 .font(.system(.title))
                                 .clipShape(Circle())
                                 .sheet(isPresented: $isModel, content: {
-                                    AlertView()
+                                    AlertView().environmentObject(self.report).environmentObject(self.locationManager)
                                 })
                             }
                         }.padding()
@@ -71,7 +76,9 @@ struct ContentView: View {
             } else {
                 AuthView()
             }
-        }.onAppear{ self.session.listen() }
+        }.onAppear{ self.session.listen()
+            self.report.fetchData()
+        }
     }
 }
 
