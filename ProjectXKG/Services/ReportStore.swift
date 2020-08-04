@@ -57,15 +57,17 @@ extension ReportStore {
                 return
             }
             for item in document {
+                //
+                //
                 let foo /* test */ = item.data()
-//                print(foo["Location"])
+                //                print(foo["Location"])
                 let loc = foo["Location"]
                 let point = loc as? GeoPoint
                 if let latitude = point?.latitude, let longtitude = point?.longitude {
-                 let location = CLLocation(latitude: latitude, longitude: longtitude)
+                    let location = CLLocation(latitude: latitude, longitude: longtitude)
                     print(location.coordinate)
                 }
-//                let lat = loc
+                //                let lat = loc
             }
         }
     }

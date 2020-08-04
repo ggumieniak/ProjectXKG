@@ -12,6 +12,8 @@ struct AlertView: View {
     @ObservedObject var alertViewModel = AlertViewModel()
     @EnvironmentObject private var locationManager: LocationManager
     @EnvironmentObject var reportStore: ReportStore
+    @Binding var isPresented: Bool
+    
     var body: some View {
         VStack {
             Spacer()
@@ -28,7 +30,9 @@ struct AlertView: View {
                     // TODO: Make coordinator to shortcut the description way of creating report
                     self.reportStore.getLocationBeforeSend(location)
                     self.reportStore.getDescriptionBeforeSend(self.alertViewModel.description)
-                    self.reportStore.sendReport()   // result is for a "feature" todo lately
+                    self.isPresented = !self.reportStore.sendReport()   // result is for a "feature" todo lately
+                    self.alertViewModel.makeFiveMinutesIntervalUntilNextReport()
+                    
                 }
             }){
                 Text("Report")
@@ -43,6 +47,6 @@ struct AlertView: View {
 
 struct AlertView_Previews: PreviewProvider {
     static var previews: some View {
-        AlertView()
+        AlertView(isPresented: .constant(true))
     }
 }

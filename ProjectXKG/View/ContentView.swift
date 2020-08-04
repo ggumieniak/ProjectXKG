@@ -67,7 +67,7 @@ struct ContentView: View {
                                 .font(.system(.title))
                                 .clipShape(Circle())
                                 .sheet(isPresented: $isModel, content: {
-                                    AlertView().environmentObject(self.report).environmentObject(self.locationManager)
+                                    AlertView(isPresented: self.$isModel).environmentObject(self.report).environmentObject(self.locationManager)
                                 })
                             }
                         }.padding()
