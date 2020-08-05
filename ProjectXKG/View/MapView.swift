@@ -1,41 +1,87 @@
 //
-//  MapView.swift
+//  ContentView.swift
 //  ProjectXKG
 //
-//  Created by Grzegorz Gumieniak on 19/07/2020.
+//  Created by Grzegorz Gumieniak on 27/06/2020.
 //  Copyright © 2020 Grzegorz Gumieniak. All rights reserved.
 //
 
-import SwiftUI
 import MapKit
+import SwiftUI
 
-struct MapView: UIViewRepresentable {
+struct MapView: View {
     
-    var coordinate: CLLocationCoordinate2D?
+    @EnvironmentObject var session: SessionStore
+    //    @EnvironmentObject var repoStore:
+    @State var isModel: Bool = false
+    @EnvironmentObject private var locationManager: LocationManager
+    @EnvironmentObject var report: ReportStore
     
-    func makeUIView(context: UIViewRepresentableContext<MapView>) -> MKMapView {
-        let map = MKMapView()
-        map.showsUserLocation = true
-        map.delegate = context.coordinator
-        map.setUserTrackingMode(.follow, animated: true)
-        map.isZoomEnabled = false
-        return map
-    }
-    
-    func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MapView>) {
-        guard let point = coordinate else {
-            return
+    var body: some View {
+        Group {
+            if (session.session != nil) {
+                ZStack {
+                    Map(coordinate: locationManager.get2DLocationCoordinate())
+                        .edgesIgnoringSafeArea(.all)
+                        .onAppear {
+                            print("Map has shown")
+                    }
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Button(action: {
+                                print("Informacje")
+                                self.session.signOut()
+                            }) {
+                                Image(systemName: "gear") // TODO: iOS14 change for gearshape if it wont break my entire code
+                            }.padding()
+                                .background(Color.blue.opacity(0.75))
+                                .foregroundColor(Color.white)
+                                .font(.system(.title))
+                                .clipShape(Circle())
+                                .padding(.trailing)
+                            
+                            Button(action: {
+                                print("Pobieram dane...")
+                                //                                self.report.fetchData()
+                            }, label: {
+                                Text("Pobierz dane")
+                            })
+                            VStack {
+                                Text("\(locationManager.location?.coordinate.latitude.description ?? "Brak lat")")
+                                Text("\(locationManager.location?.coordinate.longitude.description ?? "Brak long")")
+                            }
+                            if locationManager.checkAuthorizationStatus()
+                            {
+                                Button(action: {
+                                    self.isModel.toggle()
+                                }){
+                                    Image(systemName: "plus")
+                                }
+                                .padding()
+                                .background(Color.red.opacity(0.75))
+                                .foregroundColor(Color.white)
+                                .font(.system(.title))
+                                .clipShape(Circle())
+                                .sheet(isPresented: $isModel, content: {
+                                    AlertView(isPresented: self.$isModel).environmentObject(self.report).environmentObject(self.locationManager)
+                                })
+                            }
+                        }.padding()
+                    }
+                }
+            } else {
+                AuthView()
+            }
+        }.onAppear{ self.session.listen()
+            // TODO: fetch data every 5 minutes, not often
+            //            self.report.fetchData()
         }
-        let latDelta:CLLocationDegrees = 0.01
-        let lonDelta:CLLocationDegrees = 0.01
-        let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
-        let region = MKCoordinateRegion(center: point
-            , span: span)
-        uiView.setRegion(region, animated: true)
     }
-    
-    func makeCoordinator() -> Coordinator {
-        Coordinator(self)
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        MapView().environmentObject(SessionStore())
     }
-    
 }

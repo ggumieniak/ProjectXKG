@@ -31,7 +31,7 @@ struct AlertView: View {
                     self.reportStore.getLocationBeforeSend(location)
                     self.reportStore.getDescriptionBeforeSend(self.alertViewModel.description)
                     self.isPresented = !self.reportStore.sendReport()   // result is for a "feature" todo lately
-                    self.alertViewModel.makeFiveMinutesIntervalUntilNextReport()
+//                    self.alertViewModel.makeFiveMinutesIntervalUntilNextReport()
                     
                 }
             }){

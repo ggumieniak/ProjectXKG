@@ -30,7 +30,7 @@ extension ReportStore {
             "Location" : location,
             "Description" : description,
             "User" : userMail,
-            "Date" : Date().timeIntervalSince1970
+            "Date" : Timestamp.init()
         ]) { err in
             if let error = err {
                 print(error.localizedDescription)
