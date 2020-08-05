@@ -16,6 +16,7 @@ struct MapView: View {
     @State var isModel: Bool = false
     @EnvironmentObject private var locationManager: LocationManager
     @EnvironmentObject var report: ReportStore
+    @ObservedObject var mapViewModel = MapViewModel()
     
     var body: some View {
         Group {
@@ -24,7 +25,8 @@ struct MapView: View {
                     Map(coordinate: locationManager.get2DLocationCoordinate())
                         .edgesIgnoringSafeArea(.all)
                         .onAppear {
-                            print("Map has shown")
+                            // TODO: Change to static downloading every
+                            self.mapViewModel.fetchData()
                     }
                     VStack {
                         Spacer()
@@ -43,7 +45,6 @@ struct MapView: View {
                             
                             Button(action: {
                                 print("Pobieram dane...")
-                                //                                self.report.fetchData()
                             }, label: {
                                 Text("Pobierz dane")
                             })
@@ -73,9 +74,8 @@ struct MapView: View {
             } else {
                 AuthView()
             }
-        }.onAppear{ self.session.listen()
-            // TODO: fetch data every 5 minutes, not often
-            //            self.report.fetchData()
+        }.onAppear{
+            self.session.listen()
         }
     }
 }

@@ -51,23 +51,15 @@ extension ReportStore {
 // MARK: Acquire Data
 extension ReportStore {
     func fetchData() {
-        db.collection("Test").addSnapshotListener { documentShapshot, error in
+        db.collection("Test").order(by: "Date", descending: false).addSnapshotListener { documentShapshot, error in
             guard let document = documentShapshot?.documents else {
                 print("Error fetching document \(error!)")
                 return
             }
-            for item in document {
-                //
-                //
-                let foo /* test */ = item.data()
-                //                print(foo["Location"])
-                let loc = foo["Location"]
-                let point = loc as? GeoPoint
-                if let latitude = point?.latitude, let longtitude = point?.longitude {
-                    let location = CLLocation(latitude: latitude, longitude: longtitude)
-                    print(location.coordinate)
+            if let item = document.last?.data() {
+                if let description = item["Description"] {
+                    print("Last item description: \(description)")
                 }
-                //                let lat = loc
             }
         }
     }

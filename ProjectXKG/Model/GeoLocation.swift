@@ -13,6 +13,7 @@ protocol GeoLocation {
     var longitude: Double {get set}
 }
 
+// MARK: Initialization
 struct Location: GeoLocation {
     var latitude: Double
     var longitude: Double

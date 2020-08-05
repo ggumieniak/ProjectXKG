@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: Initialization
 struct User {
     var uid: String
     var email: String?
