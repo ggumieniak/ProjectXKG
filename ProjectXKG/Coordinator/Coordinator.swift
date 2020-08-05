@@ -9,6 +9,7 @@
 import Foundation
 import MapKit
 
+// MARK: Initialization
 final class Coordinator: NSObject, MKMapViewDelegate {
     
     var control: Map
