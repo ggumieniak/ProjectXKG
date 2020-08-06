@@ -22,7 +22,7 @@ struct MapView: View {
         Group {
             if (session.session != nil) {
                 ZStack {
-                    Map(coordinate: locationManager.get2DLocationCoordinate())
+                    Map(coordinate: locationManager.get2DLocationCoordinate(),annotations: mapViewModel.locations)
                         .edgesIgnoringSafeArea(.all)
                         .onAppear {
                             // TODO: Change to static downloading every
@@ -42,16 +42,12 @@ struct MapView: View {
                                 .font(.system(.title))
                                 .clipShape(Circle())
                                 .padding(.trailing)
-                            
-                            Button(action: {
-                                print("Pobieram dane...")
-                            }, label: {
-                                Text("Pobierz dane")
-                            })
+                            Spacer()
                             VStack {
                                 Text("\(locationManager.location?.coordinate.latitude.description ?? "Brak lat")")
                                 Text("\(locationManager.location?.coordinate.longitude.description ?? "Brak long")")
                             }
+                            Spacer()
                             if locationManager.checkAuthorizationStatus()
                             {
                                 Button(action: {
@@ -66,6 +62,7 @@ struct MapView: View {
                                 .clipShape(Circle())
                                 .sheet(isPresented: $isModel, content: {
                                     AlertView(isPresented: self.$isModel).environmentObject(self.report).environmentObject(self.locationManager)
+                                    
                                 })
                             }
                         }.padding()

@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import MapKit
 
 // MARK: Initialization
 class MapViewModel:ObservableObject {
     let reportStore = ReportStore()
     let reportManager = ReportManager()
+    @Published var locations = [MKPointAnnotation]()
 }
 // MARK: Methods
 extension MapViewModel {
@@ -20,5 +22,6 @@ extension MapViewModel {
     }
     func fetchData() {
         reportManager.downloadData()
+        locations.append(MKPointAnnotation.example)
     }
 }

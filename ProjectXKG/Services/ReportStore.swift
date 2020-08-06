@@ -40,12 +40,6 @@ extension ReportStore {
         }
         return true
     }
-    func getLocationBeforeSend(_ location: CLLocation) {
-        self.location = location.convertCLLocationToGeoPoint()
-    }
-    func getDescriptionBeforeSend(_ description: String) {
-        self.description = description
-    }
 }
 
 // MARK: Acquire Data
