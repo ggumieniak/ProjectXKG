@@ -25,6 +25,7 @@ extension ReportStore {
         guard let userMail = Auth.auth().currentUser?.email else {
             return false
         }
+//        print("Timestamp from firestore: \(Timestamp.init())")
         db.collection("Test").addDocument(data: [
             "Location" : location,
             "Description" : description,
@@ -50,16 +51,30 @@ extension ReportStore {
 // MARK: Acquire Data
 extension ReportStore {
     func fetchData() {
-        db.collection("Test").order(by: "Date", descending: false).addSnapshotListener { documentShapshot, error in
+        guard let dayBefore = createAndSendToConsoleDate() else {
+            return
+        }
+        print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
+        db.collection("Test")
+        .whereField("Date", isGreaterThan: dayBefore)
+            .order(by: "Date", descending: false)
+            .addSnapshotListener { documentShapshot, error in
             guard let document = documentShapshot?.documents else {
                 print("Error fetching document \(error!)")
                 return
             }
+                print("In array i have: \(document.count) data")
             if let item = document.last?.data() {
                 if let description = item["Description"] {
                     print("Last item description: \(description)")
                 }
             }
         }
+    }
+}
+// MARK: Create Date
+extension ReportStore {
+    private func createAndSendToConsoleDate() -> Date?{
+        return Calendar.current.date(byAdding: .hour, value: -12, to: Date())
     }
 }
