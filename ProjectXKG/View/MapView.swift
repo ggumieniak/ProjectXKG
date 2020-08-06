@@ -13,7 +13,6 @@ struct MapView: View {
     
     @EnvironmentObject var session: SessionStore
     //    @EnvironmentObject var repoStore:
-    @State var isModel: Bool = false
     @EnvironmentObject private var locationManager: LocationManager
     @EnvironmentObject var report: ReportStore
     @ObservedObject var mapViewModel = MapViewModel()
@@ -51,7 +50,7 @@ struct MapView: View {
                             if locationManager.checkAuthorizationStatus()
                             {
                                 Button(action: {
-                                    self.isModel.toggle()
+                                    self.mapViewModel.isModel.toggle()
                                 }){
                                     Image(systemName: "plus")
                                 }
@@ -60,8 +59,8 @@ struct MapView: View {
                                 .foregroundColor(Color.white)
                                 .font(.system(.title))
                                 .clipShape(Circle())
-                                .sheet(isPresented: $isModel, content: {
-                                    AlertView(isPresented: self.$isModel).environmentObject(self.report).environmentObject(self.locationManager)
+                                .sheet(isPresented: $mapViewModel.isModel, content: {
+                                    AlertView(isPresented: self.$mapViewModel.isModel).environmentObject(self.report).environmentObject(self.locationManager)
                                     
                                 })
                             }
