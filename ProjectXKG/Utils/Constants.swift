@@ -10,9 +10,11 @@ import Foundation
 
 struct K {
     struct Firestore {
-        static let kategorie: String = "kategorie"
-        struct ogolne {
-            
+        static let category: String = "category"
+        struct categories {
+            static let roadAccident: String = "Road Accident"
+            static let weather: String = "Weather"
+            static let localThreaten: String = "Local Threaten"
         }
     }
     

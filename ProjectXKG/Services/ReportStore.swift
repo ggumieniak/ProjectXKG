@@ -21,12 +21,11 @@ class ReportStore: ObservableObject {
 
 // MARK: Send Data
 extension ReportStore {
-    func sendReport() -> Bool {
-        guard let userMail = Auth.auth().currentUser?.email, location != nil, let location = self.location, let description = description else {
+    func sendReport(location: GeoPoint, description: String) -> Bool {
+        guard let userMail = Auth.auth().currentUser?.email else {
             return false
         }
         db.collection("Test").addDocument(data: [
-            K.Firestore.kategorie : "Test",
             "Location" : location,
             "Description" : description,
             "User" : userMail,

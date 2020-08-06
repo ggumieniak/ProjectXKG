@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 protocol Report {
     var location: Location {get set}
     var description: String {get set}
     var user: User {get set}
+    var date: Timestamp {get set}
 }
