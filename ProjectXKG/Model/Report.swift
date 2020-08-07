@@ -15,3 +15,10 @@ protocol Report {
     var user: User {get set}
     var date: Timestamp {get set}
 }
+
+struct ReportDate: Report {
+    var date: Timestamp
+    var description: String
+    var location: Location
+    var user: User
+}

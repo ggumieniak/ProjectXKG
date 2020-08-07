@@ -11,11 +11,11 @@ import MapKit
 
 // MARK: Initialization
 class ReportManager {
-    let reportStore = ReportStore()
-    private var reportData = [String : Any]()
+    private let reportStore = ReportStore()
     private var timer = Timer()
     private var counter:Int = 0
     private var pauseTimer = 360
+    private var data: [Report]?
 }
 //MARK: Accesors
 extension ReportManager {
@@ -34,17 +34,16 @@ extension ReportManager {
     func downloadDataTest() {
         print("downloadDataTest")
         reportStore.fetchData { reports in
+            print("In arrary is: \(reports.count) of data")
+            self.data = FirebaseDataClassifier(from: reports).getDataToShow()
+            print(self.data?.count)
             for report in reports
             {
                 let item = report.data()
                 // TODO: Adds the constants instead of String
-                self.reportData["Description"] = item["Description"]
-                print(item["Description"])
+                print("Opis: \(item["Description"])\nCzas zdarzenia: \(item["Date"])")
             }
-        }
-        print("Moja kolekcja posiada \(reportData.count)")
-        for (key,value) in reportData {
-            print("The key is \(key) and the value is \(value)")
+            return [Report]()
         }
     }
     

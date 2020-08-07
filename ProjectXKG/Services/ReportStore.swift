@@ -14,7 +14,7 @@ import Combine
 
 class ReportStore: ObservableObject {
     private let db = Firestore.firestore()
-//    private var dataModeler = DataModeler()
+    //    private var dataModeler = DataModeler()
 }
 
 
@@ -24,7 +24,7 @@ extension ReportStore {
         guard let userMail = Auth.auth().currentUser?.email else {
             return false
         }
-//        print("Timestamp from firestore: \(Timestamp.init())")
+        //        print("Timestamp from firestore: \(Timestamp.init())")
         db.collection("Test").addDocument(data: [
             "Location" : location,
             "Description" : description,
@@ -43,64 +43,47 @@ extension ReportStore {
 
 // MARK: Acquire Data
 extension ReportStore {
+    // TODO: To delete after make service
     func fetchData() {
-        guard let dayBefore = createAndSendToConsoleDate() else {
+        guard let dayBefore = getTwelveHoursEarlierDate() else {
             return
         }
         print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
         db.collection("Test")
-        .whereField("Date", isGreaterThan: dayBefore)
+            .whereField("Date", isGreaterThan: dayBefore)
             .order(by: "Date", descending: false)
             .addSnapshotListener { documentShapshot, error in
-            guard let document = documentShapshot?.documents else {
-                print("Error fetching document \(error!)")
-                return
-            }
-            if let item = document.last?.data() {
-                if let description = item["Description"] {
-                    print("Last item description: \(description)")
+                guard let document = documentShapshot?.documents else {
+                    print("Error fetching document \(error!)")
+                    return
                 }
-            }
+                if let item = document.last?.data() {
+                    if let description = item["Description"] {
+                        print("Last item description: \(description)")
+                    }
+                }
         }
     }
-    func fetchData(acquireData: @escaping ([QueryDocumentSnapshot]) -> Void) {
-        guard let dayBefore = createAndSendToConsoleDate() else {
+    func fetchData(acquireData: @escaping ([QueryDocumentSnapshot]) -> [Report]) {
+        guard let dayBefore = getTwelveHoursEarlierDate() else {
             return
         }
         print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
         db.collection("Test")
-        .whereField("Date", isGreaterThan: dayBefore)
+            .whereField("Date", isGreaterThan: dayBefore)
             .order(by: "Date", descending: false)
             .addSnapshotListener { documentShapshot, error in
-            guard let document = documentShapshot?.documents else {
-                print("Error fetching document \(error!)")
-                return
-            }
-                acquireData(document)
-            if let item = document.last?.data() {
-                // TODO: Make class that will convert date do model
-                if let date = item["Date"] {
-                    guard let dateTimeStamp = date as? Timestamp else {
-                        return
-                    }
-                    guard let timezone = Calendar.current.timeZone.abbreviation() else {
-                        return
-                    }
-                    print(timezone)
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.timeZone = TimeZone(abbreviation: timezone)
-                    dateFormatter.dateFormat = "EEEE, MM-dd-yyyy HH:mm"
-                    let wypisz = dateFormatter.string(from: dateTimeStamp.dateValue())
-                    print(wypisz)
-                    print("koniec pobiernaia danych")
+                guard let document = documentShapshot?.documents else {
+                    print("Error fetching document \(error!)")
+                    return
                 }
-            }
+                acquireData(document)
         }
     }
 }
 // MARK: Create Date
 extension ReportStore {
-    private func createAndSendToConsoleDate() -> Date?{
+    private func getTwelveHoursEarlierDate() -> Date?{
         return Calendar.current.date(byAdding: .hour, value: -12, to: Date())
     }
 }
