@@ -78,8 +78,21 @@ extension ReportStore {
             }
                 acquireData(document)
             if let item = document.last?.data() {
-                if let description = item["Description"] {
-                    print("Last item description: \(description)")
+                // TODO: Make class that will convert date do model
+                if let date = item["Date"] {
+                    guard let dateTimeStamp = date as? Timestamp else {
+                        return
+                    }
+                    guard let timezone = Calendar.current.timeZone.abbreviation() else {
+                        return
+                    }
+                    print(timezone)
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.timeZone = TimeZone(abbreviation: timezone)
+                    dateFormatter.dateFormat = "EEEE, MM-dd-yyyy HH:mm"
+                    let wypisz = dateFormatter.string(from: dateTimeStamp.dateValue())
+                    print(wypisz)
+                    print("koniec pobiernaia danych")
                 }
             }
         }

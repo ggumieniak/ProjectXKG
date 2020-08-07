@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import MapKit
 
 protocol GeoLocation {
-    var latitude: Double {get set}
-    var longitude: Double {get set}
+    var latitude: Double {get}
+    var longitude: Double {get}
 }
 
 // MARK: Initialization
