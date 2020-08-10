@@ -7,10 +7,10 @@
 //
 
 import Foundation
-import FirebaseFirestore
+import MapKit
 
 protocol Report {
-    var location: Location {get set}
+    var location: CLLocation {get set}
     var description: String {get set}
     var user: User {get set}
     var date: String {get set}
@@ -20,6 +20,6 @@ protocol Report {
 struct ReportDate: Report {
     var date: String
     var description: String
-    var location: Location
+    var location: CLLocation
     var user: User
 }

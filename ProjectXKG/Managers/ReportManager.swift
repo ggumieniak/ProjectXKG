@@ -24,6 +24,15 @@ extension ReportManager {
         return [MKAnnotation]()
     }
 }
+// TODO: Send Data
+
+extension ReportManager {
+    func sendData(location: CLLocation, description: String, category: String) {
+//        reportStore.sendReport(location: location.convertCLLocationToGeoPoint(), description: description)
+        print("Wysylam dane!")
+    }
+}
+
 
 // MARK: Fetch data
 extension ReportManager {
@@ -36,8 +45,6 @@ extension ReportManager {
         reportStore.fetchData { reports in
             print("In arrary is: \(reports.count) of data")
             self.data = FirebaseDataClassifier(from: reports).getDataToShow()
-            //
-            print("Actuallu had that ammount of reports, that was fit to me \(String(describing: self.data?.count))")
             for report in reports
             {
                 let item = report.data()

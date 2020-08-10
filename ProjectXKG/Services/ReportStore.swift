@@ -20,11 +20,11 @@ class ReportStore: ObservableObject {
 
 // MARK: Send Data
 extension ReportStore {
-    func sendReport(location: GeoPoint, description: String) -> Bool {
+    // TODO: Check which collection you want send a message
+    func sendReport(location: GeoPoint, description: String/*, collection: String */) -> Bool {
         guard let userMail = Auth.auth().currentUser?.email else {
             return false
         }
-        //        print("Timestamp from firestore: \(Timestamp.init())")
         db.collection("Test").addDocument(data: [
             "Location" : location,
             "Description" : description,
@@ -58,7 +58,7 @@ extension ReportStore {
                     return
                 }
                 if let item = document.last?.data() {
-                    if let description = item["Description"] {
+                    if let description = item[K.Firestore.Categories.Fields.description] {
                         print("Last item description: \(description)")
                     }
                 }

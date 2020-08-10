@@ -17,6 +17,7 @@ class FirebaseDataClassifier {
     
     init(from dataFromFirebase:[QueryDocumentSnapshot]) {
         self.dataFromFirebase = dataFromFirebase
+        getDataToClassifier()
     }
 }
 // MARK: Modelling data
@@ -24,16 +25,16 @@ extension FirebaseDataClassifier {
     func getDataToClassifier() {
         if let item = dataFromFirebase.last?.data() {
             // TODO: Make class that will convert date do model
-            if let date = item["Date"] {
+            if let date = item[K.Firestore.Categories.Fields.date] {
                 guard let dateTimeStamp = date as? Timestamp else {
                     return
                 }
-                print(convertTimeStampToString(dateTimeStamp))
+                print("Ostatnia wiadomosc zostala wyslana o \(convertTimeStampToString(dateTimeStamp))")
             }
         }
     }
     private func convertTimeStampToString(_ dateTimeStamp: Timestamp) -> String  {
-        print("convertTimeStampToString")
+        print(#function)
         guard let timezone = Calendar.current.timeZone.abbreviation() else {
             return "Error"
         }
