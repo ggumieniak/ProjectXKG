@@ -23,13 +23,19 @@ class FirebaseDataClassifier {
 // MARK: Modelling data
 extension FirebaseDataClassifier {
     func getDataToClassifier() {
-        if let item = dataFromFirebase.last?.data() {
-            // TODO: Make class that will convert date do model
-            if let date = item[K.Firestore.Categories.Fields.date] {
-                guard let dateTimeStamp = date as? Timestamp else {
-                    return
+        if dataFromFirebase.count != 0 {
+            for report in dataFromFirebase {
+                let data = convertDateToString(report[K.Firestore.Categories.Fields.date]!)
+                print(data.description)
+            }
+            if let item = dataFromFirebase.last?.data() {
+                // TODO: Make class that will convert date do model
+                if let date = item[K.Firestore.Categories.Fields.date] {
+                    guard let dateTimeStamp = date as? Timestamp else {
+                        return
+                    }
+                    print("Ostatnia wiadomosc zostala wyslana o \(convertTimeStampToString(dateTimeStamp))")
                 }
-                print("Ostatnia wiadomosc zostala wyslana o \(convertTimeStampToString(dateTimeStamp))")
             }
         }
     }
@@ -43,6 +49,14 @@ extension FirebaseDataClassifier {
         dateFormatter.dateFormat = "EEEE, MM-dd-yyyy HH:mm"
         let wypisz = dateFormatter.string(from: dateTimeStamp.dateValue())
         return wypisz
+    }
+    private func convertDateToString(_ date: Any) -> String {
+        let dateTimeStamp = date as! Timestamp
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: Calendar.current.timeZone.abbreviation()!)
+        dateFormatter.dateFormat = "EEEE, MM-dd-yyyy HH:mm"
+        let dateString = dateFormatter.string(from: dateTimeStamp.dateValue())
+        return dateString
     }
 }
 // MARK: Acquire Data
