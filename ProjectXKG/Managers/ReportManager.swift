@@ -36,14 +36,14 @@ extension ReportManager {
         reportStore.fetchData { reports in
             print("In arrary is: \(reports.count) of data")
             self.data = FirebaseDataClassifier(from: reports).getDataToShow()
-            print(self.data?.count)
+            //
+            print("Actuallu had that ammount of reports, that was fit to me \(String(describing: self.data?.count))")
             for report in reports
             {
                 let item = report.data()
                 // TODO: Adds the constants instead of String
-                print("Opis: \(item["Description"])\nCzas zdarzenia: \(item["Date"])")
+                print("Opis: \(String(describing: item[K.Firestore.Categories.Fields.description]))\nCzas zdarzenia: \(String(describing: item[K.Firestore.Categories.Fields.date]))")
             }
-            return [Report]()
         }
     }
     

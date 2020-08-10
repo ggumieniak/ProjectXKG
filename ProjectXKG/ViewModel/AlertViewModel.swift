@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: Initialization
 class AlertViewModel: ObservableObject {
     @Published var description: String = ""
     @Published var disabledButton: Bool = false

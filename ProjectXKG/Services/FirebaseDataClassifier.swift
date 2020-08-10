@@ -9,11 +9,15 @@
 import Foundation
 import FirebaseFirestore
 
+
+// MARK: Initialization
 class FirebaseDataClassifier {
+    let dataFromFirebase: [QueryDocumentSnapshot]
+    private var reports: [Report]?
+    
     init(from dataFromFirebase:[QueryDocumentSnapshot]) {
         self.dataFromFirebase = dataFromFirebase
     }
-    let dataFromFirebase: [QueryDocumentSnapshot]
 }
 // MARK: Modelling data
 extension FirebaseDataClassifier {
@@ -24,18 +28,20 @@ extension FirebaseDataClassifier {
                 guard let dateTimeStamp = date as? Timestamp else {
                     return
                 }
-                guard let timezone = Calendar.current.timeZone.abbreviation() else {
-                    return
-                }
-                print(timezone)
-                let dateFormatter = DateFormatter()
-                dateFormatter.timeZone = TimeZone(abbreviation: timezone)
-                dateFormatter.dateFormat = "EEEE, MM-dd-yyyy HH:mm"
-                let wypisz = dateFormatter.string(from: dateTimeStamp.dateValue())
-                print(wypisz)
-                print("koniec pobiernaia danych")
+                print(convertTimeStampToString(dateTimeStamp))
             }
         }
+    }
+    private func convertTimeStampToString(_ dateTimeStamp: Timestamp) -> String  {
+        print("convertTimeStampToString")
+        guard let timezone = Calendar.current.timeZone.abbreviation() else {
+            return "Error"
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: timezone)
+        dateFormatter.dateFormat = "EEEE, MM-dd-yyyy HH:mm"
+        let wypisz = dateFormatter.string(from: dateTimeStamp.dateValue())
+        return wypisz
     }
 }
 // MARK: Acquire Data

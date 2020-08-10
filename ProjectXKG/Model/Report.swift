@@ -13,11 +13,12 @@ protocol Report {
     var location: Location {get set}
     var description: String {get set}
     var user: User {get set}
-    var date: Timestamp {get set}
+    var date: String {get set}
 }
 
+// MARK: Initialization
 struct ReportDate: Report {
-    var date: Timestamp
+    var date: String
     var description: String
     var location: Location
     var user: User

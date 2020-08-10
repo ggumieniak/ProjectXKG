@@ -24,7 +24,7 @@ extension MapViewModel {
     func fetchData() {
 //        reportManager.downloadData()
         reportManager.downloadDataTest()
-        locations.append(MKPointAnnotation.example)
+        locations.append(MKPointAnnotation.example) // add to locations that we could oing to show at map automatically
         // locations.append(reportManager.getReportAnnotations())
     }
 }

@@ -64,7 +64,7 @@ extension ReportStore {
                 }
         }
     }
-    func fetchData(acquireData: @escaping ([QueryDocumentSnapshot]) -> [Report]) {
+    func fetchData(acquireData: @escaping ([QueryDocumentSnapshot]) -> Void) {
         guard let dayBefore = getTwelveHoursEarlierDate() else {
             return
         }
