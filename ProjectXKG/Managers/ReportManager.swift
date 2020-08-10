@@ -15,7 +15,7 @@ class ReportManager {
     private var timer = Timer()
     private var counter:Int = 0
     private var pauseTimer = 360
-    private var data: [Report]?
+    private var data = [Report]()
 }
 //MARK: Accesors
 extension ReportManager {
@@ -45,12 +45,7 @@ extension ReportManager {
         reportStore.fetchData { reports in
             print("In arrary is: \(reports.count) of data")
             self.data = FirebaseDataClassifier(from: reports).getDataToShow()
-            for report in reports
-            {
-                let item = report.data()
-                // TODO: Adds the constants instead of String
-                print("Opis: \(String(describing: item[K.Firestore.Categories.Fields.description]))\nCzas zdarzenia: \(String(describing: item[K.Firestore.Categories.Fields.date]))")
-            }
+            print("\(#function) posiada \(self.data.count)")
         }
     }
     

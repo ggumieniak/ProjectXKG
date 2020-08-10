@@ -8,12 +8,13 @@
 
 import Foundation
 import FirebaseFirestore
+import MapKit
 
 
 // MARK: Initialization
 class FirebaseDataClassifier {
     let dataFromFirebase: [QueryDocumentSnapshot]
-    private var reports: [Report]?
+    private var reports = [ReportDate]()
     
     init(from dataFromFirebase:[QueryDocumentSnapshot]) {
         self.dataFromFirebase = dataFromFirebase
@@ -25,31 +26,26 @@ extension FirebaseDataClassifier {
     func getDataToClassifier() {
         if dataFromFirebase.count != 0 {
             for report in dataFromFirebase {
+                print(#function)
                 let data = convertDateToString(report[K.Firestore.Categories.Fields.date]!)
-                print(data.description)
-            }
-            if let item = dataFromFirebase.last?.data() {
-                // TODO: Make class that will convert date do model
-                if let date = item[K.Firestore.Categories.Fields.date] {
-                    guard let dateTimeStamp = date as? Timestamp else {
-                        return
-                    }
-                    print("Ostatnia wiadomosc zostala wyslana o \(convertTimeStampToString(dateTimeStamp))")
-                }
+                let description = convertDescriptionToString(report[K.Firestore.Categories.Fields.description]!)
+                let location = convertGeopointToLocation(report[K.Firestore.Categories.Fields.location]!)
+                let user = convertUserToString(report[K.Firestore.Categories.Fields.user]!)
+                
+                let annotation = makeReport(from: data,description,location,user)
+                reports.append(annotation)
+//                let rawString = """
+//                Accident date: \(data)
+//                Localization: \(location)
+//                Description: \(description)
+//                User: \(user)
+//                ________________________________________________
+//                """
+//                print(rawString)
             }
         }
     }
-    private func convertTimeStampToString(_ dateTimeStamp: Timestamp) -> String  {
-        print(#function)
-        guard let timezone = Calendar.current.timeZone.abbreviation() else {
-            return "Error"
-        }
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone(abbreviation: timezone)
-        dateFormatter.dateFormat = "EEEE, MM-dd-yyyy HH:mm"
-        let wypisz = dateFormatter.string(from: dateTimeStamp.dateValue())
-        return wypisz
-    }
+    
     private func convertDateToString(_ date: Any) -> String {
         let dateTimeStamp = date as! Timestamp
         let dateFormatter = DateFormatter()
@@ -58,11 +54,29 @@ extension FirebaseDataClassifier {
         let dateString = dateFormatter.string(from: dateTimeStamp.dateValue())
         return dateString
     }
+    
+    private func convertDescriptionToString(_ description: Any) -> String {
+        return description as! String
+    }
+    
+    private func convertGeopointToLocation(_ geoPoint: Any) -> CLLocationCoordinate2D {
+        let location = geoPoint as! GeoPoint
+        let locationCLLocationCoordinate2D = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        return locationCLLocationCoordinate2D
+    }
+    
+    private func convertUserToString(_ user: Any) -> String {
+        let userString = user as! String
+        return userString
+    }
+    
+    private func makeReport(from date: String,_ description: String, _ location:CLLocationCoordinate2D,_ user: String) -> ReportDate {
+        return ReportDate(date: date, description: description, location: location, user: user)
+    }
 }
 // MARK: Acquire Data
 extension FirebaseDataClassifier {
     func getDataToShow() -> [Report] {
-        // TODO: Return
-        return [Report]()
+        return reports
     }
 }
