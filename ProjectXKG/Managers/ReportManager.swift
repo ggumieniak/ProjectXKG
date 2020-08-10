@@ -7,28 +7,60 @@
 //
 
 import Foundation
+import MapKit
 
 // MARK: Initialization
 class ReportManager {
-    let reportStore = ReportStore()
+    private let reportStore = ReportStore()
     private var timer = Timer()
     private var counter:Int = 0
     private var pauseTimer = 360
+    private var data = [Report]()
 }
-// MARK: Methods
+//MARK: Accesors
+extension ReportManager {
+    func getReportAnnotations() -> [MKAnnotation] {
+        
+        return [MKAnnotation]()
+    }
+}
+// TODO: Send Data
+
+extension ReportManager {
+    func sendData(location: CLLocation, description: String, category: String) {
+//        reportStore.sendReport(location: location.convertCLLocationToGeoPoint(), description: description)
+        print("Wysylam dane!")
+    }
+}
+
+
+// MARK: Fetch data
 extension ReportManager {
     func downloadData() {
         reportStore.fetchData()
+    }
+    
+    func downloadDataTest() {
+        print("downloadDataTest")
+        reportStore.fetchData { reports in
+            print("In arrary is: \(reports.count) of data")
+            self.data = FirebaseDataClassifier(from: reports).getDataToShow()
+            print("\(#function) posiada \(self.data.count)")
+        }
     }
     
     func downloadDataEvery5Minutes() {
         reportStore.fetchData()
         setUpAndRunTimer()
     }
+}
+// MARK: Utils
+extension ReportManager {
     private func setUpAndRunTimer() {
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1,target: self,selector: #selector(countPauseBetweenReport), userInfo: nil, repeats: true)
     }
+    
     @objc private func countPauseBetweenReport() {
 //        print("Uzytkownik wlasnie uruchomil licznik i wynosy: \(counter)")
         if counter < pauseTimer {
@@ -39,3 +71,4 @@ extension ReportManager {
         }
     }
 }
+

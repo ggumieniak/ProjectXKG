@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import MapKit
 
 // MARK: Initialization
 class MapViewModel:ObservableObject {
     let reportStore = ReportStore()
     let reportManager = ReportManager()
+    @Published var locations = [MKPointAnnotation]()
+    @Published var isModel: Bool = false
 }
 // MARK: Methods
 extension MapViewModel {
@@ -19,6 +22,9 @@ extension MapViewModel {
         reportManager.downloadDataEvery5Minutes()
     }
     func fetchData() {
-        reportManager.downloadData()
+//        reportManager.downloadData()
+        reportManager.downloadDataTest()
+        locations.append(MKPointAnnotation.example) // add to locations that we could oing to show at map automatically
+        // locations.append(reportManager.getReportAnnotations())
     }
 }

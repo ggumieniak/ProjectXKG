@@ -14,19 +14,18 @@ import Combine
 
 class ReportStore: ObservableObject {
     private let db = Firestore.firestore()
-    var location: GeoPoint?
-    var description: String?
+    //    private var dataModeler = DataModeler()
 }
 
 
 // MARK: Send Data
 extension ReportStore {
-    func sendReport() -> Bool {
-        guard let userMail = Auth.auth().currentUser?.email, location != nil, let location = self.location, let description = description else {
+    // TODO: Check which collection you want send a message
+    func sendReport(location: GeoPoint, description: String/*, collection: String */) -> Bool {
+        guard let userMail = Auth.auth().currentUser?.email else {
             return false
         }
         db.collection("Test").addDocument(data: [
-            K.Firestore.kategorie : "Test",
             "Location" : location,
             "Description" : description,
             "User" : userMail,
@@ -40,27 +39,51 @@ extension ReportStore {
         }
         return true
     }
-    func getLocationBeforeSend(_ location: CLLocation) {
-        self.location = location.convertCLLocationToGeoPoint()
-    }
-    func getDescriptionBeforeSend(_ description: String) {
-        self.description = description
-    }
 }
 
 // MARK: Acquire Data
 extension ReportStore {
+    // TODO: To delete after make service
     func fetchData() {
-        db.collection("Test").order(by: "Date", descending: false).addSnapshotListener { documentShapshot, error in
-            guard let document = documentShapshot?.documents else {
-                print("Error fetching document \(error!)")
-                return
-            }
-            if let item = document.last?.data() {
-                if let description = item["Description"] {
-                    print("Last item description: \(description)")
-                }
-            }
+        guard let dayBefore = getTwelveHoursEarlierDate() else {
+            return
         }
+        print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
+        db.collection("Test")
+            .whereField("Date", isGreaterThan: dayBefore)
+            .order(by: "Date", descending: false)
+            .addSnapshotListener { documentShapshot, error in
+                guard let document = documentShapshot?.documents else {
+                    print("Error fetching document \(error!)")
+                    return
+                }
+                if let item = document.last?.data() {
+                    if let description = item[K.Firestore.Categories.Fields.description] {
+                        print("Last item description: \(description)")
+                    }
+                }
+        }
+    }
+    func fetchData(acquireData: @escaping ([QueryDocumentSnapshot]) -> Void) {
+        guard let dayBefore = getTwelveHoursEarlierDate() else {
+            return
+        }
+        print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
+        db.collection("Test")
+            .whereField("Date", isGreaterThan: dayBefore)
+            .order(by: "Date", descending: false)
+            .addSnapshotListener { documentShapshot, error in
+                guard let document = documentShapshot?.documents else {
+                    print("Error fetching document \(error!)")
+                    return
+                }
+                acquireData(document)
+        }
+    }
+}
+// MARK: Create Date
+extension ReportStore {
+    private func getTwelveHoursEarlierDate() -> Date?{
+        return Calendar.current.date(byAdding: .hour, value: -12, to: Date())
     }
 }

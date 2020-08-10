@@ -25,22 +25,21 @@ struct AlertView: View {
             }.padding(20)
             Spacer()
             Button(action:{
-                if self.locationManager.location != nil, let location = self.locationManager.location {
+                if let location = self.locationManager.location {
                     // TODO: Secure behind user uses to often a button to request a report
                     // TODO: Make coordinator to shortcut the description way of creating report
-                    self.reportStore.getLocationBeforeSend(location)
-                    self.reportStore.getDescriptionBeforeSend(self.alertViewModel.description)
-                    self.isPresented = !self.reportStore.sendReport()   // result is for a "feature" todo lately
-//                    self.alertViewModel.makeFiveMinutesIntervalUntilNextReport()
+                    self.isPresented = !self.reportStore.sendReport(location: location.convertCLLocationToGeoPoint(), description: self.alertViewModel.description)   // result is for a "feature" todo lately
+                    //                    self.alertViewModel.makeFiveMinutesIntervalUntilNextReport()
                     
                 }
             }){
-                Text("Report")
-            }.frame(minWidth: 0, maxWidth: .infinity)
-                .frame(height: 50)
-                .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]),startPoint: .leading,endPoint: .trailing))
-                .foregroundColor(Color.white)
-                .disabled(alertViewModel.disabledButton)
+                Text("Report").frame(minWidth: 0, maxWidth: .infinity)
+                    .frame(height: 50)
+                    .font(.system(size: 14, weight: .bold))
+                    .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]),startPoint: .leading,endPoint: .trailing))
+                    .foregroundColor(Color.white)
+                    .cornerRadius(5)
+            }
         }
     }
 }

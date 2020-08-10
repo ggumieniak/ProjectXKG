@@ -9,6 +9,7 @@
 import Foundation
 import Combine
 
+// MARK: Initialization
 class SignInViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var password: String = ""

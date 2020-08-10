@@ -35,6 +35,7 @@
 		50D8B4C324A75C4200220F94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50D8B4C124A75C4200220F94 /* LaunchScreen.storyboard */; };
 		50D8B4CE24A75C4200220F94 /* ProjectXKGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4CD24A75C4200220F94 /* ProjectXKGTests.swift */; };
 		50D8B4D924A75C4200220F94 /* ProjectXKGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4D824A75C4200220F94 /* ProjectXKGUITests.swift */; };
+		50DF63B724DD52CD000A9353 /* FirebaseDataClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DF63B624DD52CD000A9353 /* FirebaseDataClassifier.swift */; };
 		50EB43A324C989130058AAAD /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EB43A224C989130058AAAD /* AlertView.swift */; };
 		50ED1BAE24C7467F005FB417 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ED1BAD24C7467F005FB417 /* Coordinator.swift */; };
 		5D91B3433955A7A0EC7C7DE3 /* Pods_ProjectXKG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D65D4E86967630A28638E5F /* Pods_ProjectXKG.framework */; };
@@ -96,6 +97,7 @@
 		50D8B4D424A75C4200220F94 /* ProjectXKGUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectXKGUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D8B4D824A75C4200220F94 /* ProjectXKGUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectXKGUITests.swift; sourceTree = "<group>"; };
 		50D8B4DA24A75C4200220F94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50DF63B624DD52CD000A9353 /* FirebaseDataClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataClassifier.swift; sourceTree = "<group>"; };
 		50EB43A224C989130058AAAD /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		50ED1BAD24C7467F005FB417 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		6D65D4E86967630A28638E5F /* Pods_ProjectXKG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectXKG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,6 +203,7 @@
 			children = (
 				507573A424C20FD50064FD74 /* SessionStore.swift */,
 				509C6D0E24D2BE030024521F /* ReportStore.swift */,
+				50DF63B624DD52CD000A9353 /* FirebaseDataClassifier.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				50ED1BAE24C7467F005FB417 /* Coordinator.swift in Sources */,
 				5043E5C624D31883006E1C7F /* CLLocationCoordinate2D+Example.swift in Sources */,
 				5057753F24D17E4A0005C517 /* AlertViewModel.swift in Sources */,
+				50DF63B724DD52CD000A9353 /* FirebaseDataClassifier.swift in Sources */,
 				50D8B4B924A75C3F00220F94 /* SceneDelegate.swift in Sources */,
 				509C6D0D24D2B43D0024521F /* GeoLocation.swift in Sources */,
 				503E35E924D9631F000D9717 /* ReportManager.swift in Sources */,
