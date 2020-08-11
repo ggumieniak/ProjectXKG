@@ -12,9 +12,9 @@ import MapKit
 extension MKPointAnnotation {
     static var example: MKPointAnnotation {
         let annotation = MKPointAnnotation()
-        annotation.title = "London"
-        annotation.subtitle = "Jakas przykladowa lokalizacja"
-        annotation.coordinate = CLLocationCoordinate2D(latitude: 51.1, longitude: 0.12)
+        annotation.title = "Stalowa Wola"
+        annotation.subtitle = "Centrum Edukacji Zawodowej w Stalowej Woli"
+        annotation.coordinate = CLLocationCoordinate2D(latitude: 50.5562, longitude: 22.0422)
         return annotation
     }
 }

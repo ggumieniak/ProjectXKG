@@ -11,45 +11,48 @@ import MapKit
 
 // MARK: Initialization
 class ReportManager {
+    private static let shared = ReportManager()
     private let reportStore = ReportStore()
     private var timer = Timer()
     private var counter:Int = 0
     private var pauseTimer = 360
     private var data = [Report]()
+    @Published var annotation = [MKPointAnnotation]()
 }
 //MARK: Accesors
 extension ReportManager {
-    func getReportAnnotations() -> [MKAnnotation] {
-        
-        return [MKAnnotation]()
+    private func getReportAnnotations() -> [MKPointAnnotation] {
+        return MKPointAnnotationFactory(from: data).createPointsToAnnotation()
     }
 }
 // TODO: Send Data
 
 extension ReportManager {
     func sendData(location: CLLocation, description: String, category: String) {
-//        reportStore.sendReport(location: location.convertCLLocationToGeoPoint(), description: description)
+        //        reportStore.sendReport(location: location.convertCLLocationToGeoPoint(), description: description)
         print("Wysylam dane!")
     }
 }
 
 
 // MARK: Fetch data
-extension ReportManager {
+extension ReportManager {    
     func downloadData() {
-        reportStore.fetchData()
-    }
-    
-    func downloadDataTest() {
-        reportStore.fetchData { reports in
-            self.data = FirebaseDataClassifier(from: reports).getDataToShow()
-            print("\(#function) posiada \(self.data.count)")
+        DispatchQueue.main.async {
+            self.reportStore.fetchData { reports in
+                self.data = FirebaseDataClassifier(from: reports).getDataToShow()
+                self.annotation = self.getReportAnnotations()
+            }
         }
+        
     }
     
     func downloadDataEvery5Minutes() {
-        reportStore.fetchData()
+        //        reportStore.fetchData()
         setUpAndRunTimer()
+    }
+    func getAnnotation() -> [MKPointAnnotation] {
+        return annotation
     }
 }
 // MARK: Utils
@@ -60,11 +63,11 @@ extension ReportManager {
     }
     
     @objc private func countPauseBetweenReport() {
-//        print("Uzytkownik wlasnie uruchomil licznik i wynosy: \(counter)")
+        //        print("Uzytkownik wlasnie uruchomil licznik i wynosy: \(counter)")
         if counter < pauseTimer {
             counter+=1
         } else {
-            reportStore.fetchData()
+            //            reportStore.fetchData()
             counter = 0
         }
     }

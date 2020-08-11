@@ -26,6 +26,8 @@
 	<string>Ta aplikacja wymaga zgody na zgode</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Ta aplikacja wymaga zgody na zgode</string>
+	<key>FirebaseScreenReportingEnabled</key>
+	<string>NO</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

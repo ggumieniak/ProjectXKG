@@ -14,7 +14,6 @@ import Combine
 
 class ReportStore: ObservableObject {
     private let db = Firestore.firestore()
-    //    private var dataModeler = DataModeler()
 }
 
 
@@ -44,41 +43,27 @@ extension ReportStore {
 // MARK: Acquire Data
 extension ReportStore {
     // TODO: To delete after make service
-    func fetchData() {
-        guard let dayBefore = getTwelveHoursEarlierDate() else {
-            return
-        }
-        print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
-        db.collection("Test")
-            .whereField("Date", isGreaterThan: dayBefore)
-            .order(by: "Date", descending: false)
-            .addSnapshotListener { documentShapshot, error in
-                guard let document = documentShapshot?.documents else {
-                    print("Error fetching document \(error!)")
-                    return
-                }
-                if let item = document.last?.data() {
-                    if let description = item[K.Firestore.Categories.Fields.description] {
-                        print("Last item description: \(description)")
-                    }
-                }
-        }
-    }
     func fetchData(acquireData: @escaping ([QueryDocumentSnapshot]) -> Void) {
         guard let dayBefore = getTwelveHoursEarlierDate() else {
             return
         }
         print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
-        db.collection("Test")
-            .whereField("Date", isGreaterThan: dayBefore)
-            .order(by: "Date", descending: false)
-            .addSnapshotListener { documentShapshot, error in
-                guard let document = documentShapshot?.documents else {
-                    print("Error fetching document \(error!)")
-                    return
-                }
-                acquireData(document)
+        DispatchQueue.main.async {
+            self.db.collection("Test")
+                .whereField("Date", isGreaterThan: dayBefore)
+                .order(by: "Date", descending: false)
+                .addSnapshotListener { documentShapshot, error in
+                    guard let document = documentShapshot?.documents else {
+                        print("Error fetching document \(error!)")
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        acquireData(document)
+                    }
+                    
+            }
         }
+        
     }
 }
 // MARK: Create Date
