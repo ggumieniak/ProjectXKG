@@ -65,9 +65,12 @@ extension ReportStore {
                 
                 self.annotations = acquireData(document)
                 print("Adnotacje \(self.annotations.count)")
-                
+                // TODO: Przeslij do widoku
+                DispatchQueue.main.async {
+                    MapViewModel.shared.locations = self.annotations
+                    print("\(#function) liczba lokalizacji w shared mapviewmodel = \(MapViewModel.shared.locations.count)")
+                }
         }
-        print("adnotacje \(annotations.count)")
     }
 }
 // MARK: Create Date

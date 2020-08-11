@@ -21,7 +21,7 @@ struct MapView: View {
         Group {
             if (session.session != nil) {
                 ZStack {
-                    Map(coordinate: locationManager.get2DLocationCoordinate(),annotations: mapViewModel.locations)
+                    Map(coordinate: locationManager.get2DLocationCoordinate(),annotations: MapViewModel.shared.locations)
                         .edgesIgnoringSafeArea(.all)
                     VStack {
                         Spacer()
@@ -62,15 +62,13 @@ struct MapView: View {
                             }
                         }.padding()
                     }
-                }.onAppear {
-                    // TODO: Change to static downloading every
-                    self.mapViewModel.fetchData()
                 }
             } else {
                 AuthView()
             }
         }.onAppear{
             self.session.listen()
+            self.mapViewModel.fetchData()
         }
     }
 }

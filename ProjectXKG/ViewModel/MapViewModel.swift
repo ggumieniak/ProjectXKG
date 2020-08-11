@@ -11,7 +11,7 @@ import MapKit
 
 // MARK: Initialization
 class MapViewModel:ObservableObject {
-    
+    static let shared = MapViewModel()
     let reportManager = ReportManager()
     @Published var locations = [MKPointAnnotation]()
     @Published var isModel: Bool = false
