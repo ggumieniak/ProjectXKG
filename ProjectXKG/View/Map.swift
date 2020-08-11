@@ -24,6 +24,7 @@ struct Map: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<Map>) {
+        print(annotations.count)
         guard let point = coordinate else {
             return
         }

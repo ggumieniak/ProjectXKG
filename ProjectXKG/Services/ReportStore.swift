@@ -11,9 +11,15 @@ import FirebaseFirestore
 import FirebaseAuth
 import CoreLocation
 import Combine
+import MapKit
 
 class ReportStore: ObservableObject {
     private let db = Firestore.firestore()
+    @Published var annotations = [MKPointAnnotation]() {
+        didSet {
+            print("Zmienilem sie na lepsze!")
+        }
+    }
 }
 
 
@@ -43,27 +49,25 @@ extension ReportStore {
 // MARK: Acquire Data
 extension ReportStore {
     // TODO: To delete after make service
-    func fetchData(acquireData: @escaping ([QueryDocumentSnapshot]) -> Void) {
+    func fetchData(acquireData: @escaping ([QueryDocumentSnapshot]) -> [MKPointAnnotation]) {
         guard let dayBefore = getTwelveHoursEarlierDate() else {
             return
         }
         print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
-        DispatchQueue.main.async {
-            self.db.collection("Test")
-                .whereField("Date", isGreaterThan: dayBefore)
-                .order(by: "Date", descending: false)
-                .addSnapshotListener { documentShapshot, error in
-                    guard let document = documentShapshot?.documents else {
-                        print("Error fetching document \(error!)")
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        acquireData(document)
-                    }
-                    
-            }
+        self.db.collection("Test")
+            .whereField("Date", isGreaterThan: dayBefore)
+            .order(by: "Date", descending: false)
+            .addSnapshotListener { documentShapshot, error in
+                guard let document = documentShapshot?.documents else {
+                    print("Error fetching document \(error!)")
+                    return
+                }
+                
+                self.annotations = acquireData(document)
+                print("Adnotacje \(self.annotations.count)")
+                
         }
-        
+        print("adnotacje \(annotations.count)")
     }
 }
 // MARK: Create Date

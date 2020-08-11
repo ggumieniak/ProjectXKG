@@ -23,10 +23,6 @@ struct MapView: View {
                 ZStack {
                     Map(coordinate: locationManager.get2DLocationCoordinate(),annotations: mapViewModel.locations)
                         .edgesIgnoringSafeArea(.all)
-                        .onAppear {
-                            // TODO: Change to static downloading every
-                            self.mapViewModel.fetchData()
-                    }
                     VStack {
                         Spacer()
                         HStack {
@@ -66,6 +62,9 @@ struct MapView: View {
                             }
                         }.padding()
                     }
+                }.onAppear {
+                    // TODO: Change to static downloading every
+                    self.mapViewModel.fetchData()
                 }
             } else {
                 AuthView()

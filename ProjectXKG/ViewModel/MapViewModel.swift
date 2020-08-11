@@ -11,6 +11,7 @@ import MapKit
 
 // MARK: Initialization
 class MapViewModel:ObservableObject {
+    
     let reportManager = ReportManager()
     @Published var locations = [MKPointAnnotation]()
     @Published var isModel: Bool = false
@@ -31,3 +32,5 @@ extension MapViewModel {
         self.locations = locations
     }
 }
+
+

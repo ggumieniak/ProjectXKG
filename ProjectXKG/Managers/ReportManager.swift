@@ -11,7 +11,6 @@ import MapKit
 
 // MARK: Initialization
 class ReportManager {
-    private static let shared = ReportManager()
     private let reportStore = ReportStore()
     private var timer = Timer()
     private var counter:Int = 0
@@ -38,12 +37,13 @@ extension ReportManager {
 // MARK: Fetch data
 extension ReportManager {    
     func downloadData() {
-        DispatchQueue.main.async {
-            self.reportStore.fetchData { reports in
-                self.data = FirebaseDataClassifier(from: reports).getDataToShow()
-                self.annotation = self.getReportAnnotations()
-            }
+        
+        reportStore.fetchData { reports in
+            self.data = FirebaseDataClassifier(from: reports).getDataToShow()
+            self.annotation = self.getReportAnnotations()
+            return self.annotation
         }
+        
         
     }
     
