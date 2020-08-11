@@ -41,9 +41,7 @@ extension ReportManager {
     }
     
     func downloadDataTest() {
-        print("downloadDataTest")
         reportStore.fetchData { reports in
-            print("In arrary is: \(reports.count) of data")
             self.data = FirebaseDataClassifier(from: reports).getDataToShow()
             print("\(#function) posiada \(self.data.count)")
         }

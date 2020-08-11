@@ -8,32 +8,15 @@
 * Po pobraniu  prosze uruchomic plik __ProjectXKG.xcworkspace__  
 ## Przydatne
 * Link do formatowania MD =  [Tutaj](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-## Do zrobienia w następnym tygodniu (27.07.2020->)
-* _Przetworzyc rejestracje i logowania na mvvm_
-* Pomyśleć jak ma wygladac dokladniej baza danych
-* __Wyslac informacje do bazy danych__
-* *Pobrac dane z bazy(dodatkowo)
 ## Co robię aktualnie
-* Wyswietlic Tekst na mapie z koordynatami
-* __Dodac obsluge bazy danych__
-    * Udostepnic do bazy danych
-* Przycisk do zgłaszania informacji:
-    * Zgłasza informacje
-        * Do konsoli
+* Narysowanie na mapie gdzie jest jakis problem
+* Wyświetlenie informacji w danym obszarze 
 ## Do zrobienia:
 * Zrobic menu ustawien: 
-    * Nazwa uzytkownika jaka by byla
-    * Tam moglby wybrac czy chce pomagac czy nie (pierwsza pomoc)
+    * _Nazwa uzytkownika jaka by byla_
+    * Jakie zgloszenia go interesuja
     * _Mozliwie wybor promienia w jakim chce dostawac powiadomienia_ 
-* Połączenie się z bazą danych
-* Przesłanie lokalizacji do bazy danych
-* Pobranie lokalizacji w bazie danych
-* Wyświetlenie informacji z bazy danych
-* Wyświetlenie informacji w danym obszarze 
-* Narysowanie na mapie gdzie jest jakis problem
 * Po nacisnieciu pineski wyswietlenei informacji kto zglosil i co zglosil
-* Aktywna akutalizacja danych (czyli pobieranie danych z firebase w tle)
-    * Ograniczenie pobieranych danych w jakims wymiarze czasu (bo jesli byloby uzytkownikow tysiace, musialby przetwarzac tysiac inforamcji w sekunde)
 ## Przydaloby sie:
 * __Testy__
 * Kompatybilność z innymi platformami 
@@ -43,7 +26,7 @@
 * Zdarzenia:
     * Kategorie - mozliwosc wyszukania (drogowa, gaz etc.)
     * Czas zdarzenia
-* Przeniesienie wszystkiego na serwer (ta aplikacja bedzie zbierala za duzo danych!)
+* _Przetworzyc rejestracje i logowania na mvvm_
 ## Zrobione
 * Sprawdzic czy na urzadzeniu fizycznym bedzie ciagla zmiana lokalizacji
 * Wyświetlenie informacji, gdzie obecnie się znajdujemy
@@ -52,6 +35,22 @@
 * Logowanie
 * Rejestracja
 * Stworzyc managera, ktory sledzi nasza lokalizacje
+* Wyswietlic Tekst na mapie z koordynatami
+* __Dodac obsluge bazy danych__
+    * Udostepnic do bazy danych
+* Przycisk do zgłaszania informacji:
+    * Zgłasza informacje
+        * Do konsoli
+* Połączenie się z bazą danych
+* Przesłanie lokalizacji do bazy danych
+* Pobranie lokalizacji w bazie danych
+* Wyświetlenie informacji z bazy danych
+* Aktywna akutalizacja danych (czyli pobieranie danych z firebase w tle)
+* Ograniczenie pobieranych danych w jakims wymiarze czasu (bo jesli byloby uzytkownikow tysiace, musialby przetwarzac tysiac inforamcji w sekunde)
+* Konwersja czasu serwerowego na czas lokalny uzytkownika
+* Dodanie konwersji danych z serwera na zgodna w aplikacji
+* __Wyslac informacje do bazy danych__
+* Pobrac dane z bazy(dodatkowo)
 ## Uzytkownik do zalogowania
 * __Login__: _1@2.com_
 * __Haslo__: _123456_

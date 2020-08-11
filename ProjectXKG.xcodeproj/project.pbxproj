@@ -16,6 +16,7 @@
 		5052CB2D24DAA7DE00FFB906 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5052CB2C24DAA7DE00FFB906 /* MapViewModel.swift */; };
 		5057753D24D165A40005C517 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5057753C24D165A40005C517 /* Constants.swift */; };
 		5057753F24D17E4A0005C517 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5057753E24D17E4A0005C517 /* AlertViewModel.swift */; };
+		5066DD5A24E2762400AFE72C /* MKAnnotationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5066DD5924E2762400AFE72C /* MKAnnotationFactory.swift */; };
 		506BB4C924C1FF120062D816 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 506BB4C824C1FF120062D816 /* .gitignore */; };
 		506BB4CD24C204660062D816 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 506BB4CC24C204660062D816 /* GoogleService-Info.plist */; };
 		506D45C424C58EAA0012D754 /* MKPointAnnotation+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */; };
@@ -71,6 +72,7 @@
 		5052CB2C24DAA7DE00FFB906 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		5057753C24D165A40005C517 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5057753E24D17E4A0005C517 /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
+		5066DD5924E2762400AFE72C /* MKAnnotationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKAnnotationFactory.swift; sourceTree = "<group>"; };
 		506BB4C824C1FF120062D816 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		506BB4CA24C1FF430062D816 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		506BB4CC24C204660062D816 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				507573A424C20FD50064FD74 /* SessionStore.swift */,
 				509C6D0E24D2BE030024521F /* ReportStore.swift */,
 				50DF63B624DD52CD000A9353 /* FirebaseDataClassifier.swift */,
+				5066DD5924E2762400AFE72C /* MKAnnotationFactory.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				50AED0FC24CADD4200B187B9 /* SignInViewModel.swift in Sources */,
 				50EB43A324C989130058AAAD /* AlertView.swift in Sources */,
 				506D45C424C58EAA0012D754 /* MKPointAnnotation+Example.swift in Sources */,
+				5066DD5A24E2762400AFE72C /* MKAnnotationFactory.swift in Sources */,
 				50A14ED624C6CA500023240E /* LocationManager.swift in Sources */,
 				500C047F24C4A2D80028F154 /* Map.swift in Sources */,
 				500AA27224C31CAD00AEA655 /* SignUpView.swift in Sources */,
