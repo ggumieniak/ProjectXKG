@@ -39,8 +39,7 @@ struct Map: UIViewRepresentable {
         let latDelta:CLLocationDegrees = 0.01
         let lonDelta:CLLocationDegrees = 0.01
         let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
-        let region = MKCoordinateRegion(center: point
-            , span: span)
+        let region = MKCoordinateRegion(center: point, span: span)
         uiView.setRegion(region, animated: true)
     }
     
