@@ -67,3 +67,13 @@ extension LocationManager {
         return location?.coordinate
     }
 }
+
+// MARK: UpdatingLocation
+extension LocationManager {
+    func stopUpdatingWhileReporting() -> Void {
+        self.locationManager.stopUpdatingLocation()
+    }
+    func startUpdatingWhileReporting() -> Void {
+        self.locationManager.startUpdatingLocation()
+    }
+}

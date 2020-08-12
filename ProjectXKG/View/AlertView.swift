@@ -40,6 +40,10 @@ struct AlertView: View {
                     .foregroundColor(Color.white)
                     .cornerRadius(5)
             }
+        }.onAppear{
+            self.locationManager.stopUpdatingWhileReporting()
+        }.onDisappear{
+            self.locationManager.startUpdatingWhileReporting()
         }
     }
 }

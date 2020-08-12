@@ -27,17 +27,21 @@ struct Map: UIViewRepresentable {
         return map
     }
     
+    // TODO: DO USUNIECIA
+    
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<Map>) {
-        print(annotations.count)
+        print("Ilosc adnotacji \(annotations.count)")
+        print("Ilosc adnotacji w uiView \(uiView.annotations.count)")
         guard let point = coordinate else {
             return
         }
         if annotations.count != uiView.annotations.count {
+            
             uiView.removeAnnotations(uiView.annotations)
             uiView.addAnnotations(self.annotations)
         }
-        let latDelta:CLLocationDegrees = 0.01
-        let lonDelta:CLLocationDegrees = 0.01
+        let latDelta:CLLocationDegrees = 0.005
+        let lonDelta:CLLocationDegrees = 0.005
         let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
         let region = MKCoordinateRegion(center: point, span: span)
         uiView.setRegion(region, animated: true)

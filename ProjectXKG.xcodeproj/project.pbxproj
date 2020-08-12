@@ -27,6 +27,7 @@
 		509C6D0F24D2BE030024521F /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6D0E24D2BE030024521F /* ReportStore.swift */; };
 		509C6D1124D2CD970024521F /* CLLocation+GeoPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6D1024D2CD970024521F /* CLLocation+GeoPoint.swift */; };
 		50A14ED624C6CA500023240E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A14ED524C6CA500023240E /* LocationManager.swift */; };
+		50AD51AF24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD51AE24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift */; };
 		50AED0FC24CADD4200B187B9 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AED0FB24CADD4200B187B9 /* SignInViewModel.swift */; };
 		50D8B4B724A75C3F00220F94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4B624A75C3F00220F94 /* AppDelegate.swift */; };
 		50D8B4B924A75C3F00220F94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4B824A75C3F00220F94 /* SceneDelegate.swift */; };
@@ -84,6 +85,7 @@
 		509C6D0E24D2BE030024521F /* ReportStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
 		509C6D1024D2CD970024521F /* CLLocation+GeoPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+GeoPoint.swift"; sourceTree = "<group>"; };
 		50A14ED524C6CA500023240E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		50AD51AE24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+GeoPoint.swift"; sourceTree = "<group>"; };
 		50AED0FB24CADD4200B187B9 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		50D8B4B324A75C3F00220F94 /* ProjectXKG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectXKG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D8B4B624A75C3F00220F94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */,
 				509C6D1024D2CD970024521F /* CLLocation+GeoPoint.swift */,
 				5043E5C524D31883006E1C7F /* CLLocationCoordinate2D+Example.swift */,
+				50AD51AE24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				507573A224C20F700064FD74 /* User.swift in Sources */,
 				500AA27024C31BD600AEA655 /* SignInView.swift in Sources */,
 				509C6D0F24D2BE030024521F /* ReportStore.swift in Sources */,
+				50AD51AF24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift in Sources */,
 				50AED0FC24CADD4200B187B9 /* SignInViewModel.swift in Sources */,
 				50EB43A324C989130058AAAD /* AlertView.swift in Sources */,
 				506D45C424C58EAA0012D754 /* MKPointAnnotation+Example.swift in Sources */,
