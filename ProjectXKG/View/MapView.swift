@@ -68,7 +68,7 @@ struct MapView: View {
             }
         }.onAppear{
             self.session.listen()
-            self.mapViewModel.fetchData()
+            self.mapViewModel.fetchData(currentLocation: self.locationManager.get2DLocationCoordinate())
         }
     }
 }

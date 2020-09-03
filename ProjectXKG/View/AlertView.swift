@@ -27,8 +27,7 @@ struct AlertView: View {
             Button(action:{
                 if let location = self.locationManager.location {
                     // TODO: Secure behind user uses to often a button to request a report
-                    // TODO: Make coordinator to shortcut the description way of creating report
-                    self.isPresented = !self.reportStore.sendReport(location: location.convertCLLocationToGeoPoint(), description: self.alertViewModel.description)   // result is for a "feature" todo lately
+                    self.isPresented = !self.reportStore.sendReport(location: location.convertCLLocationToGeoPoint(), description: self.alertViewModel.description) 
                     //                    self.alertViewModel.makeFiveMinutesIntervalUntilNextReport()
                     
                 }

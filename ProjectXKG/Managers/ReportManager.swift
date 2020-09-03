@@ -36,7 +36,7 @@ extension ReportManager {
 
 // MARK: Fetch data
 extension ReportManager {    
-    func downloadData() {
+    func downloadData(at location: CLLocationCoordinate2D) {
         
         reportStore.fetchData { reports in
             self.data = FirebaseDataClassifier(from: reports).getDataToShow()

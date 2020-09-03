@@ -13,7 +13,7 @@ import MapKit
 class MapViewModel:ObservableObject {
     static let shared = MapViewModel()
     let reportManager = ReportManager()
-    @Published var locations = [MKPointAnnotation]()
+    @Published var locations = [MKAnnotation]()
     @Published var isModel: Bool = false
 }
 // MARK: Methods
@@ -21,8 +21,11 @@ extension MapViewModel {
     func fetchDataEvery5Minute() {
         reportManager.downloadDataEvery5Minutes()
     }
-    func fetchData() {
-        reportManager.downloadData()
+    func fetchData(currentLocation locations:CLLocationCoordinate2D?) {
+        guard let location = locations else  {
+            return
+        }
+        reportManager.downloadData(at: location)
         self.locations = reportManager.getAnnotation()
         print("Skonczylem juz w \(#function)")
 //        locations = reportManager.getReportAnnotations()
