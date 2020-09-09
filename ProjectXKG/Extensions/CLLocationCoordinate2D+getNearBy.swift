@@ -11,9 +11,16 @@ import FirebaseFirestore
 import CoreLocation
 
 extension CLLocationCoordinate2D {
-    func getNearBy(at location: CLLocationCoordinate2D) -> (lesserGeoPoint: GeoPoint,greaterGeoPoint: GeoPoint) {
-        
-        // TODO: Delete after make entire code
-        return (GeoPoint(latitude: 0.0, longitude: 0.0),GeoPoint(latitude: 1.0, longitude: 1.0))
+    func getNearBy(at location: CLLocationCoordinate2D,with accuracy: Double) -> (lesserGeoPoint: GeoPoint,greaterGeoPoint: GeoPoint) {
+        let geoDistance = 0.01 // around 1.11km
+        let distance = geoDistance * accuracy
+        let lowerLat = location.latitude.advanced(by: -distance)
+        let lowerLon = location.longitude.advanced(by: -distance)
+        let lowerGeoPoint = GeoPoint(latitude: lowerLat, longitude: lowerLon)
+        let greaterLat = location.latitude.advanced(by: distance)
+        let greaterLon = location.longitude.advanced(by: distance)
+        let greaterGeoPoint = GeoPoint(latitude: greaterLat, longitude: greaterLon)
+ 
+        return (lowerGeoPoint,greaterGeoPoint)
     }
 }

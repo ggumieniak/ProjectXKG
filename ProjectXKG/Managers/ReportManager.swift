@@ -28,7 +28,7 @@ extension ReportManager {
 // MARK: Fetch data
 extension ReportManager {    
     func downloadData(at location: CLLocationCoordinate2D) {
-        reportService.fetchData(at: location) { reports in
+        reportService.fetchData(at: location,with: 10 /* accuracy */) { reports in
             self.data = FirebaseDataClassifier(from: reports).getDataToShow()
             self.annotation = self.getReportAnnotations()
             return self.annotation

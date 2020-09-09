@@ -45,16 +45,16 @@ extension ReportService {
 // MARK: Acquire Data
 extension ReportService {
     // TODO: To delete after make service
-    func fetchData(at location:CLLocationCoordinate2D,acquireData: @escaping ([QueryDocumentSnapshot]) -> [MKPointAnnotation]) /* -> [MKPointAnnotation] */ {
+    func fetchData(at location:CLLocationCoordinate2D,with accuracy: Double,acquireData: @escaping ([QueryDocumentSnapshot]) -> [MKPointAnnotation]) /* -> [MKPointAnnotation] */ {
         guard let dayBefore = getTwelveHoursEarlierDate() else {
             return // if cant get time dont downlad any date
         }
         print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
-        
-        //
+        let queryLocation = location.getNearBy(at: location, with: accuracy)
         self.db.collection("Test")
-            .whereField("Date", isGreaterThan: dayBefore)
-            .order(by: "Date", descending: false)
+            .whereField(K.Firestore.Categories.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
+            .whereField(K.Firestore.Categories.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
+            //TODO: Make cron-job to delete reports older then 1 day
             .addSnapshotListener { documentShapshot, error in
                 guard let document = documentShapshot?.documents else {
                     print("Error fetching document \(error!)")
