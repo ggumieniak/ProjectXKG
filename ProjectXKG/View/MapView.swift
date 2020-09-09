@@ -14,7 +14,7 @@ struct MapView: View {
     @EnvironmentObject var session: SessionStore
     //    @EnvironmentObject var repoStore:
     @EnvironmentObject private var locationManager: LocationManager
-    @EnvironmentObject var report: ReportStore
+    @EnvironmentObject var report: ReportService
     @ObservedObject var mapViewModel = MapViewModel()
     
     var body: some View {

@@ -13,14 +13,14 @@ import CoreLocation
 import Combine
 import MapKit
 
-class ReportStore: ObservableObject {
+class ReportService: ObservableObject {
     private let db = Firestore.firestore()
     @Published var annotations = [MKAnnotation]()
 }
 
 
 // MARK: Send Data
-extension ReportStore {
+extension ReportService {
     // TODO: Make a category specified report
     func sendReport(location: GeoPoint, description: String/*, collection: String */) -> Bool {
         guard let userMail = Auth.auth().currentUser?.email else {
@@ -43,9 +43,9 @@ extension ReportStore {
 }
 
 // MARK: Acquire Data
-extension ReportStore {
+extension ReportService {
     // TODO: To delete after make service
-    func fetchData(acquireData: @escaping ([QueryDocumentSnapshot]) -> [MKPointAnnotation]/* get location */) {
+    func fetchData(at location:CLLocationCoordinate2D,acquireData: @escaping ([QueryDocumentSnapshot]) -> [MKPointAnnotation]) {
         guard let dayBefore = getTwelveHoursEarlierDate() else {
             return
         }
@@ -72,7 +72,7 @@ extension ReportStore {
     }
 }
 // MARK: Create Date
-extension ReportStore {
+extension ReportService {
     private func getTwelveHoursEarlierDate() -> Date?{
         return Calendar.current.date(byAdding: .hour, value: -12, to: Date())
     }

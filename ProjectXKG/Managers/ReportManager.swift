@@ -11,7 +11,7 @@ import MapKit
 
 // MARK: Initialization
 class ReportManager {
-    private let reportStore = ReportStore()
+    private let reportService = ReportService()
     private var timer = Timer()
     private var counter:Int = 0
     private var pauseTimer = 360
@@ -38,7 +38,7 @@ extension ReportManager {
 extension ReportManager {    
     func downloadData(at location: CLLocationCoordinate2D) {
         
-        reportStore.fetchData { reports in
+        reportStore.fetchData(at: location) { reports in
             self.data = FirebaseDataClassifier(from: reports).getDataToShow()
             self.annotation = self.getReportAnnotations()
             return self.annotation

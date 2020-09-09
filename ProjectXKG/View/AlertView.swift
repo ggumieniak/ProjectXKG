@@ -11,7 +11,7 @@ import SwiftUI
 struct AlertView: View {
     @ObservedObject var alertViewModel = AlertViewModel()
     @EnvironmentObject private var locationManager: LocationManager
-    @EnvironmentObject var reportStore: ReportStore
+    @EnvironmentObject var reportStore: ReportService
     @Binding var isPresented: Bool
     
     var body: some View {
@@ -27,9 +27,7 @@ struct AlertView: View {
             Button(action:{
                 if let location = self.locationManager.location {
                     // TODO: Secure behind user uses to often a button to request a report
-                    self.isPresented = !self.reportStore.sendReport(location: location.convertCLLocationToGeoPoint(), description: self.alertViewModel.description) 
-                    //                    self.alertViewModel.makeFiveMinutesIntervalUntilNextReport()
-                    
+                    self.isPresented = !self.reportStore.sendReport(location: location.convertCLLocationToGeoPoint(), description: self.alertViewModel.description)
                 }
             }){
                 Text("Report").frame(minWidth: 0, maxWidth: .infinity)
