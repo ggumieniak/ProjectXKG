@@ -11,6 +11,7 @@
 		500AA27024C31BD600AEA655 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500AA26F24C31BD600AEA655 /* SignInView.swift */; };
 		500AA27224C31CAD00AEA655 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500AA27124C31CAD00AEA655 /* SignUpView.swift */; };
 		500C047F24C4A2D80028F154 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500C047E24C4A2D80028F154 /* Map.swift */; };
+		5018ABCE25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5018ABCD25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift */; };
 		503E35E924D9631F000D9717 /* ReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503E35E824D9631F000D9717 /* ReportManager.swift */; };
 		5043E5C624D31883006E1C7F /* CLLocationCoordinate2D+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043E5C524D31883006E1C7F /* CLLocationCoordinate2D+Example.swift */; };
 		5052CB2D24DAA7DE00FFB906 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5052CB2C24DAA7DE00FFB906 /* MapViewModel.swift */; };
@@ -68,6 +69,7 @@
 		500AA26F24C31BD600AEA655 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		500AA27124C31CAD00AEA655 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		500C047E24C4A2D80028F154 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		5018ABCD25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+getNearBy.swift"; sourceTree = "<group>"; };
 		503E35E824D9631F000D9717 /* ReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManager.swift; sourceTree = "<group>"; };
 		5043E5C524D31883006E1C7F /* CLLocationCoordinate2D+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Example.swift"; sourceTree = "<group>"; };
 		5052CB2C24DAA7DE00FFB906 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				509C6D1024D2CD970024521F /* CLLocation+GeoPoint.swift */,
 				5043E5C524D31883006E1C7F /* CLLocationCoordinate2D+Example.swift */,
 				50AD51AE24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift */,
+				5018ABCD25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				5066DD5A24E2762400AFE72C /* MKPointAnnotationFactory.swift in Sources */,
 				50A14ED624C6CA500023240E /* LocationManager.swift in Sources */,
 				500C047F24C4A2D80028F154 /* Map.swift in Sources */,
+				5018ABCE25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift in Sources */,
 				500AA27224C31CAD00AEA655 /* SignUpView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,9 +18,6 @@ class MapViewModel:ObservableObject {
 }
 // MARK: Methods
 extension MapViewModel {
-    func fetchDataEvery5Minute() {
-        reportManager.downloadDataEvery5Minutes()
-    }
     func fetchData(currentLocation locations:CLLocationCoordinate2D?) {
         guard let location = locations else  {
             return

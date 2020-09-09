@@ -45,9 +45,9 @@ extension ReportService {
 // MARK: Acquire Data
 extension ReportService {
     // TODO: To delete after make service
-    func fetchData(at location:CLLocationCoordinate2D,acquireData: @escaping ([QueryDocumentSnapshot]) -> [MKPointAnnotation]) {
+    func fetchData(at location:CLLocationCoordinate2D,acquireData: @escaping ([QueryDocumentSnapshot]) -> [MKPointAnnotation]) /* -> [MKPointAnnotation] */ {
         guard let dayBefore = getTwelveHoursEarlierDate() else {
-            return
+            return // if cant get time dont downlad any date
         }
         print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
         
