@@ -20,6 +20,7 @@ struct AlertView: View {
             Text("Request a dangerous")
                 .font(.system(size: 32, weight: .bold))
             Spacer()
+            Spacer()
             VStack {
                 TextField("Description: ", text: $alertViewModel.description)
             }.padding(20)
