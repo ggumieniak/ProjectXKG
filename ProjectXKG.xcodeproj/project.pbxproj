@@ -23,6 +23,7 @@
 		506D45C424C58EAA0012D754 /* MKPointAnnotation+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */; };
 		507573A224C20F700064FD74 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507573A124C20F700064FD74 /* User.swift */; };
 		507573A524C20FD50064FD74 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507573A424C20FD50064FD74 /* SessionStore.swift */; };
+		5079E73F2510AA7100F13EE5 /* RadioButtonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079E73E2510AA7100F13EE5 /* RadioButtonField.swift */; };
 		509C6D0B24D2B29A0024521F /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6D0A24D2B29A0024521F /* Report.swift */; };
 		509C6D0D24D2B43D0024521F /* GeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6D0C24D2B43D0024521F /* GeoLocation.swift */; };
 		509C6D0F24D2BE030024521F /* ReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6D0E24D2BE030024521F /* ReportService.swift */; };
@@ -82,6 +83,7 @@
 		506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation+Example.swift"; sourceTree = "<group>"; };
 		507573A124C20F700064FD74 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		507573A424C20FD50064FD74 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		5079E73E2510AA7100F13EE5 /* RadioButtonField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonField.swift; sourceTree = "<group>"; };
 		509C6D0A24D2B29A0024521F /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		509C6D0C24D2B43D0024521F /* GeoLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
 		509C6D0E24D2BE030024521F /* ReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				500AA27124C31CAD00AEA655 /* SignUpView.swift */,
 				500C047E24C4A2D80028F154 /* Map.swift */,
 				50EB43A224C989130058AAAD /* AlertView.swift */,
+				5079E73E2510AA7100F13EE5 /* RadioButtonField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				509C6D0B24D2B29A0024521F /* Report.swift in Sources */,
 				500AA26E24C2EA3700AEA655 /* AuthView.swift in Sources */,
 				50D8B4B724A75C3F00220F94 /* AppDelegate.swift in Sources */,
+				5079E73F2510AA7100F13EE5 /* RadioButtonField.swift in Sources */,
 				50ED1BAE24C7467F005FB417 /* Coordinator.swift in Sources */,
 				5043E5C624D31883006E1C7F /* CLLocationCoordinate2D+Example.swift in Sources */,
 				5057753F24D17E4A0005C517 /* AlertViewModel.swift in Sources */,
