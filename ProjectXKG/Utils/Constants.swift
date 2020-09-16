@@ -12,12 +12,13 @@ struct K {
     struct Firestore {
         struct Collection {
             static let users: String = "Users"
-            static let reports: String = "Reports"
+            static let categories: String = "Categories"
             struct Categories {
                 static let roadAccident: String = "RoadAccident"
                 static let weather: String = "Weather"
                 static let localThreaten: String = "LocalThreaten"
                 struct Report {
+                    static let reports: String = "Reports"
                     struct Fields {
                         static let date: String = "Date"
                         static let description: String = "Description"

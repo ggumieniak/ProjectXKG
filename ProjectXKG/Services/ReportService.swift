@@ -22,15 +22,16 @@ class ReportService: ObservableObject {
 // MARK: Send Data
 extension ReportService {
     // TODO: Make a category specified report
-    func sendReport(location: GeoPoint, description: String/*, collection: String */) -> Bool {
+    func sendReport(location: GeoPoint, description: String, category: String) -> Bool {
         guard let userMail = Auth.auth().currentUser?.email else {
             return false
         }
-        db.collection("Test").addDocument(data: [
-            "Location" : location,
-            "Description" : description,
-            "User" : userMail,
-            "Date" : Timestamp.init()
+        db.collection(K.Firestore.Collection.categories).document(category).collection(K.Firestore.Collection.Categories.Report.reports)
+            .addDocument(data: [
+                K.Firestore.Collection.Categories.Report.Fields.location : location,
+            K.Firestore.Collection.Categories.Report.Fields.description : description,
+            K.Firestore.Collection.Categories.Report.Fields.user : userMail,
+            K.Firestore.Collection.Categories.Report.Fields.date : Timestamp.init()
         ]) { err in
             if let error = err {
                 print(error.localizedDescription)
