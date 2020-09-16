@@ -52,8 +52,8 @@ extension ReportService {
         print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
         let queryLocation = location.getNearBy(at: location, with: accuracy)
         self.db.collection("Test")
-            .whereField(K.Firestore.Categories.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
-            .whereField(K.Firestore.Categories.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
+            .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
+            .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
             //TODO: Make cron-job to delete reports older then 1 day
             .addSnapshotListener { documentShapshot, error in
                 guard let document = documentShapshot?.documents else {

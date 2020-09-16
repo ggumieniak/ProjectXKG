@@ -22,6 +22,7 @@ extension MapViewModel {
         guard let location = locations else  {
             return
         }
+        
         print("Pobieram dane")
         
         reportManager.downloadData(at: location)
