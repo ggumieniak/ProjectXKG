@@ -14,7 +14,8 @@ class MapViewModel:ObservableObject {
     static let shared = MapViewModel()
     let reportManager = ReportManager()
     @Published var locations = [MKAnnotation]()
-    @Published var isModel: Bool = false
+    @Published var showAlertView: Bool = false
+    @Published var showMenuView: Bool = false
 }
 // MARK: Methods
 extension MapViewModel {
