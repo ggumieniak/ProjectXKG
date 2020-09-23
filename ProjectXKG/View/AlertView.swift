@@ -11,7 +11,7 @@ import SwiftUI
 struct AlertView: View {
     @ObservedObject var alertViewModel = AlertViewModel()
     @EnvironmentObject private var locationManager: LocationManager
-    @EnvironmentObject var reportStore: ReportStore
+    @EnvironmentObject var reportStore: ReportService
     @Binding var isPresented: Bool
     
     var body: some View {
@@ -20,6 +20,10 @@ struct AlertView: View {
             Text("Request a dangerous")
                 .font(.system(size: 32, weight: .bold))
             Spacer()
+            RadioButtonGroups() { selected in
+                print("User picked \(selected) button")
+                self.alertViewModel.category = selected
+            }
             VStack {
                 TextField("Description: ", text: $alertViewModel.description)
             }.padding(20)
@@ -27,29 +31,29 @@ struct AlertView: View {
             Button(action:{
                 if let location = self.locationManager.location {
                     // TODO: Secure behind user uses to often a button to request a report
-                    // TODO: Make coordinator to shortcut the description way of creating report
-                    self.isPresented = !self.reportStore.sendReport(location: location.convertCLLocationToGeoPoint(), description: self.alertViewModel.description)   // result is for a "feature" todo lately
-                    //                    self.alertViewModel.makeFiveMinutesIntervalUntilNextReport()
-                    
+                    self.isPresented = !self.reportStore.sendReport(location: location.convertCLLocationToGeoPoint(), description: self.alertViewModel.description,category: self.alertViewModel.category)
                 }
             }){
-                Text("Report").frame(minWidth: 0, maxWidth: .infinity)
-                    .frame(height: 50)
-                    .font(.system(size: 14, weight: .bold))
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]),startPoint: .leading,endPoint: .trailing))
-                    .foregroundColor(Color.white)
-                    .cornerRadius(5)
-            }
+                if alertViewModel.category != "" {
+                    Text("Report").frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(height: 50)
+                        .font(.system(size: 14, weight: .bold))
+                        .background(LinearGradient(gradient: Gradient(colors: [Color.blue, Color.purple]),startPoint: .leading,endPoint: .trailing))
+                        .foregroundColor(Color.white)
+                        .cornerRadius(5)
+                } else {
+                    Text("Report").frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(height: 50)
+                        .font(.system(size: 14, weight: .bold))
+                        .background(Color.black)
+                        .foregroundColor(Color.white)
+                        .cornerRadius(5)
+                }
+            }.disabled(alertViewModel.category == "" ? true : false)
         }.onAppear{
             self.locationManager.stopUpdatingWhileReporting()
         }.onDisappear{
             self.locationManager.startUpdatingWhileReporting()
         }
-    }
-}
-
-struct AlertView_Previews: PreviewProvider {
-    static var previews: some View {
-        AlertView(isPresented: .constant(true))
     }
 }

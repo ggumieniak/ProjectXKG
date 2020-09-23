@@ -9,25 +9,25 @@
 ## Przydatne
 * Link do formatowania MD =  [Tutaj](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 ## Co robię aktualnie
-* Narysowanie na mapie gdzie jest jakis problem
-* Wyświetlenie informacji w danym obszarze 
-## Do zrobienia:
+* Zdarzenia:
+    * __Kategorie__ - mozliwosc wyszukania (drogowa, gaz etc.)
+    * Wyswietlic czas zdarzenia
 * Zrobic menu ustawien: 
     * _Nazwa uzytkownika jaka by byla_
-    * Jakie zgloszenia go interesuja
-    * _Mozliwie wybor promienia w jakim chce dostawac powiadomienia_ 
+    * _Wybor kategorii_
+    * __Mozliwie wybor promienia w jakim chce dostawac powiadomienia__ 
+* Skrypt do usuwania starych wydarzeń w bazie (na serwerze, nie w aplikacji)
+## Do zrobienia:
+* Zmiana sposobu pobierania danych (np. na cykliczne)
 * Po nacisnieciu pineski wyswietlenei informacji kto zglosil i co zglosil
+* Powiadomienia push (notyfikacje) przy pobraniu nowych danych
 ## Przydaloby sie:
-* __Testy__
-* Kompatybilność z innymi platformami 
+* __Testy__ 
 * Wyglad (niech to jakos wyglada)
-* Aktywne poprawianie w trakcie podawania loginu i hasla
-* Wieksza ilosc danych o uzytkowniku i personalizacja
-* Zdarzenia:
-    * Kategorie - mozliwosc wyszukania (drogowa, gaz etc.)
-    * Czas zdarzenia
 * _Przetworzyc rejestracje i logowania na mvvm_
 ## Zrobione
+* Narysowanie na mapie gdzie jest jakis problem
+* Wyświetlenie informacji w danym obszarze 
 * Sprawdzic czy na urzadzeniu fizycznym bedzie ciagla zmiana lokalizacji
 * Wyświetlenie informacji, gdzie obecnie się znajdujemy
 * Dodanie mapy
@@ -51,6 +51,10 @@
 * Dodanie konwersji danych z serwera na zgodna w aplikacji
 * __Wyslac informacje do bazy danych__
 * Pobrac dane z bazy(dodatkowo)
+## Rozwiniecie
+* Kompatybilność z innymi platformami 
+* Aktywne poprawianie w trakcie podawania loginu i hasla
+* Wieksza ilosc danych o uzytkowniku i personalizacja
 ## Uzytkownik do zalogowania
 * __Login__: _1@2.com_
 * __Haslo__: _123456_

@@ -13,28 +13,25 @@ import CoreLocation
 import Combine
 import MapKit
 
-class ReportStore: ObservableObject {
+class ReportService: ObservableObject {
     private let db = Firestore.firestore()
-    @Published var annotations = [MKPointAnnotation]() {
-        didSet {
-            print("Zmienilem sie na lepsze!")
-        }
-    }
+    @Published var annotations = [MKAnnotation]()
 }
 
 
 // MARK: Send Data
-extension ReportStore {
-    // TODO: Check which collection you want send a message
-    func sendReport(location: GeoPoint, description: String/*, collection: String */) -> Bool {
+extension ReportService {
+    // TODO: Make a category specified report
+    func sendReport(location: GeoPoint, description: String, category: String) -> Bool {
         guard let userMail = Auth.auth().currentUser?.email else {
             return false
         }
-        db.collection("Test").addDocument(data: [
-            "Location" : location,
-            "Description" : description,
-            "User" : userMail,
-            "Date" : Timestamp.init()
+        db.collection(K.Firestore.Collection.categories).document(category).collection(K.Firestore.Collection.Categories.Report.reports)
+            .addDocument(data: [
+                K.Firestore.Collection.Categories.Report.Fields.location : location,
+            K.Firestore.Collection.Categories.Report.Fields.description : description,
+            K.Firestore.Collection.Categories.Report.Fields.user : userMail,
+            K.Firestore.Collection.Categories.Report.Fields.date : Timestamp.init()
         ]) { err in
             if let error = err {
                 print(error.localizedDescription)
@@ -47,16 +44,18 @@ extension ReportStore {
 }
 
 // MARK: Acquire Data
-extension ReportStore {
+extension ReportService {
     // TODO: To delete after make service
-    func fetchData(acquireData: @escaping ([QueryDocumentSnapshot]) -> [MKPointAnnotation]) {
+    func fetchData(at location:CLLocationCoordinate2D,with accuracy: Double,acquireData: @escaping ([QueryDocumentSnapshot]) -> [MKPointAnnotation]) /* -> [MKPointAnnotation] */ {
         guard let dayBefore = getTwelveHoursEarlierDate() else {
-            return
+            return // if cant get time dont downlad any date
         }
         print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
+        let queryLocation = location.getNearBy(at: location, with: accuracy)
         self.db.collection("Test")
-            .whereField("Date", isGreaterThan: dayBefore)
-            .order(by: "Date", descending: false)
+            .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
+            .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
+            //TODO: Make cron-job to delete reports older then 1 day
             .addSnapshotListener { documentShapshot, error in
                 guard let document = documentShapshot?.documents else {
                     print("Error fetching document \(error!)")
@@ -74,7 +73,7 @@ extension ReportStore {
     }
 }
 // MARK: Create Date
-extension ReportStore {
+extension ReportService {
     private func getTwelveHoursEarlierDate() -> Date?{
         return Calendar.current.date(byAdding: .hour, value: -12, to: Date())
     }

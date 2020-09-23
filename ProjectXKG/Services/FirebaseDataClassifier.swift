@@ -27,10 +27,10 @@ extension FirebaseDataClassifier {
         if dataFromFirebase.count != 0 {
             for report in dataFromFirebase {
                 print(#function)
-                let data = convertDateToString(report[K.Firestore.Categories.Fields.date]!)
-                let description = convertDescriptionToString(report[K.Firestore.Categories.Fields.description]!)
-                let location = convertGeopointToLocation(report[K.Firestore.Categories.Fields.location]!)
-                let user = convertUserToString(report[K.Firestore.Categories.Fields.user]!)
+                let data = convertDateToString(report[K.Firestore.Collection.Categories.Report.Fields.date]!)
+                let description = convertDescriptionToString(report[K.Firestore.Collection.Categories.Report.Fields.description]!)
+                let location = convertGeopointToLocation(report[K.Firestore.Collection.Categories.Report.Fields.location]!)
+                let user = convertUserToString(report[K.Firestore.Collection.Categories.Report.Fields.user]!)
                 
                 let annotation = makeReport(from: data,description,location,user)
                 reports.append(annotation)

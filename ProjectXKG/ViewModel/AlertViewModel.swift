@@ -13,4 +13,5 @@ class AlertViewModel: ObservableObject {
     @Published var description: String = ""
     var tempDescription: String?
     @Published var disabledButton: Bool = false
+    @Published var category: String = ""
 }

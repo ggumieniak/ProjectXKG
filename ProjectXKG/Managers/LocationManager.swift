@@ -13,13 +13,13 @@ import UIKit
 
 final class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
-    @Published var location: CLLocation? {
+    @Published var location: CLLocation? /* {
         willSet {
             // TODO: Delete in production statement
             // Checking the new coordinate
             print("Moving \(newValue?.coordinate ?? CLLocationCoordinate2D.example)")
         }
-    }
+    } */
     @Published var authorizationStatus: CLAuthorizationStatus?
     
     override init() {

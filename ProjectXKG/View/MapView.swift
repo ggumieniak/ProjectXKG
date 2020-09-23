@@ -14,7 +14,7 @@ struct MapView: View {
     @EnvironmentObject var session: SessionStore
     //    @EnvironmentObject var repoStore:
     @EnvironmentObject private var locationManager: LocationManager
-    @EnvironmentObject var report: ReportStore
+    @EnvironmentObject var report: ReportService
     @ObservedObject var mapViewModel = MapViewModel()
     
     var body: some View {
@@ -27,8 +27,7 @@ struct MapView: View {
                         Spacer()
                         HStack {
                             Button(action: {
-                                print("Informacje")
-                                self.session.signOut()
+                                print("Menu")
                             }) {
                                 Image(systemName: "gear") // TODO: iOS14 change for gearshape if it wont break my entire code
                             }.padding()
@@ -46,7 +45,7 @@ struct MapView: View {
                             if locationManager.checkAuthorizationStatus()
                             {
                                 Button(action: {
-                                    self.mapViewModel.isModel.toggle()
+                                    self.mapViewModel.showAlertView.toggle()
                                 }){
                                     Image(systemName: "plus")
                                 }
@@ -55,8 +54,8 @@ struct MapView: View {
                                 .foregroundColor(Color.white)
                                 .font(.system(.title))
                                 .clipShape(Circle())
-                                .sheet(isPresented: $mapViewModel.isModel, content: {
-                                    AlertView(isPresented: self.$mapViewModel.isModel).environmentObject(self.report).environmentObject(self.locationManager)
+                                .sheet(isPresented: $mapViewModel.showAlertView, content: {
+                                    AlertView(isPresented: self.$mapViewModel.showAlertView).environmentObject(self.report).environmentObject(self.locationManager)
                                     
                                 })
                             }
@@ -68,7 +67,7 @@ struct MapView: View {
             }
         }.onAppear{
             self.session.listen()
-            self.mapViewModel.fetchData()
+            self.mapViewModel.fetchData(currentLocation: self.locationManager.get2DLocationCoordinate())
         }
     }
 }

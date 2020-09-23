@@ -11,6 +11,7 @@
 		500AA27024C31BD600AEA655 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500AA26F24C31BD600AEA655 /* SignInView.swift */; };
 		500AA27224C31CAD00AEA655 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500AA27124C31CAD00AEA655 /* SignUpView.swift */; };
 		500C047F24C4A2D80028F154 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500C047E24C4A2D80028F154 /* Map.swift */; };
+		5018ABCE25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5018ABCD25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift */; };
 		503E35E924D9631F000D9717 /* ReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503E35E824D9631F000D9717 /* ReportManager.swift */; };
 		5043E5C624D31883006E1C7F /* CLLocationCoordinate2D+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043E5C524D31883006E1C7F /* CLLocationCoordinate2D+Example.swift */; };
 		5052CB2D24DAA7DE00FFB906 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5052CB2C24DAA7DE00FFB906 /* MapViewModel.swift */; };
@@ -22,9 +23,11 @@
 		506D45C424C58EAA0012D754 /* MKPointAnnotation+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */; };
 		507573A224C20F700064FD74 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507573A124C20F700064FD74 /* User.swift */; };
 		507573A524C20FD50064FD74 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507573A424C20FD50064FD74 /* SessionStore.swift */; };
+		5079E73F2510AA7100F13EE5 /* RadioButtonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079E73E2510AA7100F13EE5 /* RadioButtonField.swift */; };
+		5079E7412510B98E00F13EE5 /* RadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079E7402510B98E00F13EE5 /* RadioButtonGroup.swift */; };
 		509C6D0B24D2B29A0024521F /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6D0A24D2B29A0024521F /* Report.swift */; };
 		509C6D0D24D2B43D0024521F /* GeoLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6D0C24D2B43D0024521F /* GeoLocation.swift */; };
-		509C6D0F24D2BE030024521F /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6D0E24D2BE030024521F /* ReportStore.swift */; };
+		509C6D0F24D2BE030024521F /* ReportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6D0E24D2BE030024521F /* ReportService.swift */; };
 		509C6D1124D2CD970024521F /* CLLocation+GeoPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6D1024D2CD970024521F /* CLLocation+GeoPoint.swift */; };
 		50A14ED624C6CA500023240E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A14ED524C6CA500023240E /* LocationManager.swift */; };
 		50AD51AF24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD51AE24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift */; };
@@ -68,6 +71,7 @@
 		500AA26F24C31BD600AEA655 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		500AA27124C31CAD00AEA655 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		500C047E24C4A2D80028F154 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		5018ABCD25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+getNearBy.swift"; sourceTree = "<group>"; };
 		503E35E824D9631F000D9717 /* ReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManager.swift; sourceTree = "<group>"; };
 		5043E5C524D31883006E1C7F /* CLLocationCoordinate2D+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Example.swift"; sourceTree = "<group>"; };
 		5052CB2C24DAA7DE00FFB906 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -80,9 +84,11 @@
 		506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation+Example.swift"; sourceTree = "<group>"; };
 		507573A124C20F700064FD74 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		507573A424C20FD50064FD74 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		5079E73E2510AA7100F13EE5 /* RadioButtonField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonField.swift; sourceTree = "<group>"; };
+		5079E7402510B98E00F13EE5 /* RadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroup.swift; sourceTree = "<group>"; };
 		509C6D0A24D2B29A0024521F /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		509C6D0C24D2B43D0024521F /* GeoLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocation.swift; sourceTree = "<group>"; };
-		509C6D0E24D2BE030024521F /* ReportStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
+		509C6D0E24D2BE030024521F /* ReportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportService.swift; sourceTree = "<group>"; };
 		509C6D1024D2CD970024521F /* CLLocation+GeoPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+GeoPoint.swift"; sourceTree = "<group>"; };
 		50A14ED524C6CA500023240E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		50AD51AE24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+GeoPoint.swift"; sourceTree = "<group>"; };
@@ -168,6 +174,7 @@
 				500AA27124C31CAD00AEA655 /* SignUpView.swift */,
 				500C047E24C4A2D80028F154 /* Map.swift */,
 				50EB43A224C989130058AAAD /* AlertView.swift */,
+				5079E7422510BB6B00F13EE5 /* RadioButton */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,6 +186,7 @@
 				509C6D1024D2CD970024521F /* CLLocation+GeoPoint.swift */,
 				5043E5C524D31883006E1C7F /* CLLocationCoordinate2D+Example.swift */,
 				50AD51AE24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift */,
+				5018ABCD25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -207,11 +215,20 @@
 			isa = PBXGroup;
 			children = (
 				507573A424C20FD50064FD74 /* SessionStore.swift */,
-				509C6D0E24D2BE030024521F /* ReportStore.swift */,
+				509C6D0E24D2BE030024521F /* ReportService.swift */,
 				50DF63B624DD52CD000A9353 /* FirebaseDataClassifier.swift */,
 				5066DD5924E2762400AFE72C /* MKPointAnnotationFactory.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		5079E7422510BB6B00F13EE5 /* RadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				5079E73E2510AA7100F13EE5 /* RadioButtonField.swift */,
+				5079E7402510B98E00F13EE5 /* RadioButtonGroup.swift */,
+			);
+			path = RadioButton;
 			sourceTree = "<group>";
 		};
 		507C106124C7529300BEEFF4 /* Managers */ = {
@@ -570,6 +587,7 @@
 				509C6D0B24D2B29A0024521F /* Report.swift in Sources */,
 				500AA26E24C2EA3700AEA655 /* AuthView.swift in Sources */,
 				50D8B4B724A75C3F00220F94 /* AppDelegate.swift in Sources */,
+				5079E73F2510AA7100F13EE5 /* RadioButtonField.swift in Sources */,
 				50ED1BAE24C7467F005FB417 /* Coordinator.swift in Sources */,
 				5043E5C624D31883006E1C7F /* CLLocationCoordinate2D+Example.swift in Sources */,
 				5057753F24D17E4A0005C517 /* AlertViewModel.swift in Sources */,
@@ -583,7 +601,7 @@
 				50D8B4BB24A75C3F00220F94 /* MapView.swift in Sources */,
 				507573A224C20F700064FD74 /* User.swift in Sources */,
 				500AA27024C31BD600AEA655 /* SignInView.swift in Sources */,
-				509C6D0F24D2BE030024521F /* ReportStore.swift in Sources */,
+				509C6D0F24D2BE030024521F /* ReportService.swift in Sources */,
 				50AD51AF24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift in Sources */,
 				50AED0FC24CADD4200B187B9 /* SignInViewModel.swift in Sources */,
 				50EB43A324C989130058AAAD /* AlertView.swift in Sources */,
@@ -591,7 +609,9 @@
 				5066DD5A24E2762400AFE72C /* MKPointAnnotationFactory.swift in Sources */,
 				50A14ED624C6CA500023240E /* LocationManager.swift in Sources */,
 				500C047F24C4A2D80028F154 /* Map.swift in Sources */,
+				5018ABCE25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift in Sources */,
 				500AA27224C31CAD00AEA655 /* SignUpView.swift in Sources */,
+				5079E7412510B98E00F13EE5 /* RadioButtonGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

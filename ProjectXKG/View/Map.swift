@@ -12,11 +12,7 @@ import MapKit
 struct Map: UIViewRepresentable {
     
     var coordinate: CLLocationCoordinate2D?
-    var annotations: [MKPointAnnotation] {
-        didSet {
-            print("zmieniam ilosc anocjacji \(#function)")
-        }
-    }
+    var annotations = [MKAnnotation]()
     
     func makeUIView(context: UIViewRepresentableContext<Map>) -> MKMapView {
         let map = MKMapView()
@@ -27,19 +23,13 @@ struct Map: UIViewRepresentable {
         return map
     }
     
-    // TODO: DO USUNIECIA
-    
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<Map>) {
-        print("Ilosc adnotacji \(annotations.count)")
-        print("Ilosc adnotacji w uiView \(uiView.annotations.count)")
+//        annotationsToConsole(from: annotations)
         guard let point = coordinate else {
             return
         }
-        if annotations.count != uiView.annotations.count {
-            
-            uiView.removeAnnotations(uiView.annotations)
-            uiView.addAnnotations(self.annotations)
-        }
+        uiView.removeAnnotations(uiView.annotations)
+        uiView.addAnnotations(self.annotations)
         let latDelta:CLLocationDegrees = 0.005
         let lonDelta:CLLocationDegrees = 0.005
         let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
@@ -49,6 +39,16 @@ struct Map: UIViewRepresentable {
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
+    }
+    
+    // MARK: DO USUNIECIA
+    func annotationsToConsole(from annotations: [MKAnnotation]) {
+        print("______________________________________________________________________________________________")
+        print("Ilosc adnotacji \(annotations.count)")
+        for annotation in annotations {
+            print(annotation.subtitle ?? "Brak opisu" )
+        }
+        print("______________________________________________________________________________________________")
     }
     
 }
