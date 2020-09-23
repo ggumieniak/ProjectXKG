@@ -32,6 +32,7 @@
 		50A14ED624C6CA500023240E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A14ED524C6CA500023240E /* LocationManager.swift */; };
 		50AD51AF24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD51AE24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift */; };
 		50AED0FC24CADD4200B187B9 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AED0FB24CADD4200B187B9 /* SignInViewModel.swift */; };
+		50D3B6F3251B6836000F8EC6 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B6F2251B6836000F8EC6 /* MenuView.swift */; };
 		50D8B4B724A75C3F00220F94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4B624A75C3F00220F94 /* AppDelegate.swift */; };
 		50D8B4B924A75C3F00220F94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4B824A75C3F00220F94 /* SceneDelegate.swift */; };
 		50D8B4BB24A75C3F00220F94 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4BA24A75C3F00220F94 /* MapView.swift */; };
@@ -93,6 +94,7 @@
 		50A14ED524C6CA500023240E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		50AD51AE24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+GeoPoint.swift"; sourceTree = "<group>"; };
 		50AED0FB24CADD4200B187B9 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		50D3B6F2251B6836000F8EC6 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		50D8B4B324A75C3F00220F94 /* ProjectXKG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectXKG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D8B4B624A75C3F00220F94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		50D8B4B824A75C3F00220F94 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				500AA27124C31CAD00AEA655 /* SignUpView.swift */,
 				500C047E24C4A2D80028F154 /* Map.swift */,
 				50EB43A224C989130058AAAD /* AlertView.swift */,
+				50D3B6F2251B6836000F8EC6 /* MenuView.swift */,
 				5079E7422510BB6B00F13EE5 /* RadioButton */,
 			);
 			path = View;
@@ -608,6 +611,7 @@
 				506D45C424C58EAA0012D754 /* MKPointAnnotation+Example.swift in Sources */,
 				5066DD5A24E2762400AFE72C /* MKPointAnnotationFactory.swift in Sources */,
 				50A14ED624C6CA500023240E /* LocationManager.swift in Sources */,
+				50D3B6F3251B6836000F8EC6 /* MenuView.swift in Sources */,
 				500C047F24C4A2D80028F154 /* Map.swift in Sources */,
 				5018ABCE25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift in Sources */,
 				500AA27224C31CAD00AEA655 /* SignUpView.swift in Sources */,
