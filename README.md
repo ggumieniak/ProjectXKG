@@ -1,7 +1,6 @@
 #  Inzynierka Grzegorz Gumieniak 
 ## Wymagania
-* iOS 13.5+ // macOS 10.15.5+
-* Xcode 11.5+
+* iOS 13.0+ 
 * Swift 5
 ## Jak uruchomic
 * `git clone https://github.com/ggumieniak/ProjectXKG.git && cd ProjectXKG`
