@@ -1,4 +1,4 @@
-  // Your web app's Firebase configuration
+// Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   var firebaseConfig = {
     apiKey: "AIzaSyDGfFcoKhDAILb8ii9PhrJVbgrrwbD6tes",
@@ -10,13 +10,40 @@
     appId: "1:507578485948:web:42a195351da3a2b37654b9",
     measurementId: "G-33RGRJ9VB5"
   };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  var db = firebase.firestore();
 
-    // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+function toConsole(imie,nazwisko){
+  console.log('dziala funkcja toConsole');
+  console.log('imie to: ',imie,'\n','nazwisko to: ',nazwisko);
+}
 
-var db = firebase.firestore();
+function signIn(login,password) {
+  firebase.auth().signInWithEmailAndPassword(login,password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  console.log(errorCode,'\n',errorMessage);
+  });
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    console.log(user);
+    deleteData();
+  }
+});
+}
 
-function usun(category,deleteDate){
+function signOut(){
+  firebase.auth().signOut().then(function() {
+  console.log('wylogowano pomyslnie');
+}).catch(function(error) {
+  console.log(error.message);
+});
+}
+
+function deleteOldReports(category,deleteDate){
     db.collection("Categories").doc(category).collection("Reports")
     .where("Date","<",deleteDate)
       .get().then(function(querySnapshote) {
@@ -26,7 +53,8 @@ function usun(category,deleteDate){
     })
 }
 
-function deleteService() {
+function deleteData() {
+  console.log("wykonujemy deleteData()");
   var localThreatenDate = firebase.firestore.Timestamp.now();
   localThreatenDate.seconds = localThreatenDate.seconds - (1 * 60 * 60);
   
@@ -36,20 +64,7 @@ function deleteService() {
   var weatherDate = firebase.firestore.Timestamp.now();
   weatherDate.seconds = weatherDate.seconds - (12 * 60 * 60);
 
-  usun("LocalThreaten",localThreatenDate);
-  usun("RoadAccident",roadAccidentDate);
-  usun("Weather",weatherDate);
-}
-
-function wypisz(category, deleteDate){
-  db.collection("Categories").doc(category).collection("Reports")
-    .where("Date",">",deleteDate)
-      .get().then(function(querySnapshote) {
-        querySnapshote.forEach(function(doc) {
-          console.log(doc.id," => ",doc.data());
-        });
-      })
-  .catch(function(error) {
-        console.log("Error getting documents: ", error);
-  });
+  deleteOldReports("LocalThreaten",localThreatenDate);
+  deleteOldReports("RoadAccident",roadAccidentDate);
+  deleteOldReports("Weather",weatherDate);
 }
