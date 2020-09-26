@@ -9,10 +9,40 @@
 import SwiftUI
 
 struct MenuView: View {
+    @Environment(\.colorScheme) var colorScheme
+    @State var zabawa: Double = 0
+    @Binding var isPresented: Bool
+    let user: String
+    let signOut: () -> ()
+
     var body: some View {
-        Text("Hello World")
+        VStack(alignment: .leading) {
+            HStack{
+                Image(systemName: "person.crop.circle")
+                Text(user)
+            }.font(.system(size: 32)).scaledToFit()
+                .padding(.top)
+                .padding(.leading, 10)
+            Spacer()
+            Slider(value: $zabawa, in:1...100,step: 1)
+            HStack{
+                Spacer()
+                Text("You will get a message away at: \(Int(zabawa)) km")
+                Spacer()
+            }
+            Spacer()
+            Button(action: {
+                print("Nacisnales przycisk")
+                self.signOut()
+            }){
+                Image(systemName: "arrow.down.left.circle.fill")
+                Text("SignOut")
+            }.foregroundColor(colorScheme == .light ? Color.black : Color.white )
+                .padding(.leading,10)
+                .padding(.bottom, 20)
+        }
     }
     
-    
+
     
 }
