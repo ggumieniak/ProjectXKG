@@ -40,7 +40,7 @@ struct MapView: View {
                             }) {
                                 Image(systemName: "gear") 
                             }.sheet(isPresented: self.$mapViewModel.showMenuView, content: {
-                                MenuView(isPresented: self.$mapViewModel.showMenuView, user: "Xendernik")
+                                MenuView(isPresented: self.$mapViewModel.showMenuView, user: self.session.session?.email ?? "Undefined", signOut: self.session.signOut )
                             })
                             .padding()
                                 .background(Color.blue.opacity(0.75))

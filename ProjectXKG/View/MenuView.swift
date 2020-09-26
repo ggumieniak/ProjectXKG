@@ -9,34 +9,38 @@
 import SwiftUI
 
 struct MenuView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var zabawa: Double = 0
     @Binding var isPresented: Bool
     let user: String
+    let signOut: () -> ()
 
     var body: some View {
         VStack(alignment: .leading) {
             HStack{
                 Image(systemName: "person.crop.circle")
-                Text(user).contextMenu {
-                    Text("Ziobro ty kurwo jebana")
-                    Text("Przestań mi rodzine prześladować")
-                }
+                Text(user)
             }.font(.system(size: 32)).scaledToFit()
+                .padding(.top)
+                .padding(.leading, 10)
             Spacer()
-            RadioButtonGroups() { selected in
-                print(selected)
-            }
-            Slider(value: $zabawa, in:0.5...100,step: 0.5){
-                Text("To jest slider")
+            Slider(value: $zabawa, in:1...100,step: 1)
+            HStack{
+                Spacer()
+                Text("You will get a message away at: \(Int(zabawa)) km")
+                Spacer()
             }
             Spacer()
             Button(action: {
                 print("Nacisnales przycisk")
+                self.signOut()
             }){
                 Image(systemName: "arrow.down.left.circle.fill")
                 Text("SignOut")
-            }.padding()
-        }.padding(.leading, 10)
+            }.foregroundColor(colorScheme == .light ? Color.black : Color.white )
+                .padding(.leading,10)
+                .padding(.bottom, 20)
+        }
     }
     
 
