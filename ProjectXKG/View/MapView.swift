@@ -11,8 +11,16 @@ import SwiftUI
 
 struct MapView: View {
     
+    /*
+     Chwilowo nie dziala wyswietlanie najnowszych raportow
+     Spowodowane jest to tym, ze dodaje teraz kategorie (wysyla juz dobrze raporty)
+     Musze stworzyc menu wyboru kategorii
+     Rejestracja i wybor kategorii
+     Wyswietlenie wybranych kategorii
+     */
+    
+    
     @EnvironmentObject var session: SessionStore
-    //    @EnvironmentObject var repoStore:
     @EnvironmentObject private var locationManager: LocationManager
     @EnvironmentObject var report: ReportService
     @ObservedObject var mapViewModel = MapViewModel()
@@ -28,9 +36,13 @@ struct MapView: View {
                         HStack {
                             Button(action: {
                                 print("Menu")
+                                self.mapViewModel.showMenuView.toggle()
                             }) {
-                                Image(systemName: "gear") // TODO: iOS14 change for gearshape if it wont break my entire code
-                            }.padding()
+                                Image(systemName: "gear") 
+                            }.sheet(isPresented: self.$mapViewModel.showMenuView, content: {
+                                MenuView(isPresented: self.$mapViewModel.showMenuView, user: "Xendernik")
+                            })
+                            .padding()
                                 .background(Color.blue.opacity(0.75))
                                 .foregroundColor(Color.white)
                                 .font(.system(.title))
