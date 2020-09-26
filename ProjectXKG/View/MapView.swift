@@ -12,7 +12,7 @@ import SwiftUI
 struct MapView: View {
     
     /*
-     Chwilowo nie dziala wyswietlanie najnowszych raportow
+     Chwilowo nie dziala wyswietlanie najnowszych raportow (z innych kategorii niz LocalThreat)
      Spowodowane jest to tym, ze dodaje teraz kategorie (wysyla juz dobrze raporty)
      Musze stworzyc menu wyboru kategorii
      Rejestracja i wybor kategorii
