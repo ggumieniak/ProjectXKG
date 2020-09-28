@@ -67,7 +67,7 @@ struct MapView: View {
                                 .font(.system(.title))
                                 .clipShape(Circle())
                                 .sheet(isPresented: $mapViewModel.showAlertView, content: {
-                                    AlertView(isPresented: self.$mapViewModel.showAlertView).environmentObject(self.report).environmentObject(self.locationManager)
+                                    AlertView(isPresented: self.$mapViewModel.showAlertView).environmentObject(self.locationManager)
                                     
                                 })
                             }

@@ -8,6 +8,7 @@
 
 import Foundation
 import MapKit
+import FirebaseFirestore
 
 // MARK: Initialization
 class MapViewModel:ObservableObject {
@@ -16,22 +17,38 @@ class MapViewModel:ObservableObject {
     @Published var locations = [MKAnnotation]()
     @Published var showAlertView: Bool = false
     @Published var showMenuView: Bool = false
+    private let db = Firestore.firestore()
 }
 // MARK: Methods
 extension MapViewModel {
-    func fetchData(currentLocation locations:CLLocationCoordinate2D?) {
-        guard let location = locations else  {
-            return
+    func fetchData(at location:CLLocationCoordinate2D,with accuracy: Double) {
+        guard let dayBefore = getTwelveHoursEarlierDate() else {
+            return // if cant get time dont downlad any date
         }
-        
-        print("Pobieram dane")
-        
-        reportManager.downloadData(at: location)
-        self.locations = reportManager.getAnnotation()
-        print("Skonczylem juz w \(#function)")
+        print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
+        let queryLocation = location.getNearBy(at: location, with: accuracy)
+        self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.localThreaten).collection(K.Firestore.Collection.Categories.Report.reports)
+            .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
+            .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
+            //TODO: Make cron-job to delete reports older then 1 day
+            .addSnapshotListener { documentShapshot, error in
+                guard let document = documentShapshot?.documents else {
+                    print("Error fetching document \(error!)")
+                    return
+                }
+                
+                self.locations = document.map { QueryDocumentSnapshot -> 
+                    
+                }
+        }
     }
+    
     func getLocations(locations: [MKPointAnnotation]) {
         self.locations = locations
+    }
+    
+    private func getTwelveHoursEarlierDate() -> Date?{
+        return Calendar.current.date(byAdding: .hour, value: -12, to: Date())
     }
 }
 
