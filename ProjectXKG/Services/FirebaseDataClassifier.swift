@@ -14,7 +14,7 @@ import MapKit
 // MARK: Initialization
 class FirebaseDataClassifier {
     let dataFromFirebase: [QueryDocumentSnapshot]
-    private var reports = [ReportDate]()
+    private var reports = [Report]()
     
     init(from dataFromFirebase:[QueryDocumentSnapshot]) {
         self.dataFromFirebase = dataFromFirebase
@@ -70,8 +70,8 @@ extension FirebaseDataClassifier {
         return userString
     }
     
-    private func makeReport(from date: String,_ description: String, _ location:CLLocationCoordinate2D,_ user: String) -> ReportDate {
-        return ReportDate(date: date, description: description, location: location, user: user)
+    private func makeReport(from date: String,_ description: String, _ location:CLLocationCoordinate2D,_ user: String) -> Report {
+        return Report(date: date, description: description, location: location, user: user)
     }
 }
 // MARK: Acquire Data

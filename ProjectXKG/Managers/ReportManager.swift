@@ -27,15 +27,15 @@ extension ReportManager {
 
 // MARK: Fetch data
 extension ReportManager {    
-    func downloadData(at location: CLLocationCoordinate2D) {
-        reportService.fetchData(at: location,with: 10 /* accuracy */) { reports in
-            self.data = FirebaseDataClassifier(from: reports).getDataToShow()
-            self.annotation = self.getReportAnnotations()
-            return self.annotation
-        }
-        
-        
-    }
+//    func downloadData(at location: CLLocationCoordinate2D) {
+//        reportService.fetchData(at: location,with: 10 /* accuracy */) { reports in
+//            self.data = FirebaseDataClassifier(from: reports).getDataToShow()
+//            self.annotation = self.getReportAnnotations()
+//            return self.annotation
+//        }
+//        
+//        
+//    }
     func getAnnotation() -> [MKPointAnnotation] {
         return annotation
     }

@@ -9,7 +9,8 @@
 import Foundation
 import MapKit
 
-protocol Report {
+protocol ReportType:Identifiable {
+    var id: String {get}
     var location: CLLocationCoordinate2D {get set}
     var description: String {get set}
     var user: String {get set}
@@ -17,7 +18,8 @@ protocol Report {
 }
 
 // MARK: Initialization
-struct ReportDate: Report {
+struct Report: ReportType {
+    var id: String = UUID().uuidString
     var date: String
     var description: String
     var location: CLLocationCoordinate2D

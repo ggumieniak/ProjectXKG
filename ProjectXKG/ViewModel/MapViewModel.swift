@@ -21,10 +21,14 @@ class MapViewModel:ObservableObject {
 }
 // MARK: Methods
 extension MapViewModel {
-    func fetchData(at location:CLLocationCoordinate2D,with accuracy: Double) {
+    func fetchData(at location:CLLocationCoordinate2D?,with accuracy: Double) {
         guard let dayBefore = getTwelveHoursEarlierDate() else {
             return // if cant get time dont downlad any date
         }
+        guard let location = location else {
+            return
+        }
+        
         print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
         let queryLocation = location.getNearBy(at: location, with: accuracy)
         self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.localThreaten).collection(K.Firestore.Collection.Categories.Report.reports)
@@ -37,8 +41,10 @@ extension MapViewModel {
                     return
                 }
                 
-                self.locations = document.map { QueryDocumentSnapshot -> 
-                    
+                self.locations = document.map { QueryDocumentSnapshot -> Report in 
+                 
+                    // TODO: zwroc skonwertowane lokacje
+                    return Report(date: "tera", description: "pozniej", location: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), user: "yes")
                 }
         }
     }

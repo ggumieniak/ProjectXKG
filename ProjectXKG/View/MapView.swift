@@ -79,7 +79,7 @@ struct MapView: View {
             }
         }.onAppear{
             self.session.listen()
-            self.mapViewModel.fetchData(currentLocation: self.locationManager.get2DLocationCoordinate())
+            self.mapViewModel.fetchData(at: self.locationManager.get2DLocationCoordinate(), with: 10 /* 10km */)
         }
     }
 }
