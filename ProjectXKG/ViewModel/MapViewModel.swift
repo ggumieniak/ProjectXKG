@@ -41,11 +41,13 @@ extension MapViewModel {
                     return
                 }
                 
-                self.locations = document.map { QueryDocumentSnapshot -> Report in 
-                 
+                let reports = document.map { QueryDocumentSnapshot -> [Report] in
                     // TODO: zwroc skonwertowane lokacje
-                    return Report(date: "tera", description: "pozniej", location: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), user: "yes")
+                    let queryReport = FirebaseDataClassifier(from: QueryDocumentSnapshot)
+                    return [Report(date: "tera", description: "pozniej", location: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), user: "yes")]
                 }
+                
+//                self.locations = MKPointAnnotationFactory(from: reports).createPointsToAnnotation()
         }
     }
     

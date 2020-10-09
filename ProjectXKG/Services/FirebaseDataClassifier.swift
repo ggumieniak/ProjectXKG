@@ -13,10 +13,9 @@ import MapKit
 
 // MARK: Initialization
 class FirebaseDataClassifier {
-    let dataFromFirebase: [QueryDocumentSnapshot]
-    private var reports = [Report]()
+    let dataFromFirebase: QueryDocumentSnapshot
     
-    init(from dataFromFirebase:[QueryDocumentSnapshot]) {
+    init(from dataFromFirebase:QueryDocumentSnapshot) {
         self.dataFromFirebase = dataFromFirebase
         getDataToClassifier()
     }
@@ -24,26 +23,21 @@ class FirebaseDataClassifier {
 // MARK: Modelling data
 extension FirebaseDataClassifier {
     func getDataToClassifier() {
-        if dataFromFirebase.count != 0 {
-            for report in dataFromFirebase {
                 print(#function)
-                let data = convertDateToString(report[K.Firestore.Collection.Categories.Report.Fields.date]!)
-                let description = convertDescriptionToString(report[K.Firestore.Collection.Categories.Report.Fields.description]!)
-                let location = convertGeopointToLocation(report[K.Firestore.Collection.Categories.Report.Fields.location]!)
-                let user = convertUserToString(report[K.Firestore.Collection.Categories.Report.Fields.user]!)
+                let data = convertDateToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.date]!)
+                let description = convertDescriptionToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.description]!)
+                let location = convertGeopointToLocation(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.location]!)
+                let user = convertUserToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.user]!)
                 
                 let annotation = makeReport(from: data,description,location,user)
-                reports.append(annotation)
-//                let rawString = """
-//                Accident date: \(data)
-//                Localization: \(location)
-//                Description: \(description)
-//                User: \(user)
-//                ________________________________________________
-//                """
-//                print(rawString)
-            }
-        }
+                let rawString = """
+                Accident date: \(data)
+                Localization: \(location)
+                Description: \(description)
+                User: \(user)
+                ________________________________________________
+                """
+                print(rawString)
     }
     
     private func convertDateToString(_ date: Any) -> String {
@@ -75,8 +69,8 @@ extension FirebaseDataClassifier {
     }
 }
 // MARK: Acquire Data
-extension FirebaseDataClassifier {
-    func getDataToShow() -> [Report] {
-        return reports
-    }
-}
+//extension FirebaseDataClassifier {
+//    func getDataToShow() -> [Report] {
+//        return reports
+//    }
+//}

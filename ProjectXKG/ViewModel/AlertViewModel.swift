@@ -22,6 +22,7 @@ class AlertViewModel: ObservableObject {
         guard let userMail = Auth.auth().currentUser?.email else {
             return false
         }
+        
         db.collection(K.Firestore.Collection.categories).document(category).collection(K.Firestore.Collection.Categories.Report.reports)
             .addDocument(data: [
                 K.Firestore.Collection.Categories.Report.Fields.location : location,
