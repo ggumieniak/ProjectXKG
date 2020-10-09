@@ -29,7 +29,7 @@ struct MapView: View {
         Group {
             if (session.session != nil) {
                 ZStack {
-                    Map(coordinate: locationManager.get2DLocationCoordinate(),annotations: MapViewModel.shared.locations)
+                    Map(coordinate: locationManager.get2DLocationCoordinate(),annotations: mapViewModel.locations)
                         .edgesIgnoringSafeArea(.all)
                     VStack {
                         Spacer()

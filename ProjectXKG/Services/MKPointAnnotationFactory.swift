@@ -22,7 +22,6 @@ extension MKPointAnnotationFactory {
     func createPointsToAnnotation() -> [MKPointAnnotation] {
         print(#function)
         print("Posiadam \(reports.count) zgloszen w sobie")
-        print(reports)
         var annotations = [MKPointAnnotation]()
         for report in reports {
             let annotation = createPointAnnotation(from: report)
