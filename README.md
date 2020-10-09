@@ -15,16 +15,15 @@
     * _Nazwa uzytkownika jaka by byla_
     * _Wybor kategorii_
     * __Mozliwie wybor promienia w jakim chce dostawac powiadomienia__ 
-* Skrypt do usuwania starych wydarzeń w bazie (na serwerze, nie w aplikacji)
 ## Do zrobienia:
 * Zmiana sposobu pobierania danych (np. na cykliczne)
 * Po nacisnieciu pineski wyswietlenei informacji kto zglosil i co zglosil
 * Powiadomienia push (notyfikacje) przy pobraniu nowych danych
 ## Przydaloby sie:
 * __Testy__ 
-* Wyglad (niech to jakos wyglada)
-* _Przetworzyc rejestracje i logowania na mvvm_
+* _Przetworzyc rejestracje, aby uzytkownicy mogli personalizowac swoj nickname_
 ## Zrobione
+* Skrypt do usuwania starych wydarzeń w bazie (na serwerze, nie w aplikacji)
 * Narysowanie na mapie gdzie jest jakis problem
 * Wyświetlenie informacji w danym obszarze 
 * Sprawdzic czy na urzadzeniu fizycznym bedzie ciagla zmiana lokalizacji
