@@ -21,7 +21,7 @@ struct MapView: View {
     
     
     @EnvironmentObject var session: SessionStore
-    @EnvironmentObject private var locationManager: LocationManager
+    @EnvironmentObject private var locationManager: LocationManager 
     @EnvironmentObject var report: ReportService
     @ObservedObject var mapViewModel = MapViewModel()
     
@@ -29,7 +29,7 @@ struct MapView: View {
         Group {
             if (session.session != nil) {
                 ZStack {
-                    Map(coordinate: locationManager.get2DLocationCoordinate(),annotations: mapViewModel.locations)
+                    Map(coordinate: locationManager.get2DLocationCoordinate(),annotations: mapViewModel.reportedLocations)
                         .edgesIgnoringSafeArea(.all)
                     VStack {
                         Spacer()
@@ -78,6 +78,7 @@ struct MapView: View {
                 AuthView()
             }
         }.onAppear{
+            self.locationManager.delegate = self
             self.session.listen()
             self.mapViewModel.fetchData(at: self.locationManager.get2DLocationCoordinate(), with: 10 /* 10km */)
         }

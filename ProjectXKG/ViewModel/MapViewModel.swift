@@ -12,15 +12,20 @@ import FirebaseFirestore
 
 // MARK: Initialization
 class MapViewModel:ObservableObject {
-    static let shared = MapViewModel()
     let reportManager = ReportManager()
-    @Published var locations = [MKAnnotation]()
+    @Published var reportedLocations = [MKAnnotation]()
     @Published var showAlertView: Bool = false
     @Published var showMenuView: Bool = false
     private let db = Firestore.firestore()
 }
 // MARK: Methods
 extension MapViewModel {
+    
+    func test() {
+        print("Test delegata")
+    }
+    
+    
     func fetchData(at location:CLLocationCoordinate2D?,with accuracy: Double) {
         guard let dayBefore = getTwelveHoursEarlierDate() else {
             return // if cant get time dont downlad any date
@@ -28,13 +33,11 @@ extension MapViewModel {
         guard let location = location else {
             return
         }
-        
-        print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
+//        print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
         let queryLocation = location.getNearBy(at: location, with: accuracy)
         self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.localThreaten).collection(K.Firestore.Collection.Categories.Report.reports)
             .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
             .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
-            //TODO: Make cron-job to delete reports older then 1 day
             .addSnapshotListener { documentShapshot, error in
                 guard let document = documentShapshot?.documents else {
                     print("Error fetching document \(error!)")
@@ -48,12 +51,12 @@ extension MapViewModel {
                     return classifiedReport
                 }
                 firebaseReports.printReports()
-                self.locations = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
+                self.reportedLocations = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
         }
     }
     
-    func getLocations(locations: [MKPointAnnotation]) {
-        self.locations = locations
+    func setReportedLocations(reportedLocations: [MKPointAnnotation]) {
+        self.reportedLocations = reportedLocations
     }
     
     private func getTwelveHoursEarlierDate() -> Date?{

@@ -12,8 +12,13 @@ import Combine
 import UIKit
 
 final class LocationManager: NSObject, ObservableObject {
+    var delegate: MapView?
     private let locationManager = CLLocationManager()
-    @Published var location: CLLocation? 
+    @Published var location: CLLocation? {
+        willSet {
+            delegate?.mapViewModel.test()
+        }
+    }
     @Published var authorizationStatus: CLAuthorizationStatus?
     
     override init() {
