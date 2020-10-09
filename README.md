@@ -8,6 +8,7 @@
 ## Przydatne
 * Link do formatowania MD =  [Tutaj](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 ## Co robię aktualnie
+* __Odswiezanie lokalizacji aktywnie podczas pobierania danych__
 * Zdarzenia:
     * __Kategorie__ - mozliwosc wyszukania (drogowa, gaz etc.)
     * Wyswietlic czas zdarzenia
