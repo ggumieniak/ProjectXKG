@@ -11,7 +11,11 @@ import MapKit
 
 struct Map: UIViewRepresentable {
     
-    var coordinate: CLLocationCoordinate2D?
+    var coordinate: CLLocationCoordinate2D? {
+        willSet {
+            print(newValue.debugDescription)
+        }
+    }
     var annotations = [MKAnnotation]()
     
     func makeUIView(context: UIViewRepresentableContext<Map>) -> MKMapView {

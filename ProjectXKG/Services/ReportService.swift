@@ -18,35 +18,10 @@ class ReportService: ObservableObject {
     @Published var annotations = [MKAnnotation]()
 }
 
-
-// MARK: Send Data
-extension ReportService {
-    // TODO: Make a category specified report
-    func sendReport(location: GeoPoint, description: String, category: String) -> Bool {
-        guard let userMail = Auth.auth().currentUser?.email else {
-            return false
-        }
-        db.collection(K.Firestore.Collection.categories).document(category).collection(K.Firestore.Collection.Categories.Report.reports)
-            .addDocument(data: [
-                K.Firestore.Collection.Categories.Report.Fields.location : location,
-            K.Firestore.Collection.Categories.Report.Fields.description : description,
-            K.Firestore.Collection.Categories.Report.Fields.user : userMail,
-            K.Firestore.Collection.Categories.Report.Fields.date : Timestamp.init()
-        ]) { err in
-            if let error = err {
-                print(error.localizedDescription)
-            } else {
-                print("Successfully sended report")
-            }
-        }
-        return true
-    }
-}
-
 // MARK: Acquire Data
 extension ReportService {
     // TODO: To delete after make service
-    func fetchData(at location:CLLocationCoordinate2D,with accuracy: Double,acquireData: @escaping ([QueryDocumentSnapshot]) -> [MKPointAnnotation]) /* -> [MKPointAnnotation] */ {
+    func fetchData(at location:CLLocationCoordinate2D,with accuracy: Double) {
         guard let dayBefore = getTwelveHoursEarlierDate() else {
             return // if cant get time dont downlad any date
         }
@@ -60,14 +35,6 @@ extension ReportService {
                 guard let document = documentShapshot?.documents else {
                     print("Error fetching document \(error!)")
                     return
-                }
-                
-                self.annotations = acquireData(document)
-                print("Adnotacje \(self.annotations.count)")
-                // TODO: Przeslij do widoku
-                DispatchQueue.main.async {
-                    MapViewModel.shared.locations = self.annotations
-                    print("\(#function) liczba lokalizacji w shared mapviewmodel = \(MapViewModel.shared.locations.count)")
                 }
         }
     }

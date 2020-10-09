@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct AlertView: View {
+    
     @ObservedObject var alertViewModel = AlertViewModel()
     @EnvironmentObject private var locationManager: LocationManager
-    @EnvironmentObject var reportStore: ReportService
     @Binding var isPresented: Bool
     
     var body: some View {
@@ -30,8 +30,7 @@ struct AlertView: View {
             Spacer()
             Button(action:{
                 if let location = self.locationManager.location {
-                    // TODO: Secure behind user uses to often a button to request a report
-                    self.isPresented = !self.reportStore.sendReport(location: location.convertCLLocationToGeoPoint(), description: self.alertViewModel.description,category: self.alertViewModel.category)
+                    self.isPresented = !self.alertViewModel.sendReport(location: location.convertCLLocationToGeoPoint(), description: self.alertViewModel.description,category: self.alertViewModel.category)
                 }
             }){
                 if alertViewModel.category != "" {

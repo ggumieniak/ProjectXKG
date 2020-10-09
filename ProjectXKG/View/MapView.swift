@@ -29,7 +29,7 @@ struct MapView: View {
         Group {
             if (session.session != nil) {
                 ZStack {
-                    Map(coordinate: locationManager.get2DLocationCoordinate(),annotations: MapViewModel.shared.locations)
+                    Map(coordinate: locationManager.get2DLocationCoordinate(),annotations: mapViewModel.locations)
                         .edgesIgnoringSafeArea(.all)
                     VStack {
                         Spacer()
@@ -67,7 +67,7 @@ struct MapView: View {
                                 .font(.system(.title))
                                 .clipShape(Circle())
                                 .sheet(isPresented: $mapViewModel.showAlertView, content: {
-                                    AlertView(isPresented: self.$mapViewModel.showAlertView).environmentObject(self.report).environmentObject(self.locationManager)
+                                    AlertView(isPresented: self.$mapViewModel.showAlertView).environmentObject(self.locationManager)
                                     
                                 })
                             }
@@ -79,7 +79,7 @@ struct MapView: View {
             }
         }.onAppear{
             self.session.listen()
-            self.mapViewModel.fetchData(currentLocation: self.locationManager.get2DLocationCoordinate())
+            self.mapViewModel.fetchData(at: self.locationManager.get2DLocationCoordinate(), with: 10 /* 10km */)
         }
     }
 }
