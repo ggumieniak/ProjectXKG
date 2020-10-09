@@ -7,6 +7,8 @@
 * Po pobraniu  prosze uruchomic plik __ProjectXKG.xcworkspace__  
 ## Przydatne
 * Link do formatowania MD =  [Tutaj](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+* master - dzialajaca aktualnie aplikacja, kompiluje sie i posiada podstawowa sprawnosc
+* dev - aktualne poprawki, które robie. Moze zawierac bledy lub nie kompilowac sie
 ## Co robię aktualnie
 * __Odswiezanie lokalizacji aktywnie podczas pobierania danych__
 * Zdarzenia:
