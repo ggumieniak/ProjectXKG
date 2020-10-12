@@ -12,7 +12,6 @@ import FirebaseFirestore
 
 // MARK: Initialization
 class MapViewModel:ObservableObject {
-    let reportManager = ReportManager()
     @Published var reportedLocations = [MKAnnotation]()
     @Published var showAlertView: Bool = false
     @Published var showMenuView: Bool = false
@@ -27,9 +26,6 @@ extension MapViewModel {
     
     
     func fetchData(at location:CLLocationCoordinate2D?,with accuracy: Double) {
-        guard let dayBefore = getTwelveHoursEarlierDate() else {
-            return // if cant get time dont downlad any date
-        }
         guard let location = location else {
             return
         }

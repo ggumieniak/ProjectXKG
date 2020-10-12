@@ -16,8 +16,8 @@ final class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     @Published var location: CLLocation? {
         willSet {
-            delegate?.mapViewModel.test()
-            print(self.get2DLocationCoordinate())
+//            delegate?.mapViewModel.test()
+//            print(self.get2DLocationCoordinate())
         }
     }
     @Published var authorizationStatus: CLAuthorizationStatus?
@@ -28,7 +28,7 @@ final class LocationManager: NSObject, ObservableObject {
         self.locationManager.allowsBackgroundLocationUpdates = true
         self.locationManager.pausesLocationUpdatesAutomatically = false
         self.locationManager.showsBackgroundLocationIndicator = true
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.startUpdatingLocation()
     }

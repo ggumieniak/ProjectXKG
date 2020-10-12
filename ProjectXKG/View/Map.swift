@@ -11,34 +11,33 @@ import MapKit
 
 struct Map: UIViewRepresentable {
     
-    var coordinate: CLLocationCoordinate2D?
+    @Binding var coordinate: CLLocation?
     var annotations = [MKAnnotation]()
-    
-    init(coordinate: CLLocationCoordinate2D?, annotations: [MKAnnotation]) {
-        self.coordinate = coordinate
-        self.annotations = annotations
-    }
     
     func makeUIView(context: UIViewRepresentableContext<Map>) -> MKMapView {
         let map = MKMapView()
         map.showsUserLocation = true
         map.delegate = context.coordinator
         map.setUserTrackingMode(.follow, animated: true)
-//        map.isZoomEnabled = false
+//        map.annotations
         return map
     }
     
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<Map>) {
-//        annotationsToConsole(from: annotations)
+        //        annotationsToConsole(from: annotations)
         guard let point = coordinate else {
             return
         }
-        uiView.removeAnnotations(uiView.annotations)
-        uiView.addAnnotations(self.annotations)
+        print("Adnotacje w klasie \(annotations.count)\tAdnotacje w uiView \(uiView.annotations.count)")
+        if annotations.count + 1 != uiView.annotations.count {
+            uiView.removeAnnotations(uiView.annotations)
+            uiView.addAnnotations(self.annotations)
+        }
+        
         let latDelta:CLLocationDegrees = 0.005
         let lonDelta:CLLocationDegrees = 0.005
         let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
-        let region = MKCoordinateRegion(center: point, span: span)
+        let region = MKCoordinateRegion(center: point.coordinate, span: span)
         uiView.setRegion(region, animated: true)
     }
     
@@ -56,4 +55,16 @@ struct Map: UIViewRepresentable {
         print("______________________________________________________________________________________________")
     }
     
+    final class Coordinator: NSObject, MKMapViewDelegate {
+        
+        var control: Map
+        
+        init(_ control: Map) {
+            self.control = control
+        }
+        
+        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+            print(view.annotation?.subtitle ?? "Nie wiem")
+        }
+    }
 }

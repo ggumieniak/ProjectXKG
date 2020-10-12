@@ -19,17 +19,15 @@ struct MapView: View {
      Wyswietlenie wybranych kategorii
      */
     
-    
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject private var locationManager: LocationManager 
-    @EnvironmentObject var report: ReportService
     @ObservedObject var mapViewModel = MapViewModel()
     
     var body: some View {
         Group {
             if (session.session != nil) {
                 ZStack {
-                    Map(coordinate: locationManager.get2DLocationCoordinate(),annotations: mapViewModel.reportedLocations)
+                    Map(coordinate: $locationManager.location,annotations: mapViewModel.reportedLocations)
                         .edgesIgnoringSafeArea(.all)
                     VStack {
                         Spacer()
