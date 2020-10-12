@@ -10,7 +10,7 @@ import MapKit
 import SwiftUI
 
 struct MapView: View {
-    
+    // TODO: Odswiez dopoki fetch nie zwroci true
     /*
      Chwilowo nie dziala wyswietlanie najnowszych raportow (z innych kategorii niz LocalThreat)
      Spowodowane jest to tym, ze dodaje teraz kategorie (wysyla juz dobrze raporty)
@@ -31,7 +31,10 @@ struct MapView: View {
                         Map(coordinate: $locationManager.location,annotations: mapViewModel.reportedLocations)
                             .edgesIgnoringSafeArea(.all)
                     } else {
-                        Text("You have give acces to location")
+                        VStack{
+                            Image(systemName: "exclamationmark.triangle.fill").fixedSize().scaledToFit().font(.system(.title))
+                            Text("You have give acces to location")
+                        }
                     }
                     VStack {
                         Spacer()
