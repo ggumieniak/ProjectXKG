@@ -17,6 +17,7 @@ final class LocationManager: NSObject, ObservableObject {
     @Published var location: CLLocation? {
         willSet {
             delegate?.mapViewModel.test()
+            print(self.get2DLocationCoordinate())
         }
     }
     @Published var authorizationStatus: CLAuthorizationStatus?

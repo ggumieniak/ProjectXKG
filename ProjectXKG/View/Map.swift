@@ -14,6 +14,11 @@ struct Map: UIViewRepresentable {
     var coordinate: CLLocationCoordinate2D?
     var annotations = [MKAnnotation]()
     
+    init(coordinate: CLLocationCoordinate2D?, annotations: [MKAnnotation]) {
+        self.coordinate = coordinate
+        self.annotations = annotations
+    }
+    
     func makeUIView(context: UIViewRepresentableContext<Map>) -> MKMapView {
         let map = MKMapView()
         map.showsUserLocation = true
