@@ -27,8 +27,12 @@ struct MapView: View {
         Group {
             if (session.session != nil) {
                 ZStack {
-                    Map(coordinate: $locationManager.location,annotations: mapViewModel.reportedLocations)
-                        .edgesIgnoringSafeArea(.all)
+                    if locationManager.checkAuthorizationStatus() {
+                        Map(coordinate: $locationManager.location,annotations: mapViewModel.reportedLocations)
+                            .edgesIgnoringSafeArea(.all)
+                    } else {
+                        Text("You have give acces to location")
+                    }
                     VStack {
                         Spacer()
                         HStack {
@@ -40,7 +44,7 @@ struct MapView: View {
                             }.sheet(isPresented: self.$mapViewModel.showMenuView, content: {
                                 MenuView(isPresented: self.$mapViewModel.showMenuView, user: self.session.session?.email ?? "Undefined", signOut: self.session.signOut )
                             })
-                            .padding()
+                                .padding()
                                 .background(Color.blue.opacity(0.75))
                                 .foregroundColor(Color.white)
                                 .font(.system(.title))
@@ -76,7 +80,6 @@ struct MapView: View {
                 AuthView()
             }
         }.onAppear{
-            self.locationManager.delegate = self
             self.session.listen()
             self.mapViewModel.fetchData(at: self.locationManager.get2DLocationCoordinate(), with: 10 /* 10km */)
         }

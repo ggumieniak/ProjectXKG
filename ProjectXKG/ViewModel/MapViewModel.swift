@@ -26,6 +26,7 @@ extension MapViewModel {
     
     
     func fetchData(at location:CLLocationCoordinate2D?,with accuracy: Double) {
+        print(#function)
         guard let location = location else {
             return
         }
@@ -39,7 +40,7 @@ extension MapViewModel {
                     print("Error fetching document \(error!)")
                     return
                 }
-                
+                print("Przechwytuje dane")
                 let firebaseReports = document.map { QueryDocumentSnapshot -> Report in
                     // TODO: zwroc skonwertowane lokacje
                     let queryClassifier = FirebaseDataClassifier()
