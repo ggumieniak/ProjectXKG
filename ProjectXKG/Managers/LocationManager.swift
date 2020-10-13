@@ -16,11 +16,11 @@ final class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     @Published var location: CLLocation? {
         willSet {
-//            delegate?.mapViewModel.test()
-//            print(self.get2DLocationCoordinate())
+            //            delegate?.mapViewModel.test()
+            //            print(self.get2DLocationCoordinate())
         }
     }
-    @Published var authorizationStatus: CLAuthorizationStatus?
+    private var authorizationStatus: CLAuthorizationStatus?
     
     override init() {
         super.init()
@@ -28,7 +28,7 @@ final class LocationManager: NSObject, ObservableObject {
         self.locationManager.allowsBackgroundLocationUpdates = true
         self.locationManager.pausesLocationUpdatesAutomatically = false
         self.locationManager.showsBackgroundLocationIndicator = false
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.requestAlwaysAuthorization()
         self.locationManager.startUpdatingLocation()
     }
@@ -47,6 +47,7 @@ extension LocationManager: CLLocationManagerDelegate {
 }
 // MARK: Authorization
 extension LocationManager {
+    
     func checkAuthorizationStatus() -> Bool {
         if let status = self.authorizationStatus {
             switch status {
@@ -60,6 +61,18 @@ extension LocationManager {
             return false
         }
     }
+    
+    func checkAccuracyStatus() -> Bool {
+        if #available(iOS 14.0, *) {
+            switch locationManager.accuracyAuthorization {
+            case .fullAccuracy:
+                return true
+            case .reducedAccuracy:
+                return false
+            }
+        }
+        return true
+    }
 }
 // MARK: Accessors
 extension LocationManager {
@@ -70,10 +83,10 @@ extension LocationManager {
 
 // MARK: UpdatingLocation
 extension LocationManager {
-    func stopUpdatingWhileReporting() -> Void {
+    func stopUpdatingWhileReporting() {
         self.locationManager.stopUpdatingLocation()
     }
-    func startUpdatingWhileReporting() -> Void {
+    func startUpdatingWhileReporting() {
         self.locationManager.startUpdatingLocation()
     }
 }

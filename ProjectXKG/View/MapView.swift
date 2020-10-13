@@ -27,9 +27,11 @@ struct MapView: View {
         Group {
             if (session.session != nil) {
                 ZStack {
-                    if locationManager.checkAuthorizationStatus() {
+                    if locationManager.checkAuthorizationStatus() && locationManager.checkAccuracyStatus() {
                         Map(coordinate: $locationManager.location,annotations: mapViewModel.reportedLocations)
-                            .edgesIgnoringSafeArea(.all)
+                            .edgesIgnoringSafeArea(.all).onAppear{
+                                self.mapViewModel.fetchData(at: self.locationManager.get2DLocationCoordinate())
+                            }
                     } else {
                         VStack{
                             Image(systemName: "exclamationmark.triangle.fill").fixedSize().scaledToFit().font(.system(.title))
@@ -47,12 +49,12 @@ struct MapView: View {
                             }.sheet(isPresented: self.$mapViewModel.showMenuView, content: {
                                 MenuView(isPresented: self.$mapViewModel.showMenuView, user: self.session.session?.email ?? "Undefined", signOut: self.session.signOut )
                             })
-                                .padding()
-                                .background(Color.blue.opacity(0.75))
-                                .foregroundColor(Color.white)
-                                .font(.system(.title))
-                                .clipShape(Circle())
-                                .padding(.trailing)
+                            .padding()
+                            .background(Color.blue.opacity(0.75))
+                            .foregroundColor(Color.white)
+                            .font(.system(.title))
+                            .clipShape(Circle())
+                            .padding(.trailing)
                             Spacer()
                             VStack {
                                 Text("\(locationManager.location?.coordinate.latitude.description ?? "Brak lat")")
@@ -84,7 +86,6 @@ struct MapView: View {
             }
         }.onAppear{
             self.session.listen()
-            self.mapViewModel.fetchData(at: self.locationManager.get2DLocationCoordinate(), with: 10 /* 10km */)
         }
     }
 }
