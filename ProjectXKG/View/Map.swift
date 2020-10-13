@@ -19,17 +19,15 @@ struct Map: UIViewRepresentable {
         map.showsUserLocation = true
         map.delegate = context.coordinator
         map.setUserTrackingMode(.follow, animated: true)
-//        map.annotations
         return map
     }
     
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<Map>) {
-        //        annotationsToConsole(from: annotations)
         guard let point = coordinate else {
             return
         }
         print("Adnotacje w klasie \(annotations.count)\tAdnotacje w uiView \(uiView.annotations.count)")
-        if annotations.count + 1 != uiView.annotations.count {
+        if annotations.count + 1 != uiView.annotations.count { // uiView.annotations always have 1 more object in array because there is nil object as additional
             uiView.removeAnnotations(uiView.annotations)
             uiView.addAnnotations(self.annotations)
         }
@@ -63,8 +61,5 @@ struct Map: UIViewRepresentable {
             self.control = control
         }
         
-        func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-            print(view.annotation?.subtitle ?? "Nie wiem")
-        }
     }
 }

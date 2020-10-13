@@ -10,7 +10,7 @@ import MapKit
 import SwiftUI
 
 struct MapView: View {
-    
+    // TODO: Odswiez dopoki fetch nie zwroci true
     /*
      Chwilowo nie dziala wyswietlanie najnowszych raportow (z innych kategorii niz LocalThreat)
      Spowodowane jest to tym, ze dodaje teraz kategorie (wysyla juz dobrze raporty)
@@ -27,8 +27,17 @@ struct MapView: View {
         Group {
             if (session.session != nil) {
                 ZStack {
-                    Map(coordinate: $locationManager.location,annotations: mapViewModel.reportedLocations)
-                        .edgesIgnoringSafeArea(.all)
+                    if locationManager.checkAuthorizationStatus() && locationManager.checkAccuracyStatus() {
+                        Map(coordinate: $locationManager.location,annotations: mapViewModel.reportedLocations)
+                            .edgesIgnoringSafeArea(.all).onAppear{
+                                self.mapViewModel.fetchData(at: self.locationManager.get2DLocationCoordinate())
+                            }
+                    } else {
+                        VStack{
+                            Image(systemName: "exclamationmark.triangle.fill").fixedSize().scaledToFit().font(.system(.title))
+                            Text("You have give acces to location")
+                        }
+                    }
                     VStack {
                         Spacer()
                         HStack {
@@ -41,11 +50,11 @@ struct MapView: View {
                                 MenuView(isPresented: self.$mapViewModel.showMenuView, user: self.session.session?.email ?? "Undefined", signOut: self.session.signOut )
                             })
                             .padding()
-                                .background(Color.blue.opacity(0.75))
-                                .foregroundColor(Color.white)
-                                .font(.system(.title))
-                                .clipShape(Circle())
-                                .padding(.trailing)
+                            .background(Color.blue.opacity(0.75))
+                            .foregroundColor(Color.white)
+                            .font(.system(.title))
+                            .clipShape(Circle())
+                            .padding(.trailing)
                             Spacer()
                             VStack {
                                 Text("\(locationManager.location?.coordinate.latitude.description ?? "Brak lat")")
@@ -76,9 +85,7 @@ struct MapView: View {
                 AuthView()
             }
         }.onAppear{
-            self.locationManager.delegate = self
             self.session.listen()
-            self.mapViewModel.fetchData(at: self.locationManager.get2DLocationCoordinate(), with: 10 /* 10km */)
         }
     }
 }
