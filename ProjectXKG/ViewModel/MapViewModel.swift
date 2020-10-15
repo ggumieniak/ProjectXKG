@@ -16,6 +16,11 @@ class MapViewModel:ObservableObject {
     @Published var showAlertView: Bool = false
     @Published var showMenuView: Bool = false
     private let db = Firestore.firestore()
+    var location:CLLocation? {
+        willSet {
+            self.fetchData()
+        }
+    }
 }
 // MARK: Methods
 extension MapViewModel {
@@ -25,11 +30,11 @@ extension MapViewModel {
     }
     
     
-    func fetchData(at location:CLLocationCoordinate2D?) -> Bool {
-        print(location.debugDescription)
-        guard let location = location else {
-            return false
+    func fetchData() {
+        guard let location = location?.coordinate else {
+            return
         }
+        print(location)
 //        print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
         let queryLocation = location.getNearBy(at: location, with: 10)
         self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.localThreaten).collection(K.Firestore.Collection.Categories.Report.reports)
@@ -50,7 +55,7 @@ extension MapViewModel {
                 firebaseReports.printReports()
                 self.reportedLocations = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
         }
-        return true
+        
     }
     
     func setReportedLocations(reportedLocations: [MKPointAnnotation]) {

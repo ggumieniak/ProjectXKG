@@ -29,9 +29,13 @@ struct MapView: View {
                 ZStack {
                     if locationManager.checkAuthorizationStatus() && locationManager.checkAccuracyStatus() {
                         Map(coordinate: $locationManager.location,annotations: mapViewModel.reportedLocations)
-                            .edgesIgnoringSafeArea(.all).onAppear{
-                                self.mapViewModel.fetchData(at: self.locationManager.get2DLocationCoordinate())
+                            .edgesIgnoringSafeArea(.all)
+                            .onAppear{
+                                self.mapViewModel.fetchData()
                             }
+                            .onReceive(self.locationManager.$location, perform: { _ in
+                                self.mapViewModel.location = self.locationManager.location
+                            })
                     } else {
                         VStack{
                             Image(systemName: "exclamationmark.triangle.fill").fixedSize().scaledToFit().font(.system(.title))
