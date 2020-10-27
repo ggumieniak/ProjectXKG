@@ -13,8 +13,20 @@ import FirebaseFirestore
 // MARK: Initialization
 class MapViewModel:ObservableObject {
     @Published var reportedLocations = [MKAnnotation]()
-    @Published var showAlertView: Bool = false
-    @Published var showMenuView: Bool = false
+    @Published var showAlertView: Bool = false {
+        didSet {
+            if oldValue == true {
+                self.fetchData()
+            }
+        }
+    }
+    @Published var showMenuView: Bool = false {
+        didSet {
+            if oldValue == true {
+                self.fetchData()
+            }
+        }
+    }
     private let db = Firestore.firestore()
     var location:CLLocation? {
         willSet {
@@ -36,7 +48,9 @@ extension MapViewModel {
         }
         print(location)
 //        print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
-        let queryLocation = location.getNearBy(at: location, with: 10)
+        let queryLocation = location.getNearBy(at: location, with: UserDefaults.standard.double(forKey: "odleglosc") == 0 ? 10 : UserDefaults.standard.double(forKey: "odleglosc"))
+        print(UserDefaults.standard.double(forKey: "odleglosc"))
+        print(queryLocation)
         self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.localThreaten).collection(K.Firestore.Collection.Categories.Report.reports)
             .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
             .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
@@ -52,7 +66,7 @@ extension MapViewModel {
                     let classifiedReport = queryClassifier.classifierDataToReport(from: QueryDocumentSnapshot)
                     return classifiedReport
                 }
-                firebaseReports.printReports()
+//                firebaseReports.printReports()
                 self.reportedLocations = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
         }
         
