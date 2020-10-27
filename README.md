@@ -10,22 +10,21 @@
 * master - dzialajaca aktualnie aplikacja, kompiluje sie i posiada podstawowa sprawnosc
 * dev - aktualne poprawki, które robie. Moze zawierac bledy lub nie kompilowac sie
 ## Co robię aktualnie
-* __Odswiezanie lokalizacji aktywnie podczas pobierania danych__
 * Zdarzenia:
     * __Kategorie__ - mozliwosc wyszukania (drogowa, gaz etc.)
     * Wyswietlic czas zdarzenia
 * Zrobic menu ustawien: 
-    * _Nazwa uzytkownika jaka by byla_
-    * _Wybor kategorii_
-    * __Mozliwie wybor promienia w jakim chce dostawac powiadomienia__ 
+    * _Wybor kategorii_ 
 ## Do zrobienia:
-* Zmiana sposobu pobierania danych (np. na cykliczne)
-* Po nacisnieciu pineski wyswietlenei informacji kto zglosil i co zglosil
+* Po nacisnieciu pineski wyswietlenie informacji kto zglosil i co zglosil
 * Powiadomienia push (notyfikacje) przy pobraniu nowych danych
 ## Przydaloby sie:
 * __Testy__ 
 * _Przetworzyc rejestracje, aby uzytkownicy mogli personalizowac swoj nickname_
 ## Zrobione
+* __Mozliwie wybor promienia w jakim chce dostawac powiadomienia__
+* __Mozliwie wybor promienia w jakim chce dostawac powiadomienia__
+* __Odswiezanie lokalizacji aktywnie podczas pobierania danych__
 * Skrypt do usuwania starych wydarzeń w bazie (na serwerze, nie w aplikacji)
 * Narysowanie na mapie gdzie jest jakis problem
 * Wyświetlenie informacji w danym obszarze 
@@ -56,6 +55,7 @@
 * Kompatybilność z innymi platformami 
 * Aktywne poprawianie w trakcie podawania loginu i hasla
 * Wieksza ilosc danych o uzytkowniku i personalizacja
+* Dodanie zdjęcia z wydarzenia
 ## Uzytkownik do zalogowania
 * __Login__: _1@2.com_
 * __Haslo__: _123456_
