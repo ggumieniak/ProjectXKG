@@ -31,6 +31,8 @@ struct MapView: View {
                             .edgesIgnoringSafeArea(.all)
                             .onAppear{
                                 self.mapViewModel.fetchData()
+                                self.mapViewModel.scheduleTimer()
+                                print("Pojawiam sie")
                             }
                             .onReceive(self.locationManager.$location, perform: { _ in
                                 self.mapViewModel.location = self.locationManager.location
