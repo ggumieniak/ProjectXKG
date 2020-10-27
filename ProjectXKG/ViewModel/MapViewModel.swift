@@ -24,7 +24,7 @@ class MapViewModel:ObservableObject {
 extension MapViewModel {
     
     func scheduleTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(fetchData), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(fetchData), userInfo: nil, repeats: true)
     }
     
     @objc func fetchData() {

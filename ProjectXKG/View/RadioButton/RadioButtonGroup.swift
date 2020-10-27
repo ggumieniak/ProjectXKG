@@ -18,7 +18,7 @@ struct RadioButtonGroups: View {
             localThreatenButton
             roadAccidentButton
             weatherButton
-        }
+        }.padding(.all)
     }
     
     var localThreatenButton: some View {
