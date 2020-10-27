@@ -14,7 +14,13 @@ import FirebaseFirestore
 class MapViewModel:ObservableObject {
     @Published var reportedLocations = [MKAnnotation]()
     @Published var showAlertView: Bool = false
-    @Published var showMenuView: Bool = false
+    @Published var showMenuView: Bool = false {
+        didSet {
+            if oldValue == true {
+                self.fetchData()
+            }
+        }
+    }
     private let db = Firestore.firestore()
     var location:CLLocation?
     var timer = Timer()
