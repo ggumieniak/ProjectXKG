@@ -52,9 +52,3 @@ class FirebaseDataClassifier {
         return Report(date: date, description: description, location: location, user: user)
     }
 }
-// MARK: Acquire Data
-//extension FirebaseDataClassifier {
-//    func getDataToShow() -> [Report] {
-//        return reports
-//    }
-//}

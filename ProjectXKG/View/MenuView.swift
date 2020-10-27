@@ -32,7 +32,7 @@ struct MenuView: View {
             }
             HStack{
                 Spacer()
-                Text("You will get a message away at: \(Int(menuViewModel.displayDistance)) km")
+                Text("You will get a message away at: \(Int(menuViewModel.displayDistance != 0 ? menuViewModel.displayDistance : 10)) km")
                     .font(.system(.body))
                     .foregroundColor(colorScheme == .light ? Color.black : Color.white)
                 Spacer()
@@ -54,7 +54,7 @@ struct MenuView: View {
 
 final class MenuViewModel: ObservableObject {
     let didChange = PassthroughSubject<Void,Never>()
-    @Published var displayDistance: Double = UserDefaults.standard.object(forKey: "odleglosc") as? Double ?? 10
+    @Published var displayDistance: Double = UserDefaults.standard.double(forKey: "odleglosc")
     @UserDefault(key: "odleglosc", defaultValue: 10.0)
     var myDistance {
         didSet {
