@@ -10,7 +10,6 @@ import MapKit
 import SwiftUI
 
 struct MapView: View {
-    // TODO: Odswiez dopoki fetch nie zwroci true
     /*
      Chwilowo nie dziala wyswietlanie najnowszych raportow (z innych kategorii niz LocalThreat)
      Spowodowane jest to tym, ze dodaje teraz kategorie (wysyla juz dobrze raporty)
