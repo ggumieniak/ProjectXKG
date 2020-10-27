@@ -36,12 +36,6 @@ class MapViewModel:ObservableObject {
 }
 // MARK: Methods
 extension MapViewModel {
-    
-    func test() {
-        print("Test delegata")
-    }
-    
-    
     func fetchData() {
         guard let location = location?.coordinate else {
             return

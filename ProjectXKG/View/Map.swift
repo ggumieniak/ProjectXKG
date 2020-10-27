@@ -31,9 +31,8 @@ struct Map: UIViewRepresentable {
             uiView.removeAnnotations(uiView.annotations)
             uiView.addAnnotations(self.annotations)
         }
-        
-        let latDelta:CLLocationDegrees = 0.005
-        let lonDelta:CLLocationDegrees = 0.005
+        let latDelta:CLLocationDegrees = userDefaultsToSpan()
+        let lonDelta:CLLocationDegrees = userDefaultsToSpan()
         let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
         let region = MKCoordinateRegion(center: point.coordinate, span: span)
         uiView.setRegion(region, animated: true)
@@ -51,6 +50,14 @@ struct Map: UIViewRepresentable {
             print(annotation.subtitle ?? "Brak opisu" )
         }
         print("______________________________________________________________________________________________")
+    }
+    
+    func userDefaultsToSpan() -> Double {
+        if UserDefaults.standard.double(forKey: "odleglosc").isEqual(to: 0) {
+            return 0.1
+        } else {
+            return UserDefaults.standard.double(forKey: "odleglosc")/100
+        }
     }
     
     final class Coordinator: NSObject, MKMapViewDelegate {

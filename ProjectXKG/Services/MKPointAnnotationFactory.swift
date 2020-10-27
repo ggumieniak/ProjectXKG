@@ -34,7 +34,6 @@ extension MKPointAnnotationFactory {
         annotation.coordinate = report.location
         annotation.title = report.user
         annotation.subtitle = report.description
-        
         return annotation
     }
 }

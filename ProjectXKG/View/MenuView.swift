@@ -27,12 +27,12 @@ struct MenuView: View {
             .padding(.top)
             .padding(.leading, 10)
             Spacer()
-            Slider(value: $menuViewModel.myDistance, in:1...100,step: 1){ _ in
+            Slider(value: $menuViewModel.myDistance, in:0.25...100,step: 0.25){ _ in
                 zabawa = menuViewModel.myDistance
             }
             HStack{
                 Spacer()
-                Text("You will get a message away at: \(Int(menuViewModel.displayDistance != 0 ? menuViewModel.displayDistance : 10)) km")
+                Text("You will get a message away at: \(menuViewModel.displayDistance != 0 ? String(format: "%.2f", menuViewModel.displayDistance) : String(10)) km")
                     .font(.system(.body))
                     .foregroundColor(colorScheme == .light ? Color.black : Color.white)
                 Spacer()
