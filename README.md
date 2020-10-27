@@ -56,6 +56,7 @@
 * Aktywne poprawianie w trakcie podawania loginu i hasla
 * Wieksza ilosc danych o uzytkowniku i personalizacja
 * Dodanie zdjęcia z wydarzenia
+* Zmiana bazy danych
 ## Uzytkownik do zalogowania
 * __Login__: _1@2.com_
 * __Haslo__: _123456_
