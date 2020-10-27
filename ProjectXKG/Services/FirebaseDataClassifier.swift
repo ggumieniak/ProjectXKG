@@ -14,7 +14,6 @@ import MapKit
 // MARK: Initialization
 class FirebaseDataClassifier {
     func classifierDataToReport(from dataFromFirebase:QueryDocumentSnapshot) -> Report {
-        print(#function)
         let data = convertDateToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.date]!)
         let description = convertDescriptionToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.description]!)
         let location = convertGeopointToLocation(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.location]!)

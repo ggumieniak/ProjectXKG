@@ -11,7 +11,6 @@ import Combine
 
 struct MenuView: View {
     @Environment(\.colorScheme) var colorScheme
-    @State var zabawa: Double = 10
     @Binding var isPresented: Bool
     let user: String
     let signOut: () -> ()
@@ -27,16 +26,38 @@ struct MenuView: View {
             .padding(.top)
             .padding(.leading, 10)
             Spacer()
-            Slider(value: $menuViewModel.myDistance, in:1...100,step: 1){ _ in
-                zabawa = menuViewModel.myDistance
-            }
+            Slider(value: $menuViewModel.myDistance, in:0.25...100,step: 0.25).padding(.all)
             HStack{
                 Spacer()
-                Text("You will get a message away at: \(Int(menuViewModel.displayDistance != 0 ? menuViewModel.displayDistance : 10)) km")
+                Text("You will get a message away at: \(menuViewModel.displayDistance != 0 ? String(format: "%.2f", menuViewModel.displayDistance) : String(10.00)) km")
                     .font(.system(.body))
                     .foregroundColor(colorScheme == .light ? Color.black : Color.white)
                 Spacer()
             }
+            Spacer()
+            VStack {
+                VStack {
+                    Toggle(isOn: $menuViewModel.localThreaten){
+                        Text(K.Firestore.Collection.Categories.localThreaten)
+                            .foregroundColor(colorScheme == .light ? Color.black : Color.white)
+                            .font(.system(.body))
+                    }
+                }
+                VStack {
+                    Toggle(isOn: $menuViewModel.roadAccident){
+                        Text(K.Firestore.Collection.Categories.roadAccident)
+                            .foregroundColor(colorScheme == .light ? Color.black : Color.white)
+                            .font(.system(.body))
+                    }
+                }
+                VStack {
+                    Toggle(isOn: $menuViewModel.weather){
+                        Text(K.Firestore.Collection.Categories.weather)
+                            .foregroundColor(colorScheme == .light ? Color.black : Color.white)
+                            .font(.system(.body))
+                    }
+                }
+            }.padding(.all)
             Spacer()
             Button(action: {
                 print("Nacisnales przycisk")
@@ -53,6 +74,9 @@ struct MenuView: View {
 }
 
 final class MenuViewModel: ObservableObject {
+    @Published var localThreaten = true
+    @Published var roadAccident = false
+    @Published var weather = false
     let didChange = PassthroughSubject<Void,Never>()
     @Published var displayDistance: Double = UserDefaults.standard.double(forKey: "odleglosc")
     @UserDefault(key: "odleglosc", defaultValue: 10.0)

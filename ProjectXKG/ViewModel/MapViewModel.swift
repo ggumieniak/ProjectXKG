@@ -13,13 +13,7 @@ import FirebaseFirestore
 // MARK: Initialization
 class MapViewModel:ObservableObject {
     @Published var reportedLocations = [MKAnnotation]()
-    @Published var showAlertView: Bool = false {
-        didSet {
-            if oldValue == true {
-                self.fetchData()
-            }
-        }
-    }
+    @Published var showAlertView: Bool = false
     @Published var showMenuView: Bool = false {
         didSet {
             if oldValue == true {
@@ -28,21 +22,18 @@ class MapViewModel:ObservableObject {
         }
     }
     private let db = Firestore.firestore()
-    var location:CLLocation? {
-        willSet {
-            self.fetchData()
-        }
-    }
+    var location:CLLocation?
+    var timer = Timer()
+    
 }
 // MARK: Methods
 extension MapViewModel {
     
-    func test() {
-        print("Test delegata")
+    func scheduleTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(fetchData), userInfo: nil, repeats: true)
     }
     
-    
-    func fetchData() {
+    @objc func fetchData() {
         guard let location = location?.coordinate else {
             return
         }
@@ -79,6 +70,8 @@ extension MapViewModel {
     private func getTwelveHoursEarlierDate() -> Date?{
         return Calendar.current.date(byAdding: .hour, value: -12, to: Date())
     }
+    
+    
 }
 
 
