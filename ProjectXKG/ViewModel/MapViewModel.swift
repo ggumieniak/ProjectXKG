@@ -12,6 +12,8 @@ import FirebaseFirestore
 
 // MARK: Initialization
 class MapViewModel:ObservableObject {
+    private var fetchedLocalThreaten = [MKAnnotation]()
+    private var fetchedRoadAccident = [MKAnnotation]()
     @Published var reportedLocations = [MKAnnotation]()
     @Published var showAlertView: Bool = false
     @Published var showMenuView: Bool = false {
@@ -38,34 +40,52 @@ extension MapViewModel {
             return
         }
         print(location)
-//        print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
+        //        print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
         let queryLocation = location.getNearBy(at: location, with: UserDefaults.standard.double(forKey: "odleglosc") == 0 ? 10 : UserDefaults.standard.double(forKey: "odleglosc"))
         print(UserDefaults.standard.double(forKey: "odleglosc"))
         print(queryLocation)
-        self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.localThreaten).collection(K.Firestore.Collection.Categories.Report.reports)
-            .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
-            .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
-            .addSnapshotListener { documentShapshot, error in
-                guard let document = documentShapshot?.documents else {
-                    print("Error fetching document \(error!)")
-                    return
+        if UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.localThreaten) == false {
+            self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.localThreaten).collection(K.Firestore.Collection.Categories.Report.reports)
+                .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
+                .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
+                .addSnapshotListener { documentShapshot, error in
+                    guard let document = documentShapshot?.documents else {
+                        print("Error fetching document \(error!)")
+                        return
+                    }
+                    let firebaseReports = document.map { QueryDocumentSnapshot -> Report in
+                        // TODO: zwroc skonwertowane lokacje
+                        let queryClassifier = FirebaseDataClassifier()
+                        let classifiedReport = queryClassifier.classifierDataToReport(from: QueryDocumentSnapshot)
+                        return classifiedReport
+                    }
+                    //                firebaseReports.printReports()
+                    self.fetchedLocalThreaten = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
+                    self.reportedLocations = self.fetchedLocalThreaten
                 }
-                print("Przechwytuje dane")
-                let firebaseReports = document.map { QueryDocumentSnapshot -> Report in
-                    // TODO: zwroc skonwertowane lokacje
-                    let queryClassifier = FirebaseDataClassifier()
-                    let classifiedReport = queryClassifier.classifierDataToReport(from: QueryDocumentSnapshot)
-                    return classifiedReport
-                }
-//                firebaseReports.printReports()
-                self.reportedLocations.removeAll()
-                self.reportedLocations = self.reportedLocations + MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
+            
         }
-        
-    }
-    
-    func setReportedLocations(reportedLocations: [MKPointAnnotation]) {
-        self.reportedLocations = reportedLocations
+        if UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.roadAccident) == false {
+            self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.roadAccident).collection(K.Firestore.Collection.Categories.Report.reports)
+                .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
+                .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
+                .addSnapshotListener { documentShapshot, error in
+                    guard let document = documentShapshot?.documents else {
+                        print("Error fetching document \(error!)")
+                        return
+                    }
+                    let firebaseReports = document.map { QueryDocumentSnapshot -> Report in
+                        // TODO: zwroc skonwertowane lokacje
+                        let queryClassifier = FirebaseDataClassifier()
+                        let classifiedReport = queryClassifier.classifierDataToReport(from: QueryDocumentSnapshot)
+                        return classifiedReport
+                    }
+                    //                firebaseReports.printReports()
+                    self.fetchedRoadAccident = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
+//                    self.reportedLocations = self.fetchedRoadAccident
+                }
+            
+        }
     }
     
     private func getTwelveHoursEarlierDate() -> Date?{
