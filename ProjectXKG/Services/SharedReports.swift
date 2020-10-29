@@ -11,8 +11,24 @@ import MapKit
 
 class SharedReports {
     static var shared = SharedReports()
+    private var localThreaten = [MKAnnotation]()
+    private var roadAccident = [MKAnnotation]()
+    private var weather = [MKAnnotation]()
+    var summaryAccidentArray = [MKAnnotation]()
     
-    var localThreaten = [MKAnnotation]()
-    var roadAccident = [MKAnnotation]()
-    var weather = [MKAnnotation]()
+    func setLocalThreatenArray(from reports:[MKAnnotation]) {
+        self.localThreaten = reports
+    }
+    func setRoadAccidentArray(from reports:[MKAnnotation]) {
+        self.roadAccident = reports
+    }
+    func setWeatherArray(from reports:[MKAnnotation]) {
+        self.weather = reports
+    }
+    
+    func getSummaryAccidentArray() -> [MKAnnotation] {
+        summaryAccidentArray.removeAll()
+        summaryAccidentArray = localThreaten + roadAccident + weather
+        return summaryAccidentArray
+    }
 }
