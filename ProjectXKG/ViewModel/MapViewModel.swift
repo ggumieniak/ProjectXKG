@@ -30,7 +30,7 @@ class MapViewModel:ObservableObject {
 extension MapViewModel {
     
     func scheduleTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(fetchData), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(fetchData), userInfo: nil, repeats: true)
     }
     
     @objc func fetchData() {
@@ -58,7 +58,8 @@ extension MapViewModel {
                     return classifiedReport
                 }
 //                firebaseReports.printReports()
-                self.reportedLocations = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
+                self.reportedLocations.removeAll()
+                self.reportedLocations = self.reportedLocations + MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
         }
         
     }
