@@ -9,7 +9,8 @@
 import Foundation
 import MapKit
 
-protocol ReportType {
+protocol ReportType: Equatable, Identifiable {
+    var id: UUID {get}
     var location: CLLocationCoordinate2D {get set}
     var description: String {get set}
     var user: String {get set}
@@ -18,15 +19,22 @@ protocol ReportType {
 
 // MARK: Initialization
 struct Report: ReportType {
+    var id: UUID
     var date: String
     var description: String
     var location: CLLocationCoordinate2D
     var user: String
     
-    init(date: String, description: String, location: CLLocationCoordinate2D, user: String) {
+    init(id: UUID,date: String, description: String, location: CLLocationCoordinate2D, user: String) {
+        self.id = id
         self.date = date
         self.description = description
         self.location = location
         self.user = user
     }
+    
+    static func == (lhs: Report, rhs: Report) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
 }

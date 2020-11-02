@@ -12,8 +12,6 @@ import FirebaseFirestore
 
 // MARK: Initialization
 class MapViewModel:ObservableObject {
-    private var fetchedLocalThreaten = [MKAnnotation]()
-    private var fetchedRoadAccident = [MKAnnotation]()
     @Published var reportedLocations = [MKAnnotation]()
     @Published var showAlertView: Bool = false
     @Published var showMenuView: Bool = false {
@@ -32,7 +30,7 @@ class MapViewModel:ObservableObject {
 extension MapViewModel {
     
     func scheduleTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(fetchData), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 15, target: self, selector: #selector(fetchData), userInfo: nil, repeats: true)
     }
     
     @objc func fetchData() {
@@ -59,9 +57,9 @@ extension MapViewModel {
                         let classifiedReport = queryClassifier.classifierDataToReport(from: QueryDocumentSnapshot)
                         return classifiedReport
                     }
-                    //                firebaseReports.printReports()
-                    self.fetchedLocalThreaten = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
-                    self.reportedLocations = self.fetchedLocalThreaten
+//                                    firebaseReports.printReports()
+                    let fetchedAnnotations = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
+                    SharedReports.shared.setLocalThreatenArray  (from: fetchedAnnotations)
                 }
             
         }
@@ -81,8 +79,28 @@ extension MapViewModel {
                         return classifiedReport
                     }
                     //                firebaseReports.printReports()
-                    self.fetchedRoadAccident = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
-//                    self.reportedLocations = self.fetchedRoadAccident
+                    let fetchedAnnotations = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
+                    SharedReports.shared.setRoadAccidentArray(from: fetchedAnnotations)
+                }
+            
+        }
+        if UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.weather) == false {
+            self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.weather).collection(K.Firestore.Collection.Categories.Report.reports)
+                .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
+                .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
+                .addSnapshotListener { documentShapshot, error in
+                    guard let document = documentShapshot?.documents else {
+                        print("Error fetching document \(error!)")
+                        return
+                    }
+                    let firebaseReports = document.map { QueryDocumentSnapshot -> Report in
+                        let queryClassifier = FirebaseDataClassifier()
+                        let classifiedReport = queryClassifier.classifierDataToReport(from: QueryDocumentSnapshot)
+                        return classifiedReport
+                    }
+                    //                firebaseReports.printReports()
+                    let fetchedAnnotations = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
+                    SharedReports.shared.setWeatherArray(from: fetchedAnnotations)
                 }
             
         }

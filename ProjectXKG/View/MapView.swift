@@ -27,7 +27,7 @@ struct MapView: View {
             if (session.session != nil) {
                 ZStack {
                     if locationManager.checkAuthorizationStatus() && locationManager.checkAccuracyStatus() {
-                        Map(coordinate: $locationManager.location,annotations: mapViewModel.reportedLocations)
+                        Map(coordinate: $locationManager.location)
                             .edgesIgnoringSafeArea(.all)
                             .onAppear{
                                 self.mapViewModel.fetchData()

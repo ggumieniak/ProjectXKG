@@ -25,17 +25,18 @@ class AlertViewModel: ObservableObject {
         
         db.collection(K.Firestore.Collection.categories).document(category).collection(K.Firestore.Collection.Categories.Report.reports)
             .addDocument(data: [
+                "uuid" : UUID.init().uuidString,
                 K.Firestore.Collection.Categories.Report.Fields.location : location,
-            K.Firestore.Collection.Categories.Report.Fields.description : description,
-            K.Firestore.Collection.Categories.Report.Fields.user : userMail,
-            K.Firestore.Collection.Categories.Report.Fields.date : Timestamp.init()
-        ]) { err in
-            if let error = err {
-                print(error.localizedDescription)
-            } else {
-                print("Successfully sended report")
+                K.Firestore.Collection.Categories.Report.Fields.description : description,
+                K.Firestore.Collection.Categories.Report.Fields.user : userMail,
+                K.Firestore.Collection.Categories.Report.Fields.date : Timestamp.init()
+            ]) { err in
+                if let error = err {
+                    print(error.localizedDescription)
+                } else {
+                    print("Successfully sended report")
+                }
             }
-        }
         return true
     }
 }
