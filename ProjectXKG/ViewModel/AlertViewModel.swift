@@ -25,7 +25,7 @@ class AlertViewModel: ObservableObject {
         
         db.collection(K.Firestore.Collection.categories).document(category).collection(K.Firestore.Collection.Categories.Report.reports)
             .addDocument(data: [
-                "uuid" : UUID.init().uuidString,
+                K.Firestore.Collection.Categories.Report.Fields.uuid : UUID.init().uuidString,
                 K.Firestore.Collection.Categories.Report.Fields.location : location,
                 K.Firestore.Collection.Categories.Report.Fields.description : description,
                 K.Firestore.Collection.Categories.Report.Fields.user : userMail,
