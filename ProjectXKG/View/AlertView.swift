@@ -27,7 +27,7 @@ struct AlertView: View {
                         .foregroundColor(colorScheme == .light ? Color.black : Color.white)
                         .padding(.trailing)
                 })
-            }
+            }.padding(.top)
             Spacer()
             Text("Request a dangerous")
                 .font(.system(size: 32, weight: .bold))
