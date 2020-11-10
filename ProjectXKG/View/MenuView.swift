@@ -17,14 +17,23 @@ struct MenuView: View {
     @ObservedObject var menuViewModel = MenuViewModel()
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack{
-                Image(systemName: "person.crop.circle")
-                Text(user).foregroundColor(colorScheme == .light ? Color.black : Color.white)
-            }.font(.system(.title)).scaledToFit()
+        VStack {
+            HStack {
+                HStack {
+                    Image(systemName: "person.crop.circle").padding(.leading)
+                    Text(user).foregroundColor(colorScheme == .light ? Color.black : Color.white)
+                }.font(.system(.title)).scaledToFit()
+                Spacer()
+                Button(action: {
+                    self.isPresented = false
+                }, label: {
+                    Text("Done")
+                        .font(.system(.body))
+                        .padding(.trailing)
+                })
+            }
             .foregroundColor(colorScheme == .light ? Color.black : Color.white)
             .padding(.top)
-            .padding(.leading, 10)
             Spacer()
             Slider(value: $menuViewModel.myDistance, in:0.25...100,step: 0.25).padding(.all)
             HStack{
