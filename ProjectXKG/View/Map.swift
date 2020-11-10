@@ -25,8 +25,6 @@ struct Map: UIViewRepresentable {
         guard let point = coordinate else {
             return
         }
-        print("Adnotacje w klasie \(SharedReports.shared.summaryAccidentArray.count)\tAdnotacje w uiView \(uiView.annotations.count)")
-        print(SharedReports.shared.summaryAccidentArray.count)
         if SharedReports.shared.summaryAccidentArray.count + 1 != uiView.annotations.count { // uiView.annotations always have 1 more object in array because there is nil object as additional
             uiView.removeAnnotations(uiView.annotations)
             uiView.addAnnotations(SharedReports.shared.summaryAccidentArray)

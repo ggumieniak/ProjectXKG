@@ -35,7 +35,7 @@ struct MenuView: View {
             .foregroundColor(colorScheme == .light ? Color.black : Color.white)
             .padding(.top)
             Spacer()
-            Slider(value: $menuViewModel.myDistance, in:0.25...100,step: 0.25).padding(.all)
+            Slider(value: $menuViewModel.myDistance, in:0.5...100,step: 0.5).padding(.all)
             HStack{
                 Spacer()
                 Text("You will get a message away at: \(menuViewModel.displayDistance != 0 ? String(format: "%.2f", menuViewModel.displayDistance) : String(10.00)) km")
