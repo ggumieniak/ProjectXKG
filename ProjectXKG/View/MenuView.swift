@@ -46,7 +46,7 @@ struct MenuView: View {
             Spacer()
             VStack {
                 VStack {
-                    Toggle(isOn: $menuViewModel.localThreaten){
+                    Toggle(isOn: $menuViewModel.local){
                         Text(K.Firestore.Collection.Categories.localThreaten)
                             .foregroundColor(colorScheme == .light ? Color.black : Color.white)
                             .font(.system(.body))
@@ -83,9 +83,24 @@ struct MenuView: View {
 }
 
 final class MenuViewModel: ObservableObject {
-    @Published var localThreaten = true
-    @Published var roadAccident = false
-    @Published var weather = false
+    var local: Bool = UserDefaults.localActivated {
+        willSet {
+            UserDefaults.localActivated = newValue
+            didChange.send()
+        }
+    }
+    @Published var roadAccident: Bool = UserDefaults.roadActivated {
+        willSet {
+            UserDefaults.roadActivated = newValue
+            didChange.send()
+        }
+    }
+    @Published var weather: Bool = UserDefaults.weatherActivated {
+        willSet {
+            UserDefaults.weatherActivated = newValue
+            didChange.send()
+        }
+    }
     let didChange = PassthroughSubject<Void,Never>()
     @Published var displayDistance: Double = UserDefaults.standard.double(forKey: "odleglosc")
     @UserDefault(key: "odleglosc", defaultValue: 10.0)
