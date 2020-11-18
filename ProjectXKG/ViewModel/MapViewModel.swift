@@ -37,33 +37,30 @@ extension MapViewModel {
         guard let location = location?.coordinate else {
             return
         }
-        print(location)
+        print(#function)
         //        print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
         let queryLocation = location.getNearBy(at: location, with: UserDefaults.standard.double(forKey: "odleglosc") == 0 ? 10 : UserDefaults.standard.double(forKey: "odleglosc"))
         print(UserDefaults.standard.double(forKey: "odleglosc"))
         print(queryLocation)
-        if UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.localThreaten) == false {
-            self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.localThreaten).collection(K.Firestore.Collection.Categories.Report.reports)
-                .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
-                .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
-                .addSnapshotListener { documentShapshot, error in
-                    guard let document = documentShapshot?.documents else {
-                        print("Error fetching document \(error!)")
-                        return
-                    }
-                    let firebaseReports = document.map { QueryDocumentSnapshot -> Report in
-                        // TODO: zwroc skonwertowane lokacje
-                        let queryClassifier = FirebaseDataClassifier()
-                        let classifiedReport = queryClassifier.classifierDataToReport(from: QueryDocumentSnapshot)
-                        return classifiedReport
-                    }
-//                                    firebaseReports.printReports()
-                    let fetchedAnnotations = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
-                    SharedReports.shared.setLocalThreatenArray  (from: fetchedAnnotations)
+        self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.localThreaten).collection(K.Firestore.Collection.Categories.Report.reports)
+            .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
+            .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
+            .addSnapshotListener { documentShapshot, error in
+                guard let document = documentShapshot?.documents else {
+                    print("Error fetching document \(error!)")
+                    return
                 }
-            
-        }
-        if UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.roadAccident) == false {
+                let firebaseReports = document.map { QueryDocumentSnapshot -> Report in
+                    // TODO: zwroc skonwertowane lokacje
+                    let queryClassifier = FirebaseDataClassifier()
+                    let classifiedReport = queryClassifier.classifierDataToReport(from: QueryDocumentSnapshot)
+                    return classifiedReport
+                }
+                //                                    firebaseReports.printReports()
+                let fetchedAnnotations = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
+                SharedReports.shared.setLocalThreatenArray(from: fetchedAnnotations)
+            }
+        if UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.roadAccident) == true {
             self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.roadAccident).collection(K.Firestore.Collection.Categories.Report.reports)
                 .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
                 .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
@@ -82,9 +79,8 @@ extension MapViewModel {
                     let fetchedAnnotations = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
                     SharedReports.shared.setRoadAccidentArray(from: fetchedAnnotations)
                 }
-            
         }
-        if UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.weather) == false {
+        if UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.weather) == true {
             self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.weather).collection(K.Firestore.Collection.Categories.Report.reports)
                 .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
                 .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
@@ -102,7 +98,6 @@ extension MapViewModel {
                     let fetchedAnnotations = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
                     SharedReports.shared.setWeatherArray(from: fetchedAnnotations)
                 }
-            
         }
     }
     

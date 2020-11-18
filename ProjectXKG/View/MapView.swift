@@ -47,10 +47,10 @@ struct MapView: View {
                         Spacer()
                         HStack {
                             Button(action: {
-                                print("Menu")
-                                print("Lokalne",UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.localThreaten))
-                                print("Drogowe",UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.roadAccident))
-                                print("Pogodowe",UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.weather))
+//                                print("Menu")
+//                                print("Lokalne",UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.localThreaten))
+//                                print("Drogowe",UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.roadAccident))
+//                                print("Pogodowe",UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.weather))
                                 self.mapViewModel.showMenuView.toggle()
                             }) {
                                 Image(systemName: "gear") 

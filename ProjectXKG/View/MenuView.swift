@@ -46,13 +46,6 @@ struct MenuView: View {
             Spacer()
             VStack {
                 VStack {
-                    Toggle(isOn: $menuViewModel.local){
-                        Text(K.Firestore.Collection.Categories.localThreaten)
-                            .foregroundColor(colorScheme == .light ? Color.black : Color.white)
-                            .font(.system(.body))
-                    }
-                }
-                VStack {
                     Toggle(isOn: $menuViewModel.roadAccident){
                         Text(K.Firestore.Collection.Categories.roadAccident)
                             .foregroundColor(colorScheme == .light ? Color.black : Color.white)
@@ -93,12 +86,14 @@ final class MenuViewModel: ObservableObject {
         willSet {
             UserDefaults.roadActivated = newValue
             didChange.send()
+            SharedReports.shared.resetRoadArray()
         }
     }
     @Published var weather: Bool = UserDefaults.weatherActivated {
         willSet {
             UserDefaults.weatherActivated = newValue
             didChange.send()
+            SharedReports.shared.resetWeatherArray()
         }
     }
     let didChange = PassthroughSubject<Void,Never>()

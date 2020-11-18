@@ -14,7 +14,8 @@ import MapKit
 // MARK: Initialization
 class FirebaseDataClassifier {
     func classifierDataToReport(from dataFromFirebase:QueryDocumentSnapshot) -> Report {
-        let id = makeUUID(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.uuid]!)
+//        let id = makeUUID(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.uuid]!)
+        let id = dataFromFirebase.documentID
         let data = convertDateToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.date]!)
         let description = convertDescriptionToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.description]!)
         let location = convertGeopointToLocation(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.location]!)
@@ -53,7 +54,7 @@ class FirebaseDataClassifier {
         return userString
     }
     
-    private func makeReport(from id: UUID, _ date: String,_ description: String, _ location:CLLocationCoordinate2D,_ user: String) -> Report {
+    private func makeReport(from id: String, _ date: String,_ description: String, _ location:CLLocationCoordinate2D,_ user: String) -> Report {
         return Report(id: id,date: date, description: description, location: location, user: user)
     }
 }
