@@ -39,8 +39,8 @@ extension MapViewModel {
         }
         print(#function)
         //        print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
-        let queryLocation = location.getNearBy(at: location, with: UserDefaults.standard.double(forKey: "odleglosc") == 0 ? 10 : UserDefaults.standard.double(forKey: "odleglosc"))
-        print(UserDefaults.standard.double(forKey: "odleglosc"))
+        let queryLocation = location.getNearBy(at: location, with: UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance) == 0 ? 10 : UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance))
+        print(UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance))
         print(queryLocation)
         self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.localThreaten).collection(K.Firestore.Collection.Categories.Report.reports)
             .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
@@ -51,11 +51,11 @@ extension MapViewModel {
                     return
                 }
                 let firebaseReports = document.map { QueryDocumentSnapshot -> Report in
-                    // TODO: zwroc skonwertowane lokacje
                     let queryClassifier = FirebaseDataClassifier()
                     let classifiedReport = queryClassifier.classifierDataToReport(from: QueryDocumentSnapshot)
                     return classifiedReport
                 }
+                
                 //                                    firebaseReports.printReports()
                 let fetchedAnnotations = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
                 SharedReports.shared.setLocalThreatenArray(from: fetchedAnnotations)
@@ -75,7 +75,7 @@ extension MapViewModel {
                         let classifiedReport = queryClassifier.classifierDataToReport(from: QueryDocumentSnapshot)
                         return classifiedReport
                     }
-                    //                firebaseReports.printReports()
+                                    firebaseReports.printReports()
                     let fetchedAnnotations = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
                     SharedReports.shared.setRoadAccidentArray(from: fetchedAnnotations)
                 }
@@ -94,7 +94,7 @@ extension MapViewModel {
                         let classifiedReport = queryClassifier.classifierDataToReport(from: QueryDocumentSnapshot)
                         return classifiedReport
                     }
-                    //                firebaseReports.printReports()
+//                                    firebaseReports.printReports()
                     let fetchedAnnotations = MKPointAnnotationFactory(from: firebaseReports).createPointsToAnnotation()
                     SharedReports.shared.setWeatherArray(from: fetchedAnnotations)
                 }

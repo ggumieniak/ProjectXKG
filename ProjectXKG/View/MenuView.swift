@@ -97,8 +97,8 @@ final class MenuViewModel: ObservableObject {
         }
     }
     let didChange = PassthroughSubject<Void,Never>()
-    @Published var displayDistance: Double = UserDefaults.standard.double(forKey: "odleglosc")
-    @UserDefault(key: "odleglosc", defaultValue: 10.0)
+    @Published var displayDistance: Double = UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance)
+    @UserDefault(key: K.UserDefaultKeys.distance, defaultValue: 10.0)
     var myDistance {
         didSet {
             displayDistance = myDistance

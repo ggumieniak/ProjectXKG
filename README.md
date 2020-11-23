@@ -19,6 +19,7 @@
 * Po nacisnieciu pineski wyswietlenie informacji kto zglosil i co zglosil
 * Powiadomienia push (notyfikacje) przy pobraniu nowych danych
 ## Przydaloby sie:
+* Usuwanie przez uzytkownika jego zgloszen
 * __Testy__ 
 * _Przetworzyc rejestracje, aby uzytkownicy mogli personalizowac swoj nickname_
 ## Zrobione

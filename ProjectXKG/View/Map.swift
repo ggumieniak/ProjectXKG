@@ -22,6 +22,7 @@ struct Map: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<Map>) {
+        // TODO: Do userdefaults value that saves that user pressed to lock map at center or not
         guard let point = coordinate else {
             return
         }
@@ -51,10 +52,10 @@ struct Map: UIViewRepresentable {
     }
     
     func userDefaultsToSpan() -> Double {
-        if UserDefaults.standard.double(forKey: "odleglosc").isEqual(to: 0) {
+        if UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance).isEqual(to: 0) {
             return 0.1
         } else {
-            return UserDefaults.standard.double(forKey: "odleglosc")/100
+            return UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance)/100
         }
     }
     
