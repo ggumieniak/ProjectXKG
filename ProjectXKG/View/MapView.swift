@@ -10,14 +10,6 @@ import MapKit
 import SwiftUI
 
 struct MapView: View {
-    /*
-     Chwilowo nie dziala wyswietlanie najnowszych raportow (z innych kategorii niz LocalThreat)
-     Spowodowane jest to tym, ze dodaje teraz kategorie (wysyla juz dobrze raporty)
-     Musze stworzyc menu wyboru kategorii
-     Rejestracja i wybor kategorii
-     Wyswietlenie wybranych kategorii
-     */
-    
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject private var locationManager: LocationManager 
     @ObservedObject var mapViewModel = MapViewModel()
