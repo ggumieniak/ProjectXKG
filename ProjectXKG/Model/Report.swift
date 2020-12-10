@@ -11,10 +11,10 @@ import MapKit
 
 protocol ReportType: Equatable, Identifiable {
     var id: String {get}
-    var location: CLLocationCoordinate2D {get set}
-    var description: String {get set}
-    var user: String {get set}
-    var date: String {get set}
+    var location: CLLocationCoordinate2D {get}
+    var description: String {get}
+    var user: String {get}
+    var date: String {get}
 }
 
 // MARK: Initialization

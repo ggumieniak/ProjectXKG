@@ -10,28 +10,36 @@ import Foundation
 import MapKit
 
 class SharedReports {
+    var localReports: [Report]? {
+        willSet {
+            if localReports != newValue {
+                print("sa rozne lokalne")
+            }
+        }
+    }
     static var shared = SharedReports()
-    private var localThreaten: [MKAnnotation]?
-    private var roadAccident: [MKAnnotation]?
-    private var weather: [MKAnnotation]?
+    var roadAccident: [Report]? {
+        willSet {
+            if localReports != newValue {
+                print("sa rozne drogowe")
+            }
+        }
+    }
+    var weather: [Report]? {
+        willSet {
+            if localReports != newValue {
+                print("sa rozne pogodowe")
+            }
+        }
+    }
     var summaryAccidentArray: [MKAnnotation] {
-        return (localThreaten ?? [MKAnnotation]()) + (roadAccident ?? [MKAnnotation]()) + (weather ?? [MKAnnotation]())
+        return (MKPointAnnotationFactory(from: localReports).createPointsToAnnotation() + MKPointAnnotationFactory(from: roadAccident).createPointsToAnnotation() + MKPointAnnotationFactory(from: weather).createPointsToAnnotation())
     }
     
-    func setLocalThreatenArray(from reports:[MKAnnotation]) {
-        self.localThreaten = reports
-    }
-    
-    func setRoadAccidentArray(from reports:[MKAnnotation]) {
-        self.roadAccident = reports
-    }
-    
-    func setWeatherArray(from reports:[MKAnnotation]) {
-        self.weather = reports
-    }
     func resetWeatherArray() {
         self.weather?.removeAll()
     }
+    
     func resetRoadArray() {
         self.weather?.removeAll()
     }

@@ -11,23 +11,29 @@ import MapKit
 
 // MARK: Initialization
 class MKPointAnnotationFactory {
-    var reports: [Report]
+    static var counter = 0
+    var reports: [Report]?
     
-    init(from reports: [Report]) {
+    init(from reports: [Report]?) {
         self.reports = reports
     }
 }
+
 // MARK: Methods
 extension MKPointAnnotationFactory {
     func createPointsToAnnotation() -> [MKPointAnnotation] {
-        print(#function)
-        print("Posiadam \(reports.count) zgloszen w sobie")
+//        print(#function)
+//        print("Posiadam \(reports?.count) zgloszen w sobie")
         var annotations = [MKPointAnnotation]()
-        for report in reports {
-            let annotation = createPointAnnotation(from: report)
-            annotations.append(annotation)
+        if let reports = reports {
+            for report in reports {
+                let annotation = createPointAnnotation(from: report)
+                annotations.append(annotation)
+            }
+            return annotations
+        } else {
+            return [MKPointAnnotation]()
         }
-        return annotations
     }
     
     private func createPointAnnotation(from report: Report) -> MKPointAnnotation {
