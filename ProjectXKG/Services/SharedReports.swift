@@ -14,7 +14,7 @@ class SharedReports {
         willSet {
             if localReports != newValue && localReports != nil && localReports != Optional([]) {
 //                print("lokalne: \(localReports) | nowaWartosc: \(newValue)")
-                print("sa rozne lokalne")
+                NotificationPusher.pushNotification(type: K.Firestore.Collection.Categories.localThreaten)
             }
         }
     }
@@ -23,7 +23,7 @@ class SharedReports {
         willSet {
             if roadAccident != newValue && roadAccident != nil && roadAccident != Optional([]) {
 //                print("drogowe: \(roadAccident) | nowaWartosc: \(newValue)")
-                print("sa rozne drogowe")
+                NotificationPusher.pushNotification(type: K.Firestore.Collection.Categories.roadAccident)
             }
         }
     }
@@ -31,7 +31,7 @@ class SharedReports {
         willSet {
             if weather != newValue && weather != nil && weather != Optional([]){
 //                print("pogodowe: \(weather) | nowaWartosc: \(newValue)")
-                print("sa rozne pogodowe")
+                NotificationPusher.pushNotification(type: K.Firestore.Collection.Categories.weather)
             }
         }
     }

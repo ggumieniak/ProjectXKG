@@ -32,6 +32,7 @@
 		50A14ED624C6CA500023240E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A14ED524C6CA500023240E /* LocationManager.swift */; };
 		50AD51AF24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AD51AE24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift */; };
 		50AED0FC24CADD4200B187B9 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AED0FB24CADD4200B187B9 /* SignInViewModel.swift */; };
+		50B292AC258A7793006EF9EB /* NotificationPusher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B292AB258A7793006EF9EB /* NotificationPusher.swift */; };
 		50D3B6F3251B6836000F8EC6 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D3B6F2251B6836000F8EC6 /* MenuView.swift */; };
 		50D8B4B724A75C3F00220F94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4B624A75C3F00220F94 /* AppDelegate.swift */; };
 		50D8B4B924A75C3F00220F94 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4B824A75C3F00220F94 /* SceneDelegate.swift */; };
@@ -93,6 +94,7 @@
 		50A14ED524C6CA500023240E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		50AD51AE24E3C6190047D569 /* CLLocationCoordinate2D+GeoPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+GeoPoint.swift"; sourceTree = "<group>"; };
 		50AED0FB24CADD4200B187B9 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		50B292AB258A7793006EF9EB /* NotificationPusher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPusher.swift; sourceTree = "<group>"; };
 		50D3B6F2251B6836000F8EC6 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		50D8B4B324A75C3F00220F94 /* ProjectXKG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectXKG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50D8B4B624A75C3F00220F94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				50DF63B624DD52CD000A9353 /* FirebaseDataClassifier.swift */,
 				5066DD5924E2762400AFE72C /* MKPointAnnotationFactory.swift */,
 				509F5925254AB53300695E98 /* SharedReports.swift */,
+				50B292AB258A7793006EF9EB /* NotificationPusher.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				500AA27224C31CAD00AEA655 /* SignUpView.swift in Sources */,
 				5079E7412510B98E00F13EE5 /* RadioButtonGroup.swift in Sources */,
 				509D71A2255B1EE000336A54 /* UserDefaults+Categories.swift in Sources */,
+				50B292AC258A7793006EF9EB /* NotificationPusher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
