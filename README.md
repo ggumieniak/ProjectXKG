@@ -10,11 +10,6 @@
 * master - dzialajaca aktualnie aplikacja, kompiluje sie i posiada podstawowa sprawnosc
 * dev - aktualne poprawki, które robie. Moze zawierac bledy lub nie kompilowac sie
 ## Co robię aktualnie
-* Zdarzenia:
-    * __Kategorie__ - mozliwosc wyszukania (drogowa, gaz etc.)
-    * Wyswietlic czas zdarzenia
-* Zrobic menu ustawien: 
-    * _Wybor kategorii_ 
 ## Do zrobienia:
 ## Przydaloby sie:
 * Usuwanie przez uzytkownika jego zgloszen
@@ -22,6 +17,11 @@
 * __Testy__ 
 * _Przetworzyc rejestracje, aby uzytkownicy mogli personalizowac swoj nickname_
 ## Zrobione
+* Zdarzenia:
+    * __Kategorie__ - mozliwosc wyszukania (drogowa, gaz etc.)
+    * Wyswietlic czas zdarzenia
+* Zrobic menu ustawien: 
+    * _Wybor kategorii_ 
 * Powiadomienia push (notyfikacje) przy pobraniu nowych danych
 * __Mozliwie wybor promienia w jakim chce dostawac powiadomienia__
 * __Mozliwie wybor promienia w jakim chce dostawac powiadomienia__
