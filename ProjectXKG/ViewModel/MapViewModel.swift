@@ -12,6 +12,21 @@ import FirebaseFirestore
 
 // MARK: Initialization
 class MapViewModel:ObservableObject {
+    static var sendedMessage: Bool = false {
+        didSet {
+            var counter = 0
+            if sendedMessage == true {
+                Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ timer in
+                    counter = counter + 1
+                    print(counter)
+                    if counter == 30 {
+                        timer.invalidate()
+                        sendedMessage.toggle()
+                    }
+                }
+            }
+        }
+    }
     @Published var reportedLocations = [MKAnnotation]()
     @Published var showAlertView: Bool = false
     @Published var showMenuView: Bool = false {

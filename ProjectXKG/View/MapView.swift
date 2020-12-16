@@ -69,14 +69,13 @@ struct MapView: View {
                                     Image(systemName: "plus")
                                 }
                                 .padding()
-                                .background(Color.red.opacity(0.75))
+                                .background(MapViewModel.sendedMessage ? Color.gray.opacity(0.75) : Color.red.opacity(0.75))
                                 .foregroundColor(Color.white)
                                 .font(.system(.title))
                                 .clipShape(Circle())
                                 .sheet(isPresented: $mapViewModel.showAlertView, content: {
                                     AlertView(isPresented: self.$mapViewModel.showAlertView).environmentObject(self.locationManager)
-                                    
-                                })
+                                }).disabled(MapViewModel.sendedMessage)
                             }
                         }.padding()
                     }

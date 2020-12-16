@@ -33,6 +33,7 @@ class AlertViewModel: ObservableObject {
                 if let error = err {
                     print(error.localizedDescription)
                 } else {
+                    MapViewModel.sendedMessage = true
                     print("Successfully sended report")
                 }
             }
