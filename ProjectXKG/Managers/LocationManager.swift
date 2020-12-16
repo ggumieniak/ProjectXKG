@@ -14,12 +14,7 @@ import UIKit
 final class LocationManager: NSObject, ObservableObject {
     var delegate: MapView?
     private let locationManager = CLLocationManager()
-    @Published var location: CLLocation? {
-        willSet {
-            //            delegate?.mapViewModel.test()
-            //            print(self.get2DLocationCoordinate())
-        }
-    }
+    @Published var location: CLLocation?
     private var authorizationStatus: CLAuthorizationStatus?
     
     override init() {
@@ -41,6 +36,7 @@ extension LocationManager: CLLocationManagerDelegate {
         }
         self.location = location
     }
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         self.authorizationStatus = status
     }
@@ -69,6 +65,8 @@ extension LocationManager {
                 return true
             case .reducedAccuracy:
                 return false
+            @unknown default:
+                fatalError()
             }
         }
         return true
@@ -86,6 +84,7 @@ extension LocationManager {
     func stopUpdatingWhileReporting() {
         self.locationManager.stopUpdatingLocation()
     }
+    
     func startUpdatingWhileReporting() {
         self.locationManager.startUpdatingLocation()
     }

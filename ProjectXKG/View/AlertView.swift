@@ -12,10 +12,22 @@ struct AlertView: View {
     
     @ObservedObject var alertViewModel = AlertViewModel()
     @EnvironmentObject private var locationManager: LocationManager
+    @Environment(\.colorScheme) var colorScheme
     @Binding var isPresented: Bool
     
     var body: some View {
         VStack {
+            HStack{
+                Spacer()
+                Button(action: {
+                    self.isPresented = false
+                }, label: {
+                    Text("Done")
+                        .font(.system(.body))
+                        .foregroundColor(colorScheme == .light ? Color.black : Color.white)
+                        .padding(.trailing)
+                })
+            }.padding(.top)
             Spacer()
             Text("Request a dangerous")
                 .font(.system(size: 32, weight: .bold))

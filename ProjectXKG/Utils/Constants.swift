@@ -9,6 +9,9 @@
 import Foundation
 
 struct K {
+    struct UserDefaultKeys {
+        static let distance: String = "Distance"
+    }
     struct Firestore {
         struct Collection {
             static let users: String = "Users"
@@ -20,6 +23,7 @@ struct K {
                 struct Report {
                     static let reports: String = "Reports"
                     struct Fields {
+                        static let uuid: String = "uuid"
                         static let date: String = "Date"
                         static let description: String = "Description"
                         static let location: String = "Location"

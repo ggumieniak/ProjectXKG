@@ -10,14 +10,6 @@ import MapKit
 import SwiftUI
 
 struct MapView: View {
-    /*
-     Chwilowo nie dziala wyswietlanie najnowszych raportow (z innych kategorii niz LocalThreat)
-     Spowodowane jest to tym, ze dodaje teraz kategorie (wysyla juz dobrze raporty)
-     Musze stworzyc menu wyboru kategorii
-     Rejestracja i wybor kategorii
-     Wyswietlenie wybranych kategorii
-     */
-    
     @EnvironmentObject var session: SessionStore
     @EnvironmentObject private var locationManager: LocationManager 
     @ObservedObject var mapViewModel = MapViewModel()
@@ -27,7 +19,7 @@ struct MapView: View {
             if (session.session != nil) {
                 ZStack {
                     if locationManager.checkAuthorizationStatus() && locationManager.checkAccuracyStatus() {
-                        Map(coordinate: $locationManager.location,annotations: mapViewModel.reportedLocations)
+                        Map(coordinate: $locationManager.location)
                             .edgesIgnoringSafeArea(.all)
                             .onAppear{
                                 self.mapViewModel.fetchData()
@@ -47,7 +39,10 @@ struct MapView: View {
                         Spacer()
                         HStack {
                             Button(action: {
-                                print("Menu")
+//                                print("Menu")
+//                                print("Lokalne",UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.localThreaten))
+//                                print("Drogowe",UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.roadAccident))
+//                                print("Pogodowe",UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.weather))
                                 self.mapViewModel.showMenuView.toggle()
                             }) {
                                 Image(systemName: "gear") 
@@ -91,6 +86,14 @@ struct MapView: View {
             }
         }.onAppear{
             self.session.listen()
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]){
+                succes, error in
+                if succes {
+                    print("Notification granted")
+                }else if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
         }
     }
 }

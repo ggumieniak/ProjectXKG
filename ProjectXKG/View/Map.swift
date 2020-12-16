@@ -12,7 +12,6 @@ import MapKit
 struct Map: UIViewRepresentable {
     
     @Binding var coordinate: CLLocation?
-    var annotations = [MKAnnotation]()
     
     func makeUIView(context: UIViewRepresentableContext<Map>) -> MKMapView {
         let map = MKMapView()
@@ -23,13 +22,13 @@ struct Map: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<Map>) {
+        // TODO: Do userdefaults value that saves that user pressed to lock map at center or not
         guard let point = coordinate else {
             return
         }
-        print("Adnotacje w klasie \(annotations.count)\tAdnotacje w uiView \(uiView.annotations.count)")
-        if annotations.count + 1 != uiView.annotations.count { // uiView.annotations always have 1 more object in array because there is nil object as additional
+        if SharedReports.shared.summaryAccidentArray.count + 1 != uiView.annotations.count { // uiView.annotations always have 1 more object in array because there is nil object as additional
             uiView.removeAnnotations(uiView.annotations)
-            uiView.addAnnotations(self.annotations)
+            uiView.addAnnotations(SharedReports.shared.summaryAccidentArray)
         }
         let latDelta:CLLocationDegrees = userDefaultsToSpan()
         let lonDelta:CLLocationDegrees = userDefaultsToSpan()
@@ -53,10 +52,10 @@ struct Map: UIViewRepresentable {
     }
     
     func userDefaultsToSpan() -> Double {
-        if UserDefaults.standard.double(forKey: "odleglosc").isEqual(to: 0) {
+        if UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance).isEqual(to: 0) {
             return 0.1
         } else {
-            return UserDefaults.standard.double(forKey: "odleglosc")/100
+            return UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance)/100
         }
     }
     

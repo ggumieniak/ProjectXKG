@@ -14,11 +14,13 @@ class SessionStore: ObservableObject {
     var didChange = PassthroughSubject<SessionStore, Never>()
     var handle: AuthStateDidChangeListenerHandle?
     @Published var session: User? {
-        didSet {self.didChange.send(self)}
+        didSet {
+            self.didChange.send(self)
+        }
     }
     
     deinit {
-        unbing()
+        unbind()
     }
     
     func listen() {
@@ -46,7 +48,7 @@ class SessionStore: ObservableObject {
         }
     }
     
-    func unbing() {
+    func unbind() {
         if let handle = handle {
             Auth.auth().removeStateDidChangeListener(handle)
         }

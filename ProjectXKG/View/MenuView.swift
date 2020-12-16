@@ -17,16 +17,25 @@ struct MenuView: View {
     @ObservedObject var menuViewModel = MenuViewModel()
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack{
-                Image(systemName: "person.crop.circle")
-                Text(user).foregroundColor(colorScheme == .light ? Color.black : Color.white)
-            }.font(.system(.title)).scaledToFit()
+        VStack {
+            HStack {
+                HStack {
+                    Image(systemName: "person.crop.circle").padding(.leading)
+                    Text(user).foregroundColor(colorScheme == .light ? Color.black : Color.white)
+                }.font(.system(.title)).scaledToFit()
+                Spacer()
+                Button(action: {
+                    self.isPresented = false
+                }, label: {
+                    Text("Done")
+                        .font(.system(.body))
+                        .padding(.trailing)
+                })
+            }
             .foregroundColor(colorScheme == .light ? Color.black : Color.white)
             .padding(.top)
-            .padding(.leading, 10)
             Spacer()
-            Slider(value: $menuViewModel.myDistance, in:0.25...100,step: 0.25).padding(.all)
+            Slider(value: $menuViewModel.myDistance, in:0.5...100,step: 0.5).padding(.all)
             HStack{
                 Spacer()
                 Text("You will get a message away at: \(menuViewModel.displayDistance != 0 ? String(format: "%.2f", menuViewModel.displayDistance) : String(10.00)) km")
@@ -36,13 +45,6 @@ struct MenuView: View {
             }
             Spacer()
             VStack {
-                VStack {
-                    Toggle(isOn: $menuViewModel.localThreaten){
-                        Text(K.Firestore.Collection.Categories.localThreaten)
-                            .foregroundColor(colorScheme == .light ? Color.black : Color.white)
-                            .font(.system(.body))
-                    }
-                }
                 VStack {
                     Toggle(isOn: $menuViewModel.roadAccident){
                         Text(K.Firestore.Collection.Categories.roadAccident)
@@ -74,12 +76,29 @@ struct MenuView: View {
 }
 
 final class MenuViewModel: ObservableObject {
-    @Published var localThreaten = true
-    @Published var roadAccident = false
-    @Published var weather = false
+    var local: Bool = UserDefaults.localActivated {
+        willSet {
+            UserDefaults.localActivated = newValue
+            didChange.send()
+        }
+    }
+    @Published var roadAccident: Bool = UserDefaults.roadActivated {
+        willSet {
+            UserDefaults.roadActivated = newValue
+            didChange.send()
+            SharedReports.shared.resetRoadArray()
+        }
+    }
+    @Published var weather: Bool = UserDefaults.weatherActivated {
+        willSet {
+            UserDefaults.weatherActivated = newValue
+            didChange.send()
+            SharedReports.shared.resetWeatherArray()
+        }
+    }
     let didChange = PassthroughSubject<Void,Never>()
-    @Published var displayDistance: Double = UserDefaults.standard.double(forKey: "odleglosc")
-    @UserDefault(key: "odleglosc", defaultValue: 10.0)
+    @Published var displayDistance: Double = UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance)
+    @UserDefault(key: K.UserDefaultKeys.distance, defaultValue: 10.0)
     var myDistance {
         didSet {
             displayDistance = myDistance
