@@ -12,7 +12,8 @@ import MapKit
 class SharedReports {
     var localReports: [Report]? {
         willSet {
-            if localReports != newValue {
+            if localReports != newValue && localReports != nil && localReports != Optional([]) {
+//                print("lokalne: \(localReports) | nowaWartosc: \(newValue)")
                 print("sa rozne lokalne")
             }
         }
@@ -20,14 +21,16 @@ class SharedReports {
     static var shared = SharedReports()
     var roadAccident: [Report]? {
         willSet {
-            if localReports != newValue {
+            if roadAccident != newValue && roadAccident != nil && roadAccident != Optional([]) {
+//                print("drogowe: \(roadAccident) | nowaWartosc: \(newValue)")
                 print("sa rozne drogowe")
             }
         }
     }
     var weather: [Report]? {
         willSet {
-            if localReports != newValue {
+            if weather != newValue && weather != nil && weather != Optional([]){
+//                print("pogodowe: \(weather) | nowaWartosc: \(newValue)")
                 print("sa rozne pogodowe")
             }
         }

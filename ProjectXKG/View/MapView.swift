@@ -86,6 +86,14 @@ struct MapView: View {
             }
         }.onAppear{
             self.session.listen()
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]){
+                succes, error in
+                if succes {
+                    print("Notification granted")
+                }else if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
         }
     }
 }

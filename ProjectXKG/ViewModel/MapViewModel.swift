@@ -48,6 +48,7 @@ extension MapViewModel {
         }
         removeListeners()
         print(#function)
+        // TODO: Refactor this piece of code. To much redundancy of code
         //        print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
         let queryLocation = location.getNearBy(at: location, with: UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance) == 0 ? 10 : UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance))
         print(UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance))
@@ -71,7 +72,7 @@ extension MapViewModel {
                 
             }
         if UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.roadAccident) == true {
-            self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.roadAccident).collection(K.Firestore.Collection.Categories.Report.reports)
+            listenerRoad = db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.roadAccident).collection(K.Firestore.Collection.Categories.Report.reports)
                 .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
                 .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
                 .addSnapshotListener { documentShapshot, error in
@@ -89,7 +90,7 @@ extension MapViewModel {
                 }
         }
         if UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.weather) == true {
-            self.db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.weather).collection(K.Firestore.Collection.Categories.Report.reports)
+            listenerWeather = db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.weather).collection(K.Firestore.Collection.Categories.Report.reports)
                 .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
                 .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
                 .addSnapshotListener { documentShapshot, error in
