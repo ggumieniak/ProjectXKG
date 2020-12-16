@@ -10,19 +10,19 @@
 * master - dzialajaca aktualnie aplikacja, kompiluje sie i posiada podstawowa sprawnosc
 * dev - aktualne poprawki, które robie. Moze zawierac bledy lub nie kompilowac sie
 ## Co robię aktualnie
+## Do zrobienia:
+## Przydaloby sie:
+* Usuwanie przez uzytkownika jego zgloszen
+* Po nacisnieciu pineski wyswietlenie informacji kto zglosil i co zglosil (szczegoly)
+* __Testy__ 
+* _Przetworzyc rejestracje, aby uzytkownicy mogli personalizowac swoj nickname_
+## Zrobione
 * Zdarzenia:
     * __Kategorie__ - mozliwosc wyszukania (drogowa, gaz etc.)
     * Wyswietlic czas zdarzenia
 * Zrobic menu ustawien: 
     * _Wybor kategorii_ 
-## Do zrobienia:
-* Po nacisnieciu pineski wyswietlenie informacji kto zglosil i co zglosil
 * Powiadomienia push (notyfikacje) przy pobraniu nowych danych
-## Przydaloby sie:
-* Usuwanie przez uzytkownika jego zgloszen
-* __Testy__ 
-* _Przetworzyc rejestracje, aby uzytkownicy mogli personalizowac swoj nickname_
-## Zrobione
 * __Mozliwie wybor promienia w jakim chce dostawac powiadomienia__
 * __Mozliwie wybor promienia w jakim chce dostawac powiadomienia__
 * __Odswiezanie lokalizacji aktywnie podczas pobierania danych__
