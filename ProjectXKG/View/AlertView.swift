@@ -37,7 +37,7 @@ struct AlertView: View {
                 self.alertViewModel.category = selected
             }
             VStack {
-                TextField("Description: ", text: $alertViewModel.description)
+                TextField("Description - minimum \(K.AlertView.minimumLengthOfDescription) characters", text: $alertViewModel.description)
             }.padding(20)
             Spacer()
             Button(action:{
@@ -45,7 +45,7 @@ struct AlertView: View {
                     self.isPresented = !self.alertViewModel.sendReport(location: location.convertCLLocationToGeoPoint(), description: self.alertViewModel.description,category: self.alertViewModel.category)
                 }
             }){
-                if alertViewModel.category != "" {
+                if !alertViewModel.disabledButton {
                     Text("Report").frame(minWidth: 0, maxWidth: .infinity)
                         .frame(height: 50)
                         .font(.system(size: 14, weight: .bold))
@@ -60,7 +60,7 @@ struct AlertView: View {
                         .foregroundColor(Color.white)
                         .cornerRadius(5)
                 }
-            }.disabled(alertViewModel.category == "" ? true : false)
+            }.disabled(alertViewModel.disabledButton)
         }.onAppear{
             self.locationManager.stopUpdatingWhileReporting()
         }.onDisappear{

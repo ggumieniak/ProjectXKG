@@ -15,7 +15,9 @@ class AlertViewModel: ObservableObject {
     private let db = Firestore.firestore()
     @Published var description: String = ""
     var tempDescription: String?
-    @Published var disabledButton: Bool = false
+    var disabledButton: Bool {
+        return category == "" ? true : description.count < K.AlertView.minimumLengthOfDescription ? true : false
+    }
     @Published var category: String = ""
     
     func sendReport(location: GeoPoint, description: String, category: String) -> Bool {

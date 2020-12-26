@@ -9,6 +9,13 @@
 import Foundation
 
 struct K {
+    struct AlertView {
+        static var minimumLengthOfDescription: Int {
+            get {
+                return 20
+            }
+        }
+    }
     struct UserDefaultKeys {
         static let distance: String = "Distance"
     }
