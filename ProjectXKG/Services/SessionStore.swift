@@ -53,5 +53,4 @@ class SessionStore: ObservableObject {
             Auth.auth().removeStateDidChangeListener(handle)
         }
     }
-    
 }

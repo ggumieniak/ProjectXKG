@@ -15,6 +15,8 @@ struct SignInView: View {
     @EnvironmentObject var session: SessionStore
     @ObservedObject var signInViewModel =  SignInViewModel()
     
+    
+    
     func signIn() {
         session.signIn(email: email, password: password) { Result,error in
             if let error = error {

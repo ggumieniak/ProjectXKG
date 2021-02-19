@@ -14,7 +14,6 @@ import MapKit
 // MARK: Initialization
 class FirebaseDataClassifier {
     func classifierDataToReport(from dataFromFirebase:QueryDocumentSnapshot) -> Report {
-//        let id = makeUUID(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.uuid]!)
         let id = dataFromFirebase.documentID
         let data = convertDateToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.date]!)
         let description = convertDescriptionToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.description]!)

@@ -41,16 +41,6 @@ struct Map: UIViewRepresentable {
         Coordinator(self)
     }
     
-    // MARK: DO USUNIECIA
-    func annotationsToConsole(from annotations: [MKAnnotation]) {
-        print("______________________________________________________________________________________________")
-        print("Ilosc adnotacji \(annotations.count)")
-        for annotation in annotations {
-            print(annotation.subtitle ?? "Brak opisu" )
-        }
-        print("______________________________________________________________________________________________")
-    }
-    
     func userDefaultsToSpan() -> Double {
         if UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance).isEqual(to: 0) {
             return 0.1

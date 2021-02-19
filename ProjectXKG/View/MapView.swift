@@ -24,7 +24,6 @@ struct MapView: View {
                             .onAppear{
                                 self.mapViewModel.fetchData()
                                 self.mapViewModel.scheduleTimer()
-                                print("Pojawiam sie")
                             }
                             .onReceive(self.locationManager.$location, perform: { _ in
                                 self.mapViewModel.location = self.locationManager.location
@@ -39,10 +38,6 @@ struct MapView: View {
                         Spacer()
                         HStack {
                             Button(action: {
-//                                print("Menu")
-//                                print("Lokalne",UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.localThreaten))
-//                                print("Drogowe",UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.roadAccident))
-//                                print("Pogodowe",UserDefaults.standard.bool(forKey: K.Firestore.Collection.Categories.weather))
                                 self.mapViewModel.showMenuView.toggle()
                             }) {
                                 Image(systemName: "gear") 

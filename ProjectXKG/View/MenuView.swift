@@ -9,6 +9,7 @@
 import SwiftUI
 import Combine
 
+// MARK: MenuView
 struct MenuView: View {
     @Environment(\.colorScheme) var colorScheme
     @Binding var isPresented: Bool
@@ -75,7 +76,9 @@ struct MenuView: View {
     }
 }
 
+// MARK: MenuViewModel
 final class MenuViewModel: ObservableObject {
+    // TODO: Do usuniecia local - nie ma odczytu wiecej
     var local: Bool = UserDefaults.localActivated {
         willSet {
             UserDefaults.localActivated = newValue
@@ -106,6 +109,8 @@ final class MenuViewModel: ObservableObject {
         }
     }
 }
+
+// MARK: propertWrapper - UserDefault
 @propertyWrapper
 struct UserDefault<Value: Codable> {
     let key: String
