@@ -9,22 +9,8 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @State var email: String = ""
-    @State var password: String = ""
-    @State var error: String = ""
     @EnvironmentObject var session: SessionStore
-    
-    func signUp() {
-        session.signUp(email: email, password: password) { (result,error) in
-            if let error = error {
-                self.error = error.localizedDescription
-            } else {
-                self.email = ""
-                self.password = ""
-            }
-            
-        }
-    }
+    @ObservedObject var signUpViewModel =  SignUpViewModel()
     
     var body: some View {
         VStack {
@@ -34,16 +20,16 @@ struct SignUpView: View {
                 .font(.system(size: 18,weight: .medium))
                 .foregroundColor(Color.gray)
             VStack(spacing: 18) {
-                TextField("Email Address", text: $email)
+                TextField("Email Address", text: self.$signUpViewModel.email)
                     .font(.system(size: 16))
                     .padding(12)
                     .background(RoundedRectangle(cornerRadius: 5).stroke(Color(.systemBlue), lineWidth: 2))
-                SecureField("Password", text: $password)
+                SecureField("Password", text: self.$signUpViewModel.password)
                     .font(.system(size: 16))
                     .padding(12)
                     .background(RoundedRectangle(cornerRadius: 5).stroke(Color(.systemBlue), lineWidth: 2))
             }.padding(.vertical, 64)
-            Button(action: signUp) {
+            Button(action: self.signUpViewModel.signUp) {
                 Text("Create account")
                     .frame(minWidth: 0,maxWidth: .infinity)
                     .frame(height: 50)
@@ -52,8 +38,8 @@ struct SignUpView: View {
                     .background(LinearGradient(gradient: Gradient(colors: [Color.blue,Color.pink]), startPoint: .leading, endPoint: .trailing))
                     .cornerRadius(5)
             }
-            if (error != "") {
-                Text(error)
+            if (self.signUpViewModel.error != "") {
+                Text(self.signUpViewModel.error)
                     .font(.system(size: 16,weight: .semibold))
                     .foregroundColor(.red)
                     .padding()

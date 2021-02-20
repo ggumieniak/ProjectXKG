@@ -15,19 +15,6 @@ struct SignInView: View {
     @EnvironmentObject var session: SessionStore
     @ObservedObject var signInViewModel =  SignInViewModel()
     
-    
-    
-    func signIn() {
-        session.signIn(email: email, password: password) { Result,error in
-            if let error = error {
-                self.error = error.localizedDescription
-            } else {
-                self.email = ""
-                self.password = ""
-            }
-        }
-    }
-    
     var body: some View {
         VStack{
             Text("Welcome back!")
@@ -36,18 +23,18 @@ struct SignInView: View {
                 .font(.system(size: 18,weight: .medium))
                 .foregroundColor(Color.gray)
             VStack(spacing: 18) {
-                TextField("Email Address", text: $email)
+                TextField("Email Address", text: self.$signInViewModel.email)
                     .font(.system(size: 16))
                     .padding(12)
                     .background(RoundedRectangle(cornerRadius: 5).stroke(Color(.systemBlue), lineWidth: 2))
-                SecureField("Password", text: $password)
+                SecureField("Password", text: self.$signInViewModel.password)
                     .font(.system(size: 16))
                     .padding(12)
                     .background(RoundedRectangle(cornerRadius: 5).stroke(Color(.systemBlue), lineWidth: 2))
                 
             }.padding(.vertical, 64)
             
-            Button(action: signIn) {
+            Button(action: signInViewModel.signIn) {
                 Text("Sign In")
                     .frame(minWidth: 0,maxWidth: .infinity)
                     .frame(height: 50)
@@ -56,8 +43,8 @@ struct SignInView: View {
                     .background(LinearGradient(gradient: Gradient(colors: [Color.blue,Color.pink]), startPoint: .leading, endPoint: .trailing))
                     .cornerRadius(5)
             }
-            if (error != "") {
-                Text(error)
+            if (self.signInViewModel.error != "") {
+                Text(self.signInViewModel.error)
                     .font(.system(size: 16,weight: .semibold))
                     .foregroundColor(.red)
                     .padding()
