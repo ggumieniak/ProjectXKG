@@ -11,24 +11,45 @@ import XCTest
 
 class ProjectXKGTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var signInViewModel: SignInViewModel!
+    var signUpViewModel: SignUpViewModel!
+    var mockSessionStore: MockSessionStore!
+    
+    override func setUp() {
+        mockSessionStore = MockSessionStore()
+        signInViewModel = .init(session: mockSessionStore)
+        signUpViewModel = .init(session: mockSessionStore)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        
+    func testSignInWithCorrectDetails() {
+        mockSessionStore.signInResult = .success(())
+        signInViewModel.signIn()
+        
+        XCTAssertTrue(signInViewModel.sended)
+        
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testSignInWithErrorDetails() {
+        mockSessionStore.signInResult = .failure(NSError(domain: "", code: -1, userInfo: nil))
+        signInViewModel.signIn()
+        
+        XCTAssertFalse(signInViewModel.sended)
+        
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testSignUpWithCorrectDetails() {
+        mockSessionStore.signUpResult = .success(())
+        signUpViewModel.signUp()
+        
+        XCTAssertTrue(signUpViewModel.sended)
+        
+    }
+    
+    func testSignUpWithErrorDetails() {
+        mockSessionStore.signUpResult = .failure(NSError(domain: "", code: -1, userInfo: nil))
+        signUpViewModel.signUp()
+        
+        XCTAssertFalse(signInViewModel.sended)
+        
     }
 
 }

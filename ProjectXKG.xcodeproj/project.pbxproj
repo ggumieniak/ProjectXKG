@@ -44,6 +44,8 @@
 		50D8B4D924A75C4200220F94 /* ProjectXKGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8B4D824A75C4200220F94 /* ProjectXKGUITests.swift */; };
 		50DF63B724DD52CD000A9353 /* FirebaseDataClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DF63B624DD52CD000A9353 /* FirebaseDataClassifier.swift */; };
 		50EB43A324C989130058AAAD /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EB43A224C989130058AAAD /* AlertView.swift */; };
+		50EBABAE25DFC19F006D9E95 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EBABAD25DFC19F006D9E95 /* SignUpViewModel.swift */; };
+		50EBABB325DFCBE9006D9E95 /* MockSessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EBABB225DFCBE9006D9E95 /* MockSessionStore.swift */; };
 		5D91B3433955A7A0EC7C7DE3 /* Pods_ProjectXKG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D65D4E86967630A28638E5F /* Pods_ProjectXKG.framework */; };
 		95C06B80EAB3A41FC52AE8FB /* Pods_ProjectXKGTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C926F66B5528AB438F5719 /* Pods_ProjectXKGTests.framework */; };
 		A0AAE92D8F69141AA9C022CC /* Pods_ProjectXKG_ProjectXKGUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE0BCB8FD28101E5471A7BF /* Pods_ProjectXKG_ProjectXKGUITests.framework */; };
@@ -112,6 +114,8 @@
 		50D8B4DA24A75C4200220F94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50DF63B624DD52CD000A9353 /* FirebaseDataClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDataClassifier.swift; sourceTree = "<group>"; };
 		50EB43A224C989130058AAAD /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		50EBABAD25DFC19F006D9E95 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		50EBABB225DFCBE9006D9E95 /* MockSessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSessionStore.swift; sourceTree = "<group>"; };
 		6D65D4E86967630A28638E5F /* Pods_ProjectXKG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectXKG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C926F66B5528AB438F5719 /* Pods_ProjectXKGTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjectXKGTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EE514EEA1E1F8E90DD35B6A /* Pods-ProjectXKG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjectXKG.debug.xcconfig"; path = "Target Support Files/Pods-ProjectXKG/Pods-ProjectXKG.debug.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				50AED0FB24CADD4200B187B9 /* SignInViewModel.swift */,
 				5057753E24D17E4A0005C517 /* AlertViewModel.swift */,
 				5052CB2C24DAA7DE00FFB906 /* MapViewModel.swift */,
+				50EBABAD25DFC19F006D9E95 /* SignUpViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 			children = (
 				50D8B4CD24A75C4200220F94 /* ProjectXKGTests.swift */,
 				50D8B4CF24A75C4200220F94 /* Info.plist */,
+				50EBABB225DFCBE9006D9E95 /* MockSessionStore.swift */,
 			);
 			path = ProjectXKGTests;
 			sourceTree = "<group>";
@@ -586,6 +592,7 @@
 				5043E5C624D31883006E1C7F /* CLLocationCoordinate2D+Example.swift in Sources */,
 				5057753F24D17E4A0005C517 /* AlertViewModel.swift in Sources */,
 				50DF63B724DD52CD000A9353 /* FirebaseDataClassifier.swift in Sources */,
+				50EBABAE25DFC19F006D9E95 /* SignUpViewModel.swift in Sources */,
 				50D8B4B924A75C3F00220F94 /* SceneDelegate.swift in Sources */,
 				507573A524C20FD50064FD74 /* SessionStore.swift in Sources */,
 				5052CB2D24DAA7DE00FFB906 /* MapViewModel.swift in Sources */,
@@ -615,6 +622,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50EBABB325DFCBE9006D9E95 /* MockSessionStore.swift in Sources */,
 				50D8B4CE24A75C4200220F94 /* ProjectXKGTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

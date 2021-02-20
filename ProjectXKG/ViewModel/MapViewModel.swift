@@ -18,8 +18,7 @@ class MapViewModel:ObservableObject {
             if sendedMessage == true {
                 Timer.scheduledTimer(withTimeInterval: 1, repeats: true){ timer in
                     counter = counter + 1
-                    print(counter)
-                    if counter == 30 {
+                    if counter == K.MapView.timeUntilNextReport {
                         timer.invalidate()
                         sendedMessage.toggle()
                     }
@@ -27,7 +26,6 @@ class MapViewModel:ObservableObject {
             }
         }
     }
-    @Published var reportedLocations = [MKAnnotation]()
     @Published var showAlertView: Bool = false
     @Published var showMenuView: Bool = false {
         didSet {
@@ -54,7 +52,7 @@ extension MapViewModel {
     }
     
     func scheduleTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 300, target: self, selector: #selector(fetchData), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: TimeInterval(K.MapView.timeUntilNextReport), target: self, selector: #selector(fetchData), userInfo: nil, repeats: true)
     }
     
     @objc func fetchData() {
@@ -62,12 +60,7 @@ extension MapViewModel {
             return
         }
         removeListeners()
-        print(#function)
-        // TODO: Refactor this piece of code. To much redundancy of code
-        //        print("Now we have that Timestamp: \(Timestamp.init())\nA 12 hour ago was: \(Timestamp(date: dayBefore))")
         let queryLocation = location.getNearBy(at: location, with: UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance) == 0 ? 10 : UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance))
-        print(UserDefaults.standard.double(forKey: K.UserDefaultKeys.distance))
-        print(queryLocation)
         listenerLocal = db.collection(K.Firestore.Collection.categories).document(K.Firestore.Collection.Categories.localThreaten).collection(K.Firestore.Collection.Categories.Report.reports)
             .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isLessThan: queryLocation.greaterGeoPoint)
             .whereField(K.Firestore.Collection.Categories.Report.Fields.location, isGreaterThan: queryLocation.lesserGeoPoint)
@@ -96,7 +89,6 @@ extension MapViewModel {
                         return
                     }
                     let firebaseReports = document.map { QueryDocumentSnapshot -> Report in
-                        // TODO: zwroc skonwertowane lokacje
                         let queryClassifier = FirebaseDataClassifier()
                         let classifiedReport = queryClassifier.classifierDataToReport(from: QueryDocumentSnapshot)
                         return classifiedReport

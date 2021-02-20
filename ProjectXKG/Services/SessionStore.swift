@@ -10,7 +10,12 @@ import SwiftUI
 import FirebaseAuth
 import Combine
 
-class SessionStore: ObservableObject {
+protocol SessionStoreProtocol {
+    func signUp(email: String, password: String, handler: @escaping (Result<Void,Error>) -> Void)
+    func signIn(email: String, password: String, handler: @escaping (Result<Void,Error>) -> Void)
+}
+
+class SessionStore: ObservableObject, SessionStoreProtocol {
     var didChange = PassthroughSubject<SessionStore, Never>()
     var handle: AuthStateDidChangeListenerHandle?
     @Published var session: User? {
@@ -31,12 +36,24 @@ class SessionStore: ObservableObject {
         })
     }
     
-    func signUp(email: String, password: String, handler: @escaping AuthDataResultCallback) {
-        Auth.auth().createUser(withEmail: email, password: password, completion: handler)
+    func signUp(email: String, password: String, handler: @escaping (Result<Void,Error>) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if let error = error {
+                handler(.failure(error))
+            } else {
+                handler(.success(()))
+            }
+        }
     }
     
-    func signIn(email: String, password: String, handler: @escaping AuthDataResultCallback) {
-        Auth.auth().signIn(withEmail: email, password: password, completion: handler)
+    func signIn(email: String, password: String, handler: @escaping (Result<Void,Error>) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                handler(.failure(error))
+            } else {
+                handler(.success(()))
+            }
+        }
     }
     
     func signOut() {
@@ -53,5 +70,4 @@ class SessionStore: ObservableObject {
             Auth.auth().removeStateDidChangeListener(handle)
         }
     }
-    
 }

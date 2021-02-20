@@ -13,7 +13,6 @@ class SharedReports {
     var localReports: [Report]? {
         willSet {
             if localReports != newValue && localReports != nil && localReports != Optional([]) {
-//                print("lokalne: \(localReports) | nowaWartosc: \(newValue)")
                 NotificationPusher.pushNotification(type: K.Firestore.Collection.Categories.localThreaten)
             }
         }
@@ -22,7 +21,6 @@ class SharedReports {
     var roadAccident: [Report]? {
         willSet {
             if roadAccident != newValue && roadAccident != nil && roadAccident != Optional([]) {
-//                print("drogowe: \(roadAccident) | nowaWartosc: \(newValue)")
                 NotificationPusher.pushNotification(type: K.Firestore.Collection.Categories.roadAccident)
             }
         }
@@ -30,7 +28,6 @@ class SharedReports {
     var weather: [Report]? {
         willSet {
             if weather != newValue && weather != nil && weather != Optional([]){
-//                print("pogodowe: \(weather) | nowaWartosc: \(newValue)")
                 NotificationPusher.pushNotification(type: K.Firestore.Collection.Categories.weather)
             }
         }

@@ -53,7 +53,6 @@ extension LocationManager {
                 return true
             }
         } else {
-            print("Nie nadano zadnych uprawnien")
             return false
         }
     }

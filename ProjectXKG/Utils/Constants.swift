@@ -9,16 +9,6 @@
 import Foundation
 
 struct K {
-    struct AlertView {
-        static var minimumLengthOfDescription: Int {
-            get {
-                return 20
-            }
-        }
-    }
-    struct UserDefaultKeys {
-        static let distance: String = "Distance"
-    }
     struct Firestore {
         struct Collection {
             static let users: String = "Users"
@@ -39,6 +29,15 @@ struct K {
                 }
             }
         }
+    }
+    struct AlertView {
+        static let minimumLengthOfDescription: Int = 20
+    }
+    struct MapView {
+        static let timeUntilNextReport: Int = 300   // How many seconds has to passed to one more time to unlock ReportButton
+    }
+    struct UserDefaultKeys {
+        static let distance: String = "Distance"
     }
 }
 
