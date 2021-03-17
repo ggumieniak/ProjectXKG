@@ -11,6 +11,7 @@
 		500AA27024C31BD600AEA655 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500AA26F24C31BD600AEA655 /* SignInView.swift */; };
 		500AA27224C31CAD00AEA655 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500AA27124C31CAD00AEA655 /* SignUpView.swift */; };
 		500C047F24C4A2D80028F154 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500C047E24C4A2D80028F154 /* Map.swift */; };
+		5014D74926028C9400EEAF65 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5014D74826028C9400EEAF65 /* GoogleService-Info.plist */; };
 		5018ABCE25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5018ABCD25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift */; };
 		5043E5C624D31883006E1C7F /* CLLocationCoordinate2D+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043E5C524D31883006E1C7F /* CLLocationCoordinate2D+Example.swift */; };
 		5052CB2D24DAA7DE00FFB906 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5052CB2C24DAA7DE00FFB906 /* MapViewModel.swift */; };
@@ -18,7 +19,6 @@
 		5057753F24D17E4A0005C517 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5057753E24D17E4A0005C517 /* AlertViewModel.swift */; };
 		5066DD5A24E2762400AFE72C /* MKPointAnnotationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5066DD5924E2762400AFE72C /* MKPointAnnotationFactory.swift */; };
 		506BB4C924C1FF120062D816 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 506BB4C824C1FF120062D816 /* .gitignore */; };
-		506BB4CD24C204660062D816 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 506BB4CC24C204660062D816 /* GoogleService-Info.plist */; };
 		506D45C424C58EAA0012D754 /* MKPointAnnotation+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */; };
 		507573A224C20F700064FD74 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507573A124C20F700064FD74 /* User.swift */; };
 		507573A524C20FD50064FD74 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507573A424C20FD50064FD74 /* SessionStore.swift */; };
@@ -74,6 +74,7 @@
 		500AA26F24C31BD600AEA655 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		500AA27124C31CAD00AEA655 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		500C047E24C4A2D80028F154 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		5014D74826028C9400EEAF65 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5018ABCD25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+getNearBy.swift"; sourceTree = "<group>"; };
 		5043E5C524D31883006E1C7F /* CLLocationCoordinate2D+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Example.swift"; sourceTree = "<group>"; };
 		5052CB2C24DAA7DE00FFB906 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -82,7 +83,6 @@
 		5066DD5924E2762400AFE72C /* MKPointAnnotationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPointAnnotationFactory.swift; sourceTree = "<group>"; };
 		506BB4C824C1FF120062D816 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		506BB4CA24C1FF430062D816 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		506BB4CC24C204660062D816 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation+Example.swift"; sourceTree = "<group>"; };
 		507573A124C20F700064FD74 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		507573A424C20FD50064FD74 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
@@ -276,7 +276,7 @@
 		50D8B4B524A75C3F00220F94 /* ProjectXKG */ = {
 			isa = PBXGroup;
 			children = (
-				506BB4CC24C204660062D816 /* GoogleService-Info.plist */,
+				5014D74826028C9400EEAF65 /* GoogleService-Info.plist */,
 				50422D3C24C5716E007B65B7 /* AppDelegates */,
 				507573A324C20FBF0064FD74 /* Services */,
 				507C106124C7529300BEEFF4 /* Managers */,
@@ -454,9 +454,9 @@
 			files = (
 				506BB4C924C1FF120062D816 /* .gitignore in Resources */,
 				50D8B4C324A75C4200220F94 /* LaunchScreen.storyboard in Resources */,
-				506BB4CD24C204660062D816 /* GoogleService-Info.plist in Resources */,
 				50D8B4C024A75C4200220F94 /* Preview Assets.xcassets in Resources */,
 				50D8B4BD24A75C4200220F94 /* Assets.xcassets in Resources */,
+				5014D74926028C9400EEAF65 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
