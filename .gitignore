@@ -92,3 +92,7 @@ iOSInjectionProject/
 
 # Webscript - not to follow at Xcode level
 skrypt.js
+
+
+#GoogleKeyServices
+GoogleService-Info.plist

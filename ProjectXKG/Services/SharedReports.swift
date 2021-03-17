@@ -41,6 +41,6 @@ class SharedReports {
     }
     
     func resetRoadArray() {
-        self.weather?.removeAll()
+        self.roadAccident?.removeAll()
     }
 }
