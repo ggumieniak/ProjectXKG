@@ -10,12 +10,13 @@
 * master - dzialajaca aktualnie aplikacja, kompiluje sie i posiada podstawowa sprawnosc
 * dev - aktualne poprawki, które robie. Moze zawierac bledy lub nie kompilowac sie
 ## Co robię aktualnie
-## Do zrobienia:
-## Przydaloby sie:
-* Usuwanie przez uzytkownika jego zgloszen
-* Po nacisnieciu pineski wyswietlenie informacji kto zglosil i co zglosil (szczegoly)
 * __Testy__ 
+## Do zrobienia:
+* Po nacisnieciu pineski wyswietlenie informacji kto zglosil i co zglosil (szczegoly)
+## Przydaloby sie:
 * _Przetworzyc rejestracje, aby uzytkownicy mogli personalizowac swoj nickname_
+* Wieksza ilosc danych o uzytkowniku i personalizacja
+* Dodanie zdjęcia z wydarzenia
 ## Zrobione
 * Zdarzenia:
     * __Kategorie__ - mozliwosc wyszukania (drogowa, gaz etc.)
@@ -51,13 +52,6 @@
 * Konwersja czasu serwerowego na czas lokalny uzytkownika
 * Dodanie konwersji danych z serwera na zgodna w aplikacji
 * __Wyslac informacje do bazy danych__
-* Pobrac dane z bazy(dodatkowo)
-## Rozwiniecie
-* Kompatybilność z innymi platformami 
-* Aktywne poprawianie w trakcie podawania loginu i hasla
-* Wieksza ilosc danych o uzytkowniku i personalizacja
-* Dodanie zdjęcia z wydarzenia
-* Zmiana bazy danych
 ## Uzytkownik do zalogowania
 * __Login__: _1@2.com_
 * __Haslo__: _123456_
