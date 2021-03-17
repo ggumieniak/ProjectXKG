@@ -34,7 +34,7 @@ struct K {
         static let minimumLengthOfDescription: Int = 20
     }
     struct MapView {
-        static let timeUntilNextReport: Int = 300   // How many seconds has to passed to one more time to unlock ReportButton
+        static let timeUntilNextReport: Int = 5   // How many seconds has to passed to one more time to unlock ReportButton
     }
     struct UserDefaultKeys {
         static let distance: String = "Distance"
