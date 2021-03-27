@@ -22,9 +22,9 @@ struct K {
                     struct Fields {
                         static let uuid: String = "uuid"
                         static let date: String = "Date"
+                        static let title: String = "Title"
                         static let description: String = "Description"
                         static let location: String = "Location"
-                        static let user: String = "User" // temporary
                     }
                 }
             }

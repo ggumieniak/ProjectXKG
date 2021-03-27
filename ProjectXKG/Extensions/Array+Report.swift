@@ -15,7 +15,7 @@ extension Array where Element == Report {
             Accident date: \(report.date)
             Localization: \(report.location)
             Description: \(report.description)
-            User: \(report.user)
+            User: \(report.title)
             ________________________________________________
             """
             print(rawString)

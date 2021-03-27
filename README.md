@@ -13,6 +13,7 @@
 * __Testy__ 
 ## Do zrobienia:
 * Po nacisnieciu pineski wyswietlenie informacji kto zglosil i co zglosil (szczegoly)
+* Wykorzystanie CoreData zamiast singleton'a 
 ## Przydaloby sie:
 * _Przetworzyc rejestracje, aby uzytkownicy mogli personalizowac swoj nickname_
 * Wieksza ilosc danych o uzytkowniku i personalizacja

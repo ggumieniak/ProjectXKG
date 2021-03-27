@@ -13,7 +13,7 @@ protocol ReportType: Equatable, Identifiable {
     var id: String {get}
     var location: CLLocationCoordinate2D {get}
     var description: String {get}
-    var user: String {get}
+    var title: String {get}
     var date: String {get}
 }
 
@@ -23,14 +23,14 @@ struct Report: ReportType {
     var date: String
     var description: String
     var location: CLLocationCoordinate2D
-    var user: String
+    var title: String
     
-    init(id: String,date: String, description: String, location: CLLocationCoordinate2D, user: String) {
+    init(id: String,date: String, description: String, location: CLLocationCoordinate2D, title: String) {
         self.id = id
         self.date = date
         self.description = description
         self.location = location
-        self.user = user
+        self.title = title
     }
     
     static func == (lhs: Report, rhs: Report) -> Bool {

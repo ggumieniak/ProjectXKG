@@ -18,9 +18,8 @@ class FirebaseDataClassifier {
         let data = convertDateToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.date]!)
         let description = convertDescriptionToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.description]!)
         let location = convertGeopointToLocation(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.location]!)
-        let user = convertUserToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.user]!)
-        
-        let report = makeReport(from: id,data,description,location,user)
+        let title = convertTitleToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.title])
+        let report = makeReport(from: id,data,description,location,title)
         return report
     }
     
@@ -48,12 +47,12 @@ class FirebaseDataClassifier {
         return locationCLLocationCoordinate2D
     }
     
-    private func convertUserToString(_ user: Any) -> String {
-        let userString = user as! String
-        return userString
+    private func convertTitleToString(_ title: Any) -> String {
+        let titleString = title as! String
+        return titleString
     }
     
-    private func makeReport(from id: String, _ date: String,_ description: String, _ location:CLLocationCoordinate2D,_ user: String) -> Report {
-        return Report(id: id,date: date, description: description, location: location, user: user)
+    private func makeReport(from id: String, _ date: String,_ description: String, _ location:CLLocationCoordinate2D,_ title: String) -> Report {
+        return Report(id: id,date: date, description: description, location: location, title: title)
     }
 }

@@ -18,12 +18,12 @@
 		5057753F24D17E4A0005C517 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5057753E24D17E4A0005C517 /* AlertViewModel.swift */; };
 		5066DD5A24E2762400AFE72C /* MKPointAnnotationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5066DD5924E2762400AFE72C /* MKPointAnnotationFactory.swift */; };
 		506BB4C924C1FF120062D816 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 506BB4C824C1FF120062D816 /* .gitignore */; };
-		506BB4CD24C204660062D816 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 506BB4CC24C204660062D816 /* GoogleService-Info.plist */; };
 		506D45C424C58EAA0012D754 /* MKPointAnnotation+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */; };
 		507573A224C20F700064FD74 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507573A124C20F700064FD74 /* User.swift */; };
 		507573A524C20FD50064FD74 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507573A424C20FD50064FD74 /* SessionStore.swift */; };
 		5079E73F2510AA7100F13EE5 /* RadioButtonField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079E73E2510AA7100F13EE5 /* RadioButtonField.swift */; };
 		5079E7412510B98E00F13EE5 /* RadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5079E7402510B98E00F13EE5 /* RadioButtonGroup.swift */; };
+		508741F3260FB5FE00BB8D41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 508741F2260FB5FE00BB8D41 /* GoogleService-Info.plist */; };
 		509BFC322530454000567717 /* Array+Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFC312530454000567717 /* Array+Report.swift */; };
 		509C6D0B24D2B29A0024521F /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6D0A24D2B29A0024521F /* Report.swift */; };
 		509C6D1124D2CD970024521F /* CLLocation+GeoPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509C6D1024D2CD970024521F /* CLLocation+GeoPoint.swift */; };
@@ -82,12 +82,12 @@
 		5066DD5924E2762400AFE72C /* MKPointAnnotationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPointAnnotationFactory.swift; sourceTree = "<group>"; };
 		506BB4C824C1FF120062D816 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		506BB4CA24C1FF430062D816 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		506BB4CC24C204660062D816 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		506D45C324C58EAA0012D754 /* MKPointAnnotation+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation+Example.swift"; sourceTree = "<group>"; };
 		507573A124C20F700064FD74 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		507573A424C20FD50064FD74 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		5079E73E2510AA7100F13EE5 /* RadioButtonField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonField.swift; sourceTree = "<group>"; };
 		5079E7402510B98E00F13EE5 /* RadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonGroup.swift; sourceTree = "<group>"; };
+		508741F2260FB5FE00BB8D41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		509BFC312530454000567717 /* Array+Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Report.swift"; sourceTree = "<group>"; };
 		509C6D0A24D2B29A0024521F /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		509C6D1024D2CD970024521F /* CLLocation+GeoPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+GeoPoint.swift"; sourceTree = "<group>"; };
@@ -276,7 +276,7 @@
 		50D8B4B524A75C3F00220F94 /* ProjectXKG */ = {
 			isa = PBXGroup;
 			children = (
-				506BB4CC24C204660062D816 /* GoogleService-Info.plist */,
+				508741F2260FB5FE00BB8D41 /* GoogleService-Info.plist */,
 				50422D3C24C5716E007B65B7 /* AppDelegates */,
 				507573A324C20FBF0064FD74 /* Services */,
 				507C106124C7529300BEEFF4 /* Managers */,
@@ -454,9 +454,9 @@
 			files = (
 				506BB4C924C1FF120062D816 /* .gitignore in Resources */,
 				50D8B4C324A75C4200220F94 /* LaunchScreen.storyboard in Resources */,
-				506BB4CD24C204660062D816 /* GoogleService-Info.plist in Resources */,
 				50D8B4C024A75C4200220F94 /* Preview Assets.xcassets in Resources */,
 				50D8B4BD24A75C4200220F94 /* Assets.xcassets in Resources */,
+				508741F3260FB5FE00BB8D41 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
