@@ -37,7 +37,7 @@ extension MKPointAnnotationFactory {
     private func createPointAnnotation(from report: Report) -> MKPointAnnotation {
         let annotation = MKPointAnnotation()
         annotation.coordinate = report.location
-        annotation.title = report.user
+        annotation.title = report.title
         annotation.subtitle = report.description
         return annotation
     }

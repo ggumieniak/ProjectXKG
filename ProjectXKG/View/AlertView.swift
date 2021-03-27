@@ -28,21 +28,19 @@ struct AlertView: View {
                         .padding(.trailing)
                 })
             }.padding(.top)
-            Spacer()
             Text("Request a dangerous")
                 .font(.system(size: 32, weight: .bold))
             Spacer()
+            TextField("Title", text: self.$alertViewModel.title).padding()
             RadioButtonGroups() { selected in
                 print("User picked \(selected) button")
                 self.alertViewModel.category = selected
             }
-            VStack {
-                TextField("Description - minimum \(K.AlertView.minimumLengthOfDescription) characters", text: $alertViewModel.description)
-            }.padding(20)
+            TextField("Description - minimum \(K.AlertView.minimumLengthOfDescription) characters", text: $alertViewModel.description).padding()
             Spacer()
             Button(action:{
                 if let location = self.locationManager.location {
-                    self.isPresented = !self.alertViewModel.sendReport(location: location.convertCLLocationToGeoPoint(), description: self.alertViewModel.description,category: self.alertViewModel.category)
+                    self.isPresented = !self.alertViewModel.sendReport(location: location.convertCLLocationToGeoPoint(), title: self.alertViewModel.title, category: self.alertViewModel.category, description: self.alertViewModel.description)
                 }
             }){
                 if !alertViewModel.disabledButton {
