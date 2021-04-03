@@ -12,6 +12,7 @@
 ## Co robię aktualnie
 * __Testy__ 
 ## Do zrobienia:
+* Dodanie wychwycenie bledow podczas parsowania danych z firebase
 * Po nacisnieciu pineski wyswietlenie informacji kto zglosil i co zglosil (szczegoly)
 * Wykorzystanie CoreData zamiast singleton'a 
 ## Przydaloby sie:
