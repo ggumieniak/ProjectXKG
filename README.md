@@ -13,10 +13,10 @@ Do stworzenia aplikacji wykorzystano:
 ![Logowanie](./images/Logowanie.png)
 ![MapaAktywna](./images/MapaAktywna.png)
 ![MapaAktywna](./images/MapaSzczegolowa.png)
-![Ustawienia](.images/Ustawienia.png)
-![Zglos1](.images/Zglos_1.png)
-![Zglos2](.images/Zglos_2.png)
-![Notyfikacja](.images/Notyfikacja.png)
+![Ustawienia](./images/Ustawienia.png)
+![Zglos1](./images/Zglos_1.png)
+![Zglos2](./images/Zglos_2.png)
+![Notyfikacja](./images/Notyfikacja.png)
 
 ## Wymagania
 * iOS 13.0+ 
