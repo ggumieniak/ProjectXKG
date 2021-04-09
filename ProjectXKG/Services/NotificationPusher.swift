@@ -10,7 +10,7 @@ import Foundation
 import UserNotifications
 
 class NotificationPusher {
-    static func pushNotification(type:String){
+    static func pushNotification(type:String) {
         let content = UNMutableNotificationContent()
         
         switch type {
