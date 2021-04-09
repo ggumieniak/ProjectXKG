@@ -1,4 +1,23 @@
 #  Inzynierka Grzegorz Gumieniak 
+
+
+## O aplikacji
+Aplikacja pozwala na zgłaszanie i otrzymywanie powiadomień o lokalnych zagrożeniach. 
+Do stworzenia aplikacji wykorzystano:
+* Swift
+* SwiftUI
+* Firebase
+* Cocoapods (do instalacji Firebase)
+
+## Wygląd aplikacji:
+![Logowanie](./images/Logowanie.png)
+![MapaAktywna](./images/MapaAktywna.png)
+![MapaAktywna](./images/MapaSzczegolowa.png)
+![Ustawienia](.images/Ustawienia.png)
+![Zglos1](.images/Zglos_1.png)
+![Zglos2](.images/Zglos_2.png)
+![Notyfikacja](.images/Notyfikacja.png)
+
 ## Wymagania
 * iOS 13.0+ 
 * Swift 5

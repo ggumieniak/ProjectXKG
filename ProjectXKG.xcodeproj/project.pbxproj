@@ -12,12 +12,14 @@
 		500AA27224C31CAD00AEA655 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500AA27124C31CAD00AEA655 /* SignUpView.swift */; };
 		500C047F24C4A2D80028F154 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500C047E24C4A2D80028F154 /* Map.swift */; };
 		5018ABCE25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5018ABCD25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift */; };
+		503BD562262063EC0004B724 /* Zglos_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 503BD55D262063EB0004B724 /* Zglos_2.png */; };
+		503BD563262063EC0004B724 /* MapaAktywna.png in Resources */ = {isa = PBXBuildFile; fileRef = 503BD55E262063EB0004B724 /* MapaAktywna.png */; };
+		503BD564262063EC0004B724 /* MapaSzczegolowa.png in Resources */ = {isa = PBXBuildFile; fileRef = 503BD55F262063EB0004B724 /* MapaSzczegolowa.png */; };
+		503BD565262063EC0004B724 /* Notyfikacja.png in Resources */ = {isa = PBXBuildFile; fileRef = 503BD560262063EC0004B724 /* Notyfikacja.png */; };
+		503BD566262063EC0004B724 /* Zglos_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 503BD561262063EC0004B724 /* Zglos_1.png */; };
 		5043E5C624D31883006E1C7F /* CLLocationCoordinate2D+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5043E5C524D31883006E1C7F /* CLLocationCoordinate2D+Example.swift */; };
 		50471E81262031D500ABCD02 /* Logowanie.png in Resources */ = {isa = PBXBuildFile; fileRef = 50471E7C262031D400ABCD02 /* Logowanie.png */; };
-		50471E82262031D500ABCD02 /* MapaAktywna.png in Resources */ = {isa = PBXBuildFile; fileRef = 50471E7D262031D400ABCD02 /* MapaAktywna.png */; };
 		50471E83262031D500ABCD02 /* Ustawienia.png in Resources */ = {isa = PBXBuildFile; fileRef = 50471E7E262031D400ABCD02 /* Ustawienia.png */; };
-		50471E84262031D500ABCD02 /* Zgłoszenie.png in Resources */ = {isa = PBXBuildFile; fileRef = 50471E7F262031D500ABCD02 /* Zgłoszenie.png */; };
-		50471E85262031D500ABCD02 /* Opis szczegolowy.png in Resources */ = {isa = PBXBuildFile; fileRef = 50471E80262031D500ABCD02 /* Opis szczegolowy.png */; };
 		5052CB2D24DAA7DE00FFB906 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5052CB2C24DAA7DE00FFB906 /* MapViewModel.swift */; };
 		5057753D24D165A40005C517 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5057753C24D165A40005C517 /* Constants.swift */; };
 		5057753F24D17E4A0005C517 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5057753E24D17E4A0005C517 /* AlertViewModel.swift */; };
@@ -80,12 +82,14 @@
 		500AA27124C31CAD00AEA655 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		500C047E24C4A2D80028F154 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		5018ABCD25092A7F00495052 /* CLLocationCoordinate2D+getNearBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+getNearBy.swift"; sourceTree = "<group>"; };
+		503BD55D262063EB0004B724 /* Zglos_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zglos_2.png; sourceTree = "<group>"; };
+		503BD55E262063EB0004B724 /* MapaAktywna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapaAktywna.png; sourceTree = "<group>"; };
+		503BD55F262063EB0004B724 /* MapaSzczegolowa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapaSzczegolowa.png; sourceTree = "<group>"; };
+		503BD560262063EC0004B724 /* Notyfikacja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Notyfikacja.png; sourceTree = "<group>"; };
+		503BD561262063EC0004B724 /* Zglos_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zglos_1.png; sourceTree = "<group>"; };
 		5043E5C524D31883006E1C7F /* CLLocationCoordinate2D+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Example.swift"; sourceTree = "<group>"; };
 		50471E7C262031D400ABCD02 /* Logowanie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logowanie.png; sourceTree = "<group>"; };
-		50471E7D262031D400ABCD02 /* MapaAktywna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapaAktywna.png; sourceTree = "<group>"; };
 		50471E7E262031D400ABCD02 /* Ustawienia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ustawienia.png; sourceTree = "<group>"; };
-		50471E7F262031D500ABCD02 /* Zgłoszenie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Zgłoszenie.png"; sourceTree = "<group>"; };
-		50471E80262031D500ABCD02 /* Opis szczegolowy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Opis szczegolowy.png"; sourceTree = "<group>"; };
 		5052CB2C24DAA7DE00FFB906 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		5057753C24D165A40005C517 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5057753E24D17E4A0005C517 /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
@@ -176,11 +180,13 @@
 		50471E782620318800ABCD02 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				503BD55E262063EB0004B724 /* MapaAktywna.png */,
+				503BD55F262063EB0004B724 /* MapaSzczegolowa.png */,
+				503BD560262063EC0004B724 /* Notyfikacja.png */,
+				503BD561262063EC0004B724 /* Zglos_1.png */,
+				503BD55D262063EB0004B724 /* Zglos_2.png */,
 				50471E7C262031D400ABCD02 /* Logowanie.png */,
-				50471E7D262031D400ABCD02 /* MapaAktywna.png */,
-				50471E80262031D500ABCD02 /* Opis szczegolowy.png */,
 				50471E7E262031D400ABCD02 /* Ustawienia.png */,
-				50471E7F262031D500ABCD02 /* Zgłoszenie.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -476,14 +482,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				506BB4C924C1FF120062D816 /* .gitignore in Resources */,
-				50471E84262031D500ABCD02 /* Zgłoszenie.png in Resources */,
-				50471E82262031D500ABCD02 /* MapaAktywna.png in Resources */,
 				50471E81262031D500ABCD02 /* Logowanie.png in Resources */,
-				50471E85262031D500ABCD02 /* Opis szczegolowy.png in Resources */,
 				50471E83262031D500ABCD02 /* Ustawienia.png in Resources */,
 				50D8B4C324A75C4200220F94 /* LaunchScreen.storyboard in Resources */,
 				50D8B4C024A75C4200220F94 /* Preview Assets.xcassets in Resources */,
+				503BD566262063EC0004B724 /* Zglos_1.png in Resources */,
+				503BD563262063EC0004B724 /* MapaAktywna.png in Resources */,
 				50D8B4BD24A75C4200220F94 /* Assets.xcassets in Resources */,
+				503BD565262063EC0004B724 /* Notyfikacja.png in Resources */,
+				503BD564262063EC0004B724 /* MapaSzczegolowa.png in Resources */,
+				503BD562262063EC0004B724 /* Zglos_2.png in Resources */,
 				508741F3260FB5FE00BB8D41 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
