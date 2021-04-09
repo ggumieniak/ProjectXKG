@@ -21,7 +21,7 @@ class AlertViewModel: ObservableObject {
     @Published var description: String = ""
     
     func sendReport(location: GeoPoint, title: String, category: String, description: String) -> Bool {
-        guard let userMail = Auth.auth().currentUser?.email else {
+        guard let _ = Auth.auth().currentUser?.email else {
             return false
         }
         db.collection(K.Firestore.Collection.categories).document(category).collection(K.Firestore.Collection.Categories.Report.reports)

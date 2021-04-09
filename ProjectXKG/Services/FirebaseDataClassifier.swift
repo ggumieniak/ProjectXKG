@@ -10,15 +10,18 @@ import Foundation
 import FirebaseFirestore
 import MapKit
 
+enum FirebaseDataClassifierError {
+    case NotExistingDataFromServer(line: Int = #line)
+}
 
 // MARK: Initialization
 class FirebaseDataClassifier {
-    func classifierDataToReport(from dataFromFirebase:QueryDocumentSnapshot) -> Report {
+    func classifierDataToReport(from dataFromFirebase:QueryDocumentSnapshot) -> Report  {
         let id = dataFromFirebase.documentID
         let data = convertDateToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.date]!)
         let description = convertDescriptionToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.description]!)
         let location = convertGeopointToLocation(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.location]!)
-        let title = convertTitleToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.title])
+        let title = convertTitleToString(dataFromFirebase[K.Firestore.Collection.Categories.Report.Fields.title]!)
         let report = makeReport(from: id,data,description,location,title)
         return report
     }
