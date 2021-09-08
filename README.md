@@ -1,6 +1,3 @@
-#  Inzynierka Grzegorz Gumieniak 
-
-
 ## O aplikacji
 Aplikacja pozwala na zgłaszanie i otrzymywanie powiadomień o lokalnych zagrożeniach. 
 Do stworzenia aplikacji wykorzystano:
